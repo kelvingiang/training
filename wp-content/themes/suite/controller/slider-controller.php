@@ -10,7 +10,7 @@ class Slider_Controller {
         add_filter('manage_edit-slider_sortable_columns', array($this, 'sortable_views_column'));
         add_filter('request', array($this, 'sort_views_column'));
 
-        add_action('admin_print_styles-edit.php', array($this, 'board_styles'));
+        //add_action('admin_print_styles-edit.php', array($this, 'board_styles'));
     }
     //===== REGISTER CUSTOM POST =========
     public function register_custom_post() {
