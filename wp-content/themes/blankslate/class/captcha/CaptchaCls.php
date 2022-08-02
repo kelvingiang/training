@@ -20,8 +20,8 @@ class CaptchaCls {
             $strLibs = "23456789zxcvbnmlkjhgfdsaqwertyup";
 
             for ($i = 0; $i < $this->_intCaptchaLength; $i++) {
-                $strChar = $strLibs{rand(0, strlen($strLibs) - 1)};
-                $this->_strCaptcha .= $strChar;
+              //  $strChar = $strLibs{rand(0, strlen($strLibs) - 1)};
+              //  $this->_strCaptcha .= $strChar;
             }
 
             $_SESSION['captcha'] = $this->_strCaptcha;
