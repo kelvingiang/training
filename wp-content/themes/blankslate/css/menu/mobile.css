@@ -1,0 +1,38 @@
+.mobile-menu{
+    position: fixed;
+    top:100px;
+    left: 5px;
+    text-align: left;
+}
+.mobile-menu .cell-menu{
+    display: none;
+    background-color: #ccc;
+    width: 150px;
+    text-align: center;
+}
+
+.mobile-menu .cell-menu ul{
+    text-align: center;
+}
+
+.mobile-menu .cell-menu ul li{
+    height: 40px;
+    border-bottom: 1px solid #FFF;
+    padding-left: 10px;
+    line-height: 40px; 
+}
+
+.mobile-menu .cell-menu ul li a {
+    color: #810000;
+    display:  block;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 15px;
+}
+
+.mobile-menu .cell-menu ul li:hover {
+    background-color: #fff;
+    color: #fff !important;
+}
+
