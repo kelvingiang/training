@@ -7,9 +7,10 @@ class Main_Metabox {
 
     public function __construct() {
         $defaultoption = array(
+            //true->show, false->hidden
             // 'executive_metabox' => true,
             // 'website_metabox' => true,
-            'order_metabox' => true,
+            'order_metabox' => true,    
             // 'prioritize_metabox' => true,
             // 'seo_metabox' => true,
         );
