@@ -1,0 +1,177 @@
+.meta-row {
+    margin: 10px 10px 20px;
+
+    .title-cell{
+        height: 22px;
+    }
+
+    .text-cell{
+        width: 90%
+    }
+}
+
+.meta-row-two-column{
+    height: 60px;
+    margin:10px 10px 20px;
+
+    .col{
+        float: left;
+        width:40%; 
+
+        .title-cell{
+            height: 22px;
+        }
+
+        .text-cell{
+            width: 100%
+        }
+    }
+}
+
+.meta-row-three-column{
+    height: 60px;
+    margin:10px 10px 20px;
+
+    .col{
+        float: left;
+        width:25.6%; 
+
+        .title-cell{
+            height: 22px;
+        }
+
+        .text-cell{
+            width: 100%
+        }
+    }
+}
+
+.report-grid{
+    width:100%;
+    border: 2px solid #999;
+    border-radius: 3px;
+    .report-title{
+        background-color: #999;
+        height:50px;
+        text-align: center;
+        div{float: left;  
+            border-right: 1px solid white;
+        }
+        div:last-child{ border-right: none;}
+        h3{
+            color: white;
+        }
+    }
+    .report-list{
+        width: 100%;
+        background-color: white;
+        height: 30px;
+        line-height: 28px;
+        div{float: left;
+            padding-left: 3px;
+        }  
+    }
+    .report-list:nth-child(odd){
+        background-color:#c7e7fc;
+    }
+}
+.col-serial{width: 10%;}
+.col-name{width: 15%;}
+.col-company{width: 48%}
+.col-time{width: 15%}
+.col-phone{width: 10%}
+
+.button-row{
+    height: 100px;
+    width: 80%;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.title-row{
+    height: 50px;
+    width: 100%;
+    text-align: left;
+    padding-bottom:10px;
+    > h2{
+        line-height: 50px;
+        font-size: 25px;
+        color:  #2a4f67;
+        letter-spacing: 2px;
+    }
+}
+
+input[type='text']{
+    width: 80%;
+    height: 35px;
+}
+
+#current-page-selector{
+    width: 30px;
+    height: 30px;
+}
+
+input[type='checkbox']{
+    margin-right: 10px;
+}
+
+.title-cell > label {
+    font-weight:  700;
+    color: #666;
+    font-size: 1.3em;
+    margin-bottom: 1px;
+    letter-spacing: 2px;
+} 
+
+.error{
+    font-size: 15px;
+    color: red;
+    margin-left: 10px;
+    ::after { 
+        content: "!";
+    }
+}
+
+.my-waiting{
+    display: none;
+    background-color:  rgba(0, 0, 0, 0.7);
+    position:  absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    text-align:  center;
+    padding-top: 20%;
+    z-index: 5000;
+}
+
+.active-style{
+    width:18px;
+    height:18px; 
+    background-color:green; 
+    border-radius: 10px;
+    margin-left: 18px;
+}
+
+.unactive-style{
+    width:18px;
+    height:18px; 
+    background-color:red; 
+    border-radius: 10px;
+    margin-left: 18px;
+}
+
+/*    input[type="checkbox"] {
+    display:none;
+}
+input[type="checkbox"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-2px 10px 0 0;
+    vertical-align:middle;
+    background:url(../images/check_radio_sheet.png) left top no-repeat;
+    cursor:pointer;
+}
+input[type="checkbox"]:checked + label span {
+    background:url(../images/check_radio_sheet.png) -19px top no-repeat;
+}*/

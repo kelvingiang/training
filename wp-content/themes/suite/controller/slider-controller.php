@@ -1,7 +1,7 @@
 <?php
 
-class Slider_Controller {
-    //==== CONSTRUCT =========
+class Slider_Controler {
+
     public function __construct() {
         add_action('init', array($this, 'register_custom_post'));
         add_action('manage_edit-slider_columns', array($this, 'manage_columns'));
@@ -12,7 +12,7 @@ class Slider_Controller {
 
         //add_action('admin_print_styles-edit.php', array($this, 'board_styles'));
     }
-    //===== REGISTER CUSTOM POST =========
+
     public function register_custom_post() {
         $labels = array(
             'name' => __('Slider', 'dp'),
@@ -48,24 +48,24 @@ class Slider_Controller {
         register_post_type('slider', $args);
     }
 
-    //==== QUAN LY COT HIEN THI TRON BANG ========= 
+    //==== QUAN LY COT HIEN THI TRON BANG   
     public function manage_columns($columns) {
         $date_label = __('Create Date', 'suite');
         unset($columns['date']); // an cot ngay mac dinh
         unset($columns['modified']); // an cot ngay mac dinh
         unset($columns['postdate']); // an cot ngay mac dinh
-    //==== THEM COT VA BAN ========
+    //==== THEM COT VA BAN
         $columns['img'] = __('Image', 'suite');
         $columns['setorder'] = __('Show Order', 'suite');
         $columns['date'] = $date_label;
         return $columns;
     }
 
-    //==== HIEN THI NOI DUNG TRONG COT ============
+    //==== HIEN THI NOI DUNG TRONG COT
     public function render_columns($columns) {
         global $post;
         if ($columns == 'img') {
-            echo '<a href="' . get_admin_url() . 'post.php?post=' . $post->ID . '&action=edit">'; //edit.php?post_type=slider
+            echo '<a href="' . get_admin_url() . 'post.php?post=' . $post->ID . '&action=edit">';
             if (has_post_thumbnail()) {
                 the_post_thumbnail('post-thumbnail', array('style' => 'width: 80px; height: 50px'));
             } else {
@@ -79,7 +79,7 @@ class Slider_Controller {
         }
     }
 
-    //====== SAP SEP THEO TRINH TU ===========
+    //====== SAP SEP THEO TRINH TU
     public function sortable_views_column($newcolumn) {
         $newcolumn['setorder'] = 'setorder';
         return $newcolumn;
@@ -96,5 +96,34 @@ class Slider_Controller {
         return $vars;
         
     }
+
+    public function create_taxonomies()
+    {
+        $labels = array(
+            'name' => __('Category'),
+            'singular_name' => __('Category'),
+            'search_items' => __('Search Categories'),
+            'all_items' => __('Category'),
+            'parent_item' => __('Parent'),
+            'parent_item_colon' => __('Parent'),
+            'edit_item' => __('Edit'),
+            'update_item' => __('Update'),
+            'add_new_item' => __('Add New'),
+            'new_item_name' => __('Add New'),
+            'menu_name' => __('Category')
+        );
+        register_taxonomy('slide_category', 'slider', array(
+            'hierarchical' => true,
+            'labels' => $labels,
+            'show_ui' => true,
+            'query_var' => true,
+            'taxonomy' => 'category',
+            'rewrite' => array(
+                'slug' => 'member-category',
+                'hierarchical' => true,
+            )
+        ));
+    }
+
 
 }

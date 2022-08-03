@@ -244,7 +244,7 @@ function get_guests_img($img = '')
 //     add_action('login_head', 'custom_login_logo');
 // }
 
-// FUNCTION SEO 
+// // FUNCTION SEO 
 // function seo()
 // {
 //     //  global $suite;
