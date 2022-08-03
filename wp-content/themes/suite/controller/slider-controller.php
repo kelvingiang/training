@@ -10,6 +10,8 @@ class Slider_Controler {
         add_filter('manage_edit-slider_sortable_columns', array($this, 'sortable_views_column'));
         add_filter('request', array($this, 'sort_views_column'));
 
+        add_action('init', array($this, 'Create_taxonomies'));
+
         //add_action('admin_print_styles-edit.php', array($this, 'board_styles'));
     }
 
@@ -57,6 +59,7 @@ class Slider_Controler {
     //==== THEM COT VA BAN
         $columns['img'] = __('Image', 'suite');
         $columns['setorder'] = __('Show Order', 'suite');
+        $columns['category'] = __('Category');
         $columns['date'] = $date_label;
         return $columns;
     }
@@ -77,6 +80,17 @@ class Slider_Controler {
         if ($columns == 'setorder') {
             echo get_post_meta($post->ID, '_metabox_order', true);
         }
+
+        if ($columns == 'category') {
+            global $post;
+            $terms = wp_get_post_terms($post->ID, 'slide_category');
+
+            if (count($terms) > 0) {
+                foreach ($terms as $key => $term) {
+                    echo '<a href=' . custom_redirect($term->slug) . '&' . $term->taxonomy . '=' . $term->slug . '>' . $term->name . '</a></br>';
+                }
+            }
+        }
     }
 
     //====== SAP SEP THEO TRINH TU
@@ -96,7 +110,8 @@ class Slider_Controler {
         return $vars;
         
     }
-
+    
+    //===== TAO TAXONOMIES
     public function create_taxonomies()
     {
         $labels = array(
