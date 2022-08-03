@@ -10,7 +10,7 @@ class Slider_Controler {
         add_filter('manage_edit-slider_sortable_columns', array($this, 'sortable_views_column'));
         add_filter('request', array($this, 'sort_views_column'));
 
-        add_action('init', array($this, 'Create_taxonomies'));
+        add_action('init', array($this, 'create_taxonomies'));
 
         //add_action('admin_print_styles-edit.php', array($this, 'board_styles'));
     }
