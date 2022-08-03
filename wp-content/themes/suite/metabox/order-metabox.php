@@ -35,10 +35,10 @@ class Order_Metabox {
         // $inputvalue = get_post_meta($post->ID, '_metabox_order', true);
         // $arr = array('id' => $inputID, 'class' => 'type-number', 'maxlength'=>'5', 'placeholder' => translate('The larger the number will show in front'));
         echo '<div class="meta-row">'
-        . '<div class="title-cell"><label for ="' . 'metabox-order' . '">' . translate('Show Order') . ' </label></div>'
+        . '<div class="title-cell"><label for="metabox-order">' . translate('Show Order') . ' </label></div>'
         . '<div class="text-cell" >'
-                .'<input type="text" id="metabox-order" name="metabox-order" maxlength=5 size="25"
-                placeholder = ' .translate('The larger the number will show in front') .
+                .'<input class="type-number" id="metabox-order" name="metabox-order" maxlength="5"
+                placeholder = ' .translate('The larger the number will show in front ') .
                 'value= ' . get_post_meta($post->ID, '_metabox_order', true) 
                 . '></div>'
         . '</div>';
