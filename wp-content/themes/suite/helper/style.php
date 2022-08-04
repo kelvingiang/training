@@ -2,7 +2,8 @@
 
 // QUAN LY CAC PHAN CSS VA JS CHO ADMIN VA CLINET
 // PHAN BIET ADD VO PHAN ADMIN HAY CLIENT
-function style_header_scripts() {
+function style_header_scripts()
+{
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
         //==== PHAN CLIENT================================================================ 
         wp_register_style('bootstrap-style-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '1.0', 'all');
@@ -28,7 +29,7 @@ function style_header_scripts() {
         wp_register_style('mobile-menu-css', get_template_directory_uri() . '/css/menu/mobile.css', array(), '1.0', 'all');
         wp_enqueue_style('mobile-menu-css');
 
-// SILDER           
+        // SILDER           
         wp_register_style('camera-style', get_template_directory_uri() . '/css/silder/camera.css', array(), '1.0', 'all');
         wp_enqueue_style('camera-style');
 
@@ -43,6 +44,8 @@ function style_header_scripts() {
         //====PHAN ADMIN=========================================================
         wp_register_style('admin-style', get_template_directory_uri() . '/css/admin/admin-style.css', array(), '1.0', 'all');
         wp_enqueue_style('admin-style');
+        wp_register_style('font-awesome-css', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '1.0', 'all');
+        wp_enqueue_style('font-awesome-css');
 
         if (get_current_user_id() != 1) {
             wp_register_style('admin-denied', get_template_directory_uri() . '/css/admin/admin-denied.css', array(), '1.0', 'all');
@@ -51,7 +54,7 @@ function style_header_scripts() {
     }
 
 
-// ==ADD CHO CA ADMIN VA CLIENT=========================================================
+    // ==ADD CHO CA ADMIN VA CLIENT=========================================================
     wp_register_script('check-input', get_template_directory_uri() . '/js/check-input.js', array('jquery'), '1.0.0'); // Custom scripts
     wp_enqueue_script('check-input');
 
@@ -64,7 +67,8 @@ function style_header_scripts() {
 
 add_action('init', 'style_header_scripts');
 
-function style_footer_scripts() {
+function style_footer_scripts()
+{
 
 
 

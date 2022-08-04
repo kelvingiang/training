@@ -1,6 +1,22 @@
+.column-contact {
+  width: 10%;
+}
+.column-address {
+  width: 10%;
+}
+.column-phone {
+  width: 15%;
+}
+.column-black_list {
+  width: 10%;
+}
+.column-member_group {
+  width: 15%;
+}
 
-.column-contact {width: 10%;}
-.column-address {width: 10%;}
-.column-phone {width: 15%;}
-.column-black_list {width: 10%;}
-.column-member_group {width: 15%;}
+.blacklist {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: red;
+}

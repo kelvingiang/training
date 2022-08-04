@@ -8,13 +8,11 @@ class Member_Controller
         add_action('init', array($this, 'register_custom_post'));
         add_action('manage_edit-member_columns', array($this, 'manage_columns'));
         add_action('manage_member_posts_custom_column', array($this, 'render_columns'));
-        
+
         add_action('init', array($this, 'create_taxonomies'));
 
         add_filter('manage_edit-member_group_sortable_columns', array($this, 'sortable_views_column'));
         add_filter('request', array($this, 'sort_views_column'));
-
-        
     }
 
     public function register_custom_post()
@@ -32,7 +30,7 @@ class Member_Controller
             'not_found' => __('No members found.', 'dp'),
             'not_found_in_trash' => __('No found in Trash.', 'dp'),
             'parent_item_colon' => '',
-            'menu_name' => __('Member', 'dp') 
+            'menu_name' => __('Member', 'dp')
         );
         $args = array(
             'labels' => $labels,
@@ -104,12 +102,9 @@ class Member_Controller
         }
 
         if ($columns == 'black_list') {
-            if(get_post_meta($post->ID, '_metabox_member_black_list', true)){
-                echo '<div><i class="fa-solid fa-circle"></i></div>';
-            }else{
-                echo '<div><i>< class="fa-solid fa-circle-dashed"></i></div>';
+            if (get_post_meta($post->ID, '_metabox_member_black_list', true) == 1) {
+                echo '<div class="blacklist"></div>';
             }
-
         }
     }
 
@@ -162,5 +157,4 @@ class Member_Controller
             )
         ));
     }
-
 }
