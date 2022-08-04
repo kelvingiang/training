@@ -1,8 +1,10 @@
 <?php
 
-class Slider_Controler {
+class Slider_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         add_action('init', array($this, 'register_custom_post'));
         add_action('manage_edit-slider_columns', array($this, 'manage_columns'));
         add_action('manage_slider_posts_custom_column', array($this, 'render_columns'));
@@ -11,11 +13,10 @@ class Slider_Controler {
         add_filter('request', array($this, 'sort_views_column'));
 
         add_action('init', array($this, 'create_taxonomies'));
-
-        //add_action('admin_print_styles-edit.php', array($this, 'board_styles'));
     }
 
-    public function register_custom_post() {
+    public function register_custom_post()
+    {
         $labels = array(
             'name' => __('Slider', 'dp'),
             'singular_name' => __('Slider', 'dp'),
@@ -51,12 +52,13 @@ class Slider_Controler {
     }
 
     //==== QUAN LY COT HIEN THI TRON BANG   
-    public function manage_columns($columns) {
+    public function manage_columns($columns)
+    {
         $date_label = __('Create Date', 'suite');
         unset($columns['date']); // an cot ngay mac dinh
         unset($columns['modified']); // an cot ngay mac dinh
         unset($columns['postdate']); // an cot ngay mac dinh
-    //==== THEM COT VA BAN
+        //==== THEM COT VA BAN
         $columns['img'] = __('Image', 'suite');
         $columns['setorder'] = __('Show Order', 'suite');
         $columns['category'] = __('Category');
@@ -65,7 +67,8 @@ class Slider_Controler {
     }
 
     //==== HIEN THI NOI DUNG TRONG COT
-    public function render_columns($columns) {
+    public function render_columns($columns)
+    {
         global $post;
         if ($columns == 'img') {
             echo '<a href="' . get_admin_url() . 'post.php?post=' . $post->ID . '&action=edit">';
@@ -94,23 +97,26 @@ class Slider_Controler {
     }
 
     //====== SAP SEP THEO TRINH TU
-    public function sortable_views_column($newcolumn) {
+    public function sortable_views_column($newcolumn)
+    {
         $newcolumn['setorder'] = 'setorder';
         return $newcolumn;
     }
 
-    public function sort_views_column($vars) {
+    public function sort_views_column($vars)
+    {
         if (isset($vars['orderby']) && 'setorder' == $vars['orderby']) {
-            $vars = array_merge($vars, array(
-                'meta_key' => '_metabox_order', //Custom field key
-                'orderby' => '_metabox_order' //Custom field value (number)
-                    )
+            $vars = array_merge(
+                $vars,
+                array(
+                    'meta_key' => '_metabox_order', //Custom field key
+                    'orderby' => '_metabox_order' //Custom field value (number)
+                )
             );
         };
         return $vars;
-        
     }
-    
+
     //===== TAO TAXONOMIES
     public function create_taxonomies()
     {
@@ -134,11 +140,9 @@ class Slider_Controler {
             'query_var' => true,
             'taxonomy' => 'category',
             'rewrite' => array(
-                'slug' => 'member-category',
+                'slug' => 'slide-category',
                 'hierarchical' => true,
             )
         ));
     }
-
-
 }
