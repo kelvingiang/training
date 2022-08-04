@@ -1,5 +1,5 @@
 <?php
-class Main_Controler
+class Main_Controller
 {
     private $_controller_name = 'main_controler_options';
     private $_controller_options = array();
@@ -9,11 +9,12 @@ class Main_Controler
         $defaultoption = array(
 
             'slider_controller' => true,
-
+            'member_controller' => true,
         );
 
         $this->_controller_options = get_option($this->_controller_name, $defaultoption);
         $this->slider_controller_function();
+        $this->member_controller_function();
 
         add_action('admin_init', array($this, 'do_output_buffer'));
     }
@@ -23,6 +24,14 @@ class Main_Controler
         if ($this->_controller_options['slider_controller'] == true) {
             require_once(DIR_CONTROLLER . 'slider-controller.php');
             new Slider_Controller();
+        }
+    }
+
+    public function member_controller_function()
+    {
+        if ($this->_controller_options['member_controller'] == true) {
+            require_once(DIR_CONTROLLER . 'member-controller.php');
+            new Member_Controller();
         }
     }
 
