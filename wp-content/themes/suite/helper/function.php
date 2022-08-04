@@ -53,6 +53,14 @@ function get_guests_img($img = '')
     return get_template_directory_uri() . '/images/guests/' . $img;
 }
 
+//Function duoc goi trong slider-controller.php trong phan tao taxonomy
+function custom_redirect($location)
+{
+    global $post_type;
+    $location = admin_url('edit.php?post_type=' . $post_type);
+    return $location;
+}
+
 //===============FUNCTION =================
 // function createRandom($length)
 // {
