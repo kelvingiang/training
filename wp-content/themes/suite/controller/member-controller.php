@@ -75,7 +75,7 @@ class Member_Controller
     {
         global $post;
         if ($columns == 'setorder') {
-            echo get_post_meta($post->ID, '_metabox_member', true);
+            echo get_post_meta($post->ID, '_metabox_order', true);
         }
 
         if ($columns == 'member_group') {

@@ -8,10 +8,10 @@ class Order_Metabox {
     }
 
     public function create() {
-        $id = 'tw-metabox-email';
+        $id = 'tw-metabox-order';
         $title = translate('Order');
         $callback = array($this, 'display');
-        $screen = array('slider'); // CAC POST VA CUSTOMER POST CHO PHEP METABOX NAY HIEN THI
+        $screen = array('slider','member'); // CAC POST VA CUSTOMER POST CHO PHEP METABOX NAY HIEN THI
         add_meta_box($id, $title, $callback, $screen);
         // FUNCTION NAY DE O DAY, DE KHI NAO DUNG DE METABOX THI TA MOI GOI FILE CSS NAY VO 
         //  add_action('admin_enqueue_scripts', array($this, 'add_css_file'));
@@ -51,6 +51,11 @@ class Order_Metabox {
         }
         if (is_admin()) {
             if (@$_POST['post_type'] == 'slider') {
+                if (isset($_POST['metabox-order'])) {
+                    update_post_meta($post_id, '_metabox_order', esc_attr($_POST['metabox-order']));
+                }
+            }
+            if (@$_POST['post_type'] == 'member') {
                 if (isset($_POST['metabox-order'])) {
                     update_post_meta($post_id, '_metabox_order', esc_attr($_POST['metabox-order']));
                 }
