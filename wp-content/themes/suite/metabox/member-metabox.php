@@ -24,7 +24,13 @@ class Member_Metabox {
         $name = 'dn-metabox-data-nonce';
         wp_nonce_field($action, $name);
 
-
+        $select_district = array(
+            'selected' => 'District',
+            'District 1' => 'District 1',
+            'District 2' => 'District 2',
+            'District 3' => 'District 3',
+        );
+        
         // TAO TEXTBOX TITLE
         //contact
         echo '<div class="meta-row">
@@ -53,6 +59,18 @@ class Member_Metabox {
                 'value= ' . get_post_meta($post->ID, '_metabox_member_phone', true) 
                 .'></div>
         </div>';
+        //district
+        ?><div class="meta-row">
+            <div class="title-cell"><label for ="metabox-member_district"> District </label></div>
+            <div class="text-cell" >
+                <select class="type-text" name="metabox-member_district" id="metabox-member_district" maxlength="50">
+                    <?php foreach( $select_district as $var => $district) : ?>
+                    <option value ="<?php echo $var ?>"<?php if( $var == ['metabox-member_district'] ): ?> 
+                            selected="selected"<?php endif; ?>><?php echo $district ?></option>
+                    <?php endforeach; ?>
+                </select></div>
+            </div>
+        <?php 
     }
 
     public function save($post_id) {
@@ -70,6 +88,10 @@ class Member_Metabox {
                 }
                 if (isset($_POST['metabox-member_phone'])) {
                     update_post_meta($post_id, '_metabox_member_phone', esc_attr($_POST['metabox-member_phone']));
+                }
+
+                if(isset($_POST['metabox-member_district'])) {
+                    update_post_meta($post_id, '_metabox-member_district', esc_attr($_POST['metabox-member_district']));
                 }
 
             }
