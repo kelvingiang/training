@@ -11,7 +11,7 @@ class Member_Controller
 
         add_action('init', array($this, 'create_taxonomies'));
 
-        add_filter('manage_edit-member_group_sortable_columns', array($this, 'sortable_views_column'));
+        add_filter('manage_edit-member_sortable_columns', array($this, 'sortable_views_column'));
         add_filter('request', array($this, 'sort_views_column'));
     }
 
@@ -61,11 +61,12 @@ class Member_Controller
         //==== THEM COT VA BAN
         //$columns['img'] = __('Image', 'suite');
         $columns['setorder'] = __('Show Order', 'suite');
-        $columns['member_group'] = __('Member group');
+        $columns['member_group'] = __('Member group');  //taxonomy
         $columns['contact'] = __('Contact', 'suite');
         $columns['address'] = __('Address');
         $columns['phone'] = __('Phone');
-        $columns['black_list'] = __('Black List');
+        $columns['district'] = __('District'); //select
+        $columns['black_list'] = __('Black List');  //check
         //$columns['date'] = $date_label;
         return $columns;
     }
@@ -106,26 +107,40 @@ class Member_Controller
                 echo '<div class="blacklist"></div>';
             }
         }
+
+        if ($columns == 'district') {
+            echo get_post_meta($post->ID, 'selected', true);
+        }
     }
 
     //====== SAP SEP THEO TRINH TU
     public function sortable_views_column($newcolumn)
     {
         $newcolumn['setorder'] = 'setorder';
+        $newcolumn['black_list'] = 'black_list';
         return $newcolumn;
     }
 
     public function sort_views_column($vars)
     {
         if (isset($vars['orderby']) && 'setorder' == $vars['orderby']) {
-            $vars = array_merge(
-                $vars,
-                array(
-                    'meta_key' => '_metabox_member', //Custom field key
-                    'orderby' => '_metabox_member' //Custom field value (number)
-                )
-            );
-        };
+            // $vars = array_merge(
+            //     $vars,
+            //     array(
+            //         'meta_key' => '_metabox_member', //Custom field key
+            //         'orderby' => '_metabox_member' //Custom field value (number)
+            //     )
+            // );
+            $vars = array_merge($vars, array(
+                'meta_key' => '_metabox_order',
+                'orderby' => '_metabox_order',
+            ));
+        }elseif (isset($vars['orderby']) && 'black_list' == $vars['orderby']) {
+            $vars = array_merge($vars, array(
+                'meta_key' => '_metabox_member_black_list',
+                'orderby' => '_metabox_member_black_list',
+            ));
+        }
         return $vars;
     }
 
@@ -133,10 +148,10 @@ class Member_Controller
     public function create_taxonomies()
     {
         $labels = array(
-            'name' => __('Member group'),
-            'singular_name' => __('Member group'),
+            'name' => __('Member Group'),
+            'singular_name' => __('Member Group'),
             'search_items' => __('Search Member groups'),
-            'all_items' => __('Member group'),
+            'all_items' => __('Member Group'),
             'parent_item' => __('Parent'),
             'parent_item_colon' => __('Parent'),
             'edit_item' => __('Edit'),

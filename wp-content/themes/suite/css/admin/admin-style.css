@@ -1,22 +1,67 @@
+/*main column*/
 .column-contact {
-  width: 10%;
-}
+  width: 10%; }
+
 .column-address {
-  width: 10%;
-}
+  width: 10%; }
+
 .column-phone {
-  width: 15%;
-}
+  width: 10%; }
+
 .column-black_list {
-  width: 10%;
-}
+  width: 10%; }
+
 .column-member_group {
-  width: 15%;
-}
+  width: 10%; }
+
+.column-district {
+  width: 10%; }
 
 .blacklist {
   width: 20px;
   height: 20px;
   border-radius: 20px;
-  background-color: red;
-}
+  background-color: #1b1919; }
+
+/* edit item cell*/
+.title-cell {
+  padding-top: 15px; }
+  .title-cell label {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ee8585;
+    padding: auto; }
+
+.text-cell .type-text {
+  width: 50%;
+  height: 40px;
+  border-radius: 2px;
+  box-shadow: 1px 2px #888888;
+  border: 1px lavender solid; }
+
+.text-cell .type-number {
+  width: 50%;
+  height: 40px;
+  border-radius: 2px;
+  box-shadow: 1px 2px #888888;
+  border: 1px lavender solid; }
+
+/*checkbox*/
+.checkbox-label {
+  font-size: 15px;
+  font-weight: bold;
+  color: #ee8585;
+  padding: auto; }
+
+.form-check-input {
+  width: 80%;
+  box-shadow: 1px 2px #888888;
+  border: 1px lavender solid; }
+
+/*metabox header*/
+.postbox-header .hndle {
+  font-size: 20px;
+  font-weight: bold;
+  color: burlywood; }
+
+/*# sourceMappingURL=admin-style.css.map */

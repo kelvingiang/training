@@ -31,15 +31,15 @@ class Checkbox_Metabox
 
         // Tao text box
         if(get_post_meta($post->ID, '_metabox_member_black_list', true) == 1){ //1: show, 0: hide
-            ?> <label> TEXTBOX TITLE </label>
-            <div>
-                <label class="form-check-label stretched-link mr-3" for="metabox-member_black_list"> <?php translate('Black list') ?> </label>
+            ?> <label class="checkbox-label"> Black List </label>
+            <div class="form-check">
+                <label class="form-check-label stretched-link mr-3" for="metabox-member_black_list">  </label>
                 <input class="form-check-input" type="checkbox" id=" metabox-member_black_list" name="metabox-member_black_list" value="1" checked />
             </div>
             <?php
         }else{
-            ?> <label> TEXTBOX TITLE </label>
-            <div>
+            ?> <label class="checkbox-label"> Black List </label>
+            <div class="form-check">
                 <label class="form-check-label stretched-link mr-3" for="metabox-member_black_list"> <?php translate('Black list') ?> </label>
                 <input class="form-check-input" type="checkbox" id=" metabox-member_black_list" name="metabox-member_black_list" value="1" />
             </div>
