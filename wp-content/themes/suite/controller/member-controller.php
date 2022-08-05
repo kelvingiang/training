@@ -39,7 +39,7 @@ class Member_Controller
             'publicly_queryable' => true,
             'show_ui' => true,
             'show_in_menu' => TRUE,
-            'menu_icon' => PART_ICON . 'link-icon.png',
+            'menu_icon' => PART_ICON . 'staff-icon.png',
             'query_var' => true,
             'rewrite' => true,
             'capability_type' => 'post',
@@ -54,7 +54,7 @@ class Member_Controller
     //==== QUAN LY COT HIEN THI TRON BANG   
     public function manage_columns($columns)
     {
-        $date_label = __('Create Date', 'suite');
+        //$date_label = __('Create Date', 'suite');
         unset($columns['date']); // an cot ngay mac dinh
         unset($columns['modified']); // an cot ngay mac dinh
         unset($columns['postdate']); // an cot ngay mac dinh
@@ -109,7 +109,7 @@ class Member_Controller
         }
 
         if ($columns == 'district') {
-            echo get_post_meta($post->ID, 'selected', true);
+            echo get_post_meta($post->ID, '_metabox-member_district', true);
         }
     }
 
@@ -124,13 +124,6 @@ class Member_Controller
     public function sort_views_column($vars)
     {
         if (isset($vars['orderby']) && 'setorder' == $vars['orderby']) {
-            // $vars = array_merge(
-            //     $vars,
-            //     array(
-            //         'meta_key' => '_metabox_member', //Custom field key
-            //         'orderby' => '_metabox_member' //Custom field value (number)
-            //     )
-            // );
             $vars = array_merge($vars, array(
                 'meta_key' => '_metabox_order',
                 'orderby' => '_metabox_order',
