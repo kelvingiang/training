@@ -17,6 +17,7 @@ function style_header_scripts()
 
         wp_register_style('superfish-css', get_template_directory_uri() . '/css/menu/superfish.css', array(), '1.0', 'all');
         wp_enqueue_style('superfish-css');
+
         wp_register_style('menu-style-css', get_template_directory_uri() . '/css/menu/superfish-custom.css', array(), '1.0', 'all');
         wp_enqueue_style('menu-style-css');
 
@@ -44,8 +45,7 @@ function style_header_scripts()
         //====PHAN ADMIN=========================================================
         wp_register_style('admin-style', get_template_directory_uri() . '/css/admin/admin-style.css', array(), '1.0', 'all');
         wp_enqueue_style('admin-style');
-        wp_register_style('font-awesome-css', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '1.0', 'all');
-        wp_enqueue_style('font-awesome-css');
+
 
         if (get_current_user_id() != 1) {
             wp_register_style('admin-denied', get_template_directory_uri() . '/css/admin/admin-denied.css', array(), '1.0', 'all');
@@ -69,8 +69,6 @@ add_action('init', 'style_header_scripts');
 
 function style_footer_scripts()
 {
-
-
 
     wp_register_script('bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '1.0.0'); // Custom scripts
     wp_enqueue_script('bootstrap-js');
