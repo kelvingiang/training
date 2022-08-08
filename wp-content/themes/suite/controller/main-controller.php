@@ -7,14 +7,18 @@ class Main_Controller
     public function __construct()
     {
         $defaultoption = array(
-
+            //custom post
             'slider_controller' => true,
             'member_controller' => true,
+
+            //page
+            'setting_controller' => true,
         );
 
         $this->_controller_options = get_option($this->_controller_name, $defaultoption);
         $this->slider_controller_function();
         $this->member_controller_function();
+        $this->setting_controller_function();
 
         add_action('admin_init', array($this, 'do_output_buffer'));
     }
@@ -32,6 +36,14 @@ class Main_Controller
         if ($this->_controller_options['member_controller'] == true) {
             require_once(DIR_CONTROLLER . 'member-controller.php');
             new Member_Controller();
+        }
+    }
+
+    public function setting_controller_function()
+    {
+        if ($this->_controller_options['setting_controller'] == true) {
+            require_once(DIR_CONTROLLER . 'setting-controller.php');
+            new Setting_Controller();
         }
     }
 
