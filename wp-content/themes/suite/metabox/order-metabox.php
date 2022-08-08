@@ -50,15 +50,9 @@ class Order_Metabox {
             return;
         }
         if (is_admin()) {
-            if (@$_POST['post_type'] == 'slider') {
-                if (isset($_POST['metabox-order'])) {
-                    update_post_meta($post_id, '_metabox_order', esc_attr($_POST['metabox-order']));
-                }
-            }
-            if (@$_POST['post_type'] == 'member') {
-                if (isset($_POST['metabox-order'])) {
-                    update_post_meta($post_id, '_metabox_order', esc_attr($_POST['metabox-order']));
-                }
+            //su dung cho nhieu trang
+            if (isset($_POST['metabox-order'])) {
+                update_post_meta($post_id, '_metabox_order', esc_attr($_POST['metabox-order']));
             }
         }
     }

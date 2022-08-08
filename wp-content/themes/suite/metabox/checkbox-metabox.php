@@ -54,11 +54,12 @@ class Checkbox_Metabox
             return;
         }
         if (is_admin()) {
-            if (@$_POST['post_type'] == 'member') {
-
-                if (isset($_POST['metabox-member_black_list'])) {
-                    update_post_meta($post_id, '_metabox_member_black_list', $_POST['metabox-member_black_list']);
-                }
+            $check = 1;
+            //su dung cho nhieu trang
+            if (isset($_POST['metabox-member_black_list']) == $check) {
+                update_post_meta($post_id, '_metabox_member_black_list', $_POST['metabox-member_black_list']);
+            }else{
+                update_post_meta($post_id, '_metabox_member_black_list', $_POST['metabox-member_black_list']);
             }
         }
     }
