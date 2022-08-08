@@ -5,7 +5,7 @@
     <!-- name -->
     <div class="meta-row">
         <div class="title-cell">
-            <label><?php echo __('Commerce Name'); ?></label>
+            <label><?php echo __('Commerce Name'); ?><i id="error-name" class="error"></i></label>
         </div>
         <div class="text-cell">
             <input class="type-text" type="text" name="txt-name" id="txt-name" value="<?php echo get_option('commerce_name') ?>"  /> 
@@ -26,7 +26,7 @@
             <label><?php echo __('Mobile'); ?></label>
         </div>
         <div class="text-cell">
-            <input class="type-text" type="text" name="txt-mobile" id="txt-mobile" class="type-phone" value="<?php echo get_option('commerce_mobile') ?>"  /> 
+            <input class="type-phone" type="text" name="txt-mobile" id="txt-mobile" value="<?php echo get_option('commerce_mobile') ?>"  /> 
         </div>
     </div>
     <!-- phone -->
@@ -35,7 +35,7 @@
             <label><?php echo __('Phone'); ?></label>
         </div>
         <div class="text-cell">
-            <input class="type-text" type="text" name="txt-phone" id="txt-phone" class="type-phone" value="<?php echo get_option('commerce_phone') ?>"  /> 
+            <input class="type-phone" type="text" name="txt-phone" id="txt-phone" value="<?php echo get_option('commerce_phone') ?>"  /> 
         </div>
     </div>
     <!-- fax -->
@@ -44,7 +44,7 @@
             <label><?php echo __('Fax'); ?></label>
         </div>
         <div class="text-cell">
-            <input class="type-text" type="text" name="txt-fax" id="txt-fax"  class="type-phone" value="<?php echo get_option('commerce_fax') ?>"  /> 
+            <input class="type-phone" type="text" name="txt-fax" id="txt-fax" value="<?php echo get_option('commerce_fax') ?>"  /> 
         </div>
     </div>
     <!-- email -->
@@ -53,7 +53,7 @@
             <label><?php echo __('Email'); ?><i id="error-email" class="error"></i></label>
         </div>
         <div class="text-cell">
-            <input class="type-text" type="text" name="txt-email" id="txt-email" class="email" value="<?php echo get_option('commerce_email') ?>"  /> 
+            <input class="type-email" type="text" name="txt-email" id="txt-email" value="<?php echo get_option('commerce_email') ?>"  /> 
         </div>
     </div>
     <!-- map x - map y -->
@@ -63,7 +63,7 @@
                 <label><?php echo __('Maps X'); ?></label>
             </div>
             <div class="text-cell">
-                <input class="type-text" type="text" name="txt-map-x" id="txt-map-x" class="type-number-dot" value="<?php echo get_option('commerce_map_x') ?>" /> 
+                <input class="type-number-dot" type="text" name="txt-map-x" id="txt-map-x" value="<?php echo get_option('commerce_map_x') ?>" /> 
             </div>
         </div>
         <div class="col">
@@ -71,7 +71,7 @@
                 <label><?php echo __('Map Y'); ?></label>
             </div>
             <div class="text-cell">
-                <input class="type-text" type="text" name="txt-map-y" id="txt-map-y" class="type-number-dot" value="<?php echo get_option('commerce_map_y') ?>" /> 
+                <input class="type-number-dot" type="text" name="txt-map-y" id="txt-map-y" value="<?php echo get_option('commerce_map_y') ?>" /> 
             </div>
         </div>
     </div>   
@@ -102,3 +102,23 @@
 
 
 </form>
+
+<script>
+    $(document).ready(function () {
+        $('#txt-name').blur(function()
+        {
+            if( !$(this).val() ) { //is empty
+                $(this).addClass('error');
+                $(this).text('Please enter commerce name! ');
+            }
+        }) 
+        $('#txt-address').blur(function()
+        {
+            if( !$(this).val() ) { //is empty
+                $(this).addClass('error');
+                $(this).text('Please enter commerce address! ');
+            }
+        })   
+
+    });
+</script>

@@ -2,25 +2,12 @@ $color_black_list: rgb(27, 25, 25);
 $color_label : rgb(238, 133, 133);
 
 /*main column*/
-.column-contact {
-  width: 10%;
-}
-.column-address {
-  width: 10%;
-}
-.column-phone {
-  width: 10%;
-}
-.column-black_list {
-  width: 10%;
-}
-.column-member_group {
-  width: 10%;
-}
-
-.column-district {
-  width: 10%;
-}
+.column-contact { width: 10%;}
+.column-address {width: 10%;}
+.column-phone {width: 10%;}
+.column-black_list {width: 10%;}
+.column-member_group { width: 10%;}
+.column-district {width: 10%;}
 
 /* two column*/
 .meta-row-two-column {
@@ -56,23 +43,27 @@ $color_label : rgb(238, 133, 133);
     padding: auto;
   }
 }
-.text-cell {
-  .type-text {
-    width: 50%;
-    height: 40px;
-    border-radius:2px;
-    box-shadow: 1px 2px #888888;
-    border: 1px lavender solid;
-  }
+.type{
+  width: 50%;
+  height: 40px;
+  border-radius:2px;
+  box-shadow: 1px 2px #888888;
+  border: 1px lavender solid;
 }
 .text-cell {
-  .type-number {
-    width: 50%;
-    height: 40px;
-    border-radius:2px;
-    box-shadow: 1px 2px #888888;
-    border: 1px lavender solid;
-  }
+  .type-text { @extend .type;}
+}
+.text-cell {
+  .type-number { @extend .type; }
+}
+.text-cell {
+  .type-phone { @extend .type; }
+}
+.text-cell {
+  .type-email { @extend .type; }
+}
+.text-cell {
+  .type-number-dot { @extend .type; }
 }
 /*checkbox*/
 .checkbox-label {
@@ -99,5 +90,15 @@ $color_label : rgb(238, 133, 133);
     font-size: 20px;
     font-weight: bold;
     color: burlywood;
+  }
+}
+
+/* message*/
+.error {
+  font-size: 15px;
+  color: red;
+  margin-left: 10px;
+  ::after {
+    content: "!";
   }
 }
