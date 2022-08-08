@@ -57,7 +57,7 @@ class Setting_Controller {
     {   
         /**
          * loc du lieu khi action = -1
-         * nghia la dang co du lieu(cho ca filter va search)
+         * nghia la dang loi du lieu(cho ca filter va search)
          */
         if(getParams('action') == -1){
             $url = $this->createUrl();

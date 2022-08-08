@@ -21,27 +21,33 @@
 .meta-row-two-column {
   height: 60px;
   margin: 10px 0px 20px; }
-  .meta-row-two-column .col {
-    float: left;
-    width: 33.2%; }
-    .meta-row-two-column .col .title-cell {
-      height: 22px; }
-    .meta-row-two-column .col .text-cell {
-      width: 100%; }
+
+.meta-row-two-column .col {
+  float: left;
+  width: 33.2%; }
+
+.meta-row-two-column .col .title-cell {
+  height: 22px; }
+
+.meta-row-two-column .col .text-cell {
+  width: 100%; }
 
 /* three column */
 .meta-row-three-column {
   height: 60px;
   margin: 10px 10px 20px; }
-  .meta-row-three-column .col {
-    float: left;
-    width: 25.6%; }
-    .meta-row-three-column .col .title-cell {
-      height: 22px; }
-    .meta-row-three-column .col .text-cell {
-      width: 100%; }
-  
-  /* edit item cell*/
+
+.meta-row-three-column .col {
+  float: left;
+  width: 25.6%; }
+
+.meta-row-three-column .col .title-cell {
+  height: 22px; }
+
+.meta-row-three-column .col .text-cell {
+  width: 100%; }
+
+/* edit item cell*/
 .title-cell {
   padding-top: 15px; }
   .title-cell label {
