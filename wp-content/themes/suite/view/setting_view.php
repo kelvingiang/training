@@ -103,22 +103,3 @@
 
 </form>
 
-<script>
-    $(document).ready(function () {
-        $('#txt-name').blur(function()
-        {
-            if( !$(this).val() ) { //is empty
-                $(this).addClass('error');
-                $(this).text('Please enter commerce name! ');
-            }
-        }) 
-        $('#txt-address').blur(function()
-        {
-            if( !$(this).val() ) { //is empty
-                $(this).addClass('error');
-                $(this).text('Please enter commerce address! ');
-            }
-        })   
-
-    });
-</script>

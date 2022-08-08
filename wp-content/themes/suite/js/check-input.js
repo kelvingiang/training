@@ -1,6 +1,6 @@
 jQuery(document).ready(function () {
-
-
+ 
+    
 //KIEM TRA CHI CHO NHAP NUMBER
     jQuery('.type-number').keypress(function (event) {
         return isOnlyNumber(event, this);
@@ -78,8 +78,26 @@ jQuery(document).ready(function () {
         
     });
 
-
-
+//KIEM TRA NHAP DU LIEU RONG
+    jQuery('.type-text').keyup(function(e) {
+        var name = document.getElementById('txt-name');
+        var address = document.getElementById('txt-address');
+        jQuery(name).blur(function() {
+            if( !jQuery(name).val() ) { //is empty
+                jQuery(name).text('Please enter commerce name! ');
+            }else{
+                jQuery(name).text(' ');
+            }
+        })
+        jQuery(address).blur(function() {
+            if( !jQuery(address).val() ) { //is empty
+                jQuery(address).text('Please enter commerce address! ');
+            }else{
+                jQuery(address).text(' ');
+            }
+        })
+        
+    })
 
 
 });
