@@ -17,13 +17,31 @@
 .column-district {
   width: 10%; }
 
-.blacklist {
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  background-color: #1b1919; }
+/* two column*/
+.meta-row-two-column {
+  height: 60px;
+  margin: 10px 0px 20px; }
+  .meta-row-two-column .col {
+    float: left;
+    width: 33.2%; }
+    .meta-row-two-column .col .title-cell {
+      height: 22px; }
+    .meta-row-two-column .col .text-cell {
+      width: 100%; }
 
-/* edit item cell*/
+/* three column */
+.meta-row-three-column {
+  height: 60px;
+  margin: 10px 10px 20px; }
+  .meta-row-three-column .col {
+    float: left;
+    width: 25.6%; }
+    .meta-row-three-column .col .title-cell {
+      height: 22px; }
+    .meta-row-three-column .col .text-cell {
+      width: 100%; }
+  
+  /* edit item cell*/
 .title-cell {
   padding-top: 15px; }
   .title-cell label {
@@ -57,6 +75,12 @@
   width: 80%;
   box-shadow: 1px 2px #888888;
   border: 1px lavender solid; }
+
+.blacklist {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #1b1919; }
 
 /*metabox header*/
 .postbox-header .hndle {
