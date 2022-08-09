@@ -30,6 +30,9 @@ function style_header_scripts()
         wp_register_style('mobile-menu-css', get_template_directory_uri() . '/css/menu/mobile.css', array(), '1.0', 'all');
         wp_enqueue_style('mobile-menu-css');
 
+        wp_register_style('page-style', get_template_directory_uri() . '/css/admin/page-style.css', array(), '1.0', 'all');
+        wp_enqueue_style('page-style');
+
         // SILDER           
         wp_register_style('camera-style', get_template_directory_uri() . '/css/silder/camera.css', array(), '1.0', 'all');
         wp_enqueue_style('camera-style');

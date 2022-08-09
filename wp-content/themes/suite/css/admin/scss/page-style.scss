@@ -1,0 +1,66 @@
+$color_label : rgb(238, 133, 133);
+
+/* two column*/
+.meta-row-two-column {
+    height: 60px;
+    margin: 10px 0px 20px;}
+    .meta-row-two-column .col {
+      float: left;
+      width: 33.2%; }
+      .meta-row-two-column .col .title-cell {
+        height: 22px; }
+      .meta-row-two-column .col .text-cell {
+        width: 100%; }
+
+/* edit item cell*/
+.title-cell{
+    padding-top: 15px;
+    label {
+      padding-bottom: 10px;
+      font-size: 15px;
+      font-weight: bold;
+      color: $color_label;
+      padding: auto;
+    }
+}
+.type{
+    width: 50%;
+    height: 40px;
+    border-radius:2px;
+    box-shadow: 1px 2px #888888;
+    border: 1px lavender solid;
+}
+.text-cell {
+  .type-text { @extend .type;}
+}
+.text-cell {
+  .type-number { @extend .type; }
+}
+.text-cell {
+  .type-phone { @extend .type; }
+}
+.text-cell {
+  .type-email { @extend .type; }
+}
+.text-cell {
+  .type-number-dot { @extend .type; }
+}   
+
+/*label header*/
+.postbox-header{
+    .hndle{
+      font-size: 20px;
+      font-weight: bold;
+      color: burlywood;
+    }
+}
+  
+/* message*/
+.error {
+  font-size: 15px;
+  color: red;
+  margin-left: 10px;
+  ::after {
+    content: "!";
+  }
+}

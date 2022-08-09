@@ -1,0 +1,47 @@
+/* two column*/
+.meta-row-two-column {
+  height: 60px;
+  margin: 10px 0px 20px; }
+
+.meta-row-two-column .col {
+  float: left;
+  width: 33.2%; }
+
+.meta-row-two-column .col .title-cell {
+  height: 22px; }
+
+.meta-row-two-column .col .text-cell {
+  width: 100%; }
+
+/* edit item cell*/
+.title-cell {
+  padding-top: 15px; }
+  .title-cell label {
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ee8585;
+    padding: auto; }
+
+.type, .text-cell .type-text, .text-cell .type-number, .text-cell .type-phone, .text-cell .type-email, .text-cell .type-number-dot {
+  width: 50%;
+  height: 40px;
+  border-radius: 2px;
+  box-shadow: 1px 2px #888888;
+  border: 1px lavender solid; }
+
+/*label header*/
+.postbox-header .hndle {
+  font-size: 20px;
+  font-weight: bold;
+  color: burlywood; }
+
+/* message*/
+.error {
+  font-size: 15px;
+  color: red;
+  margin-left: 10px; }
+  .error ::after {
+    content: "!"; }
+
+/*# sourceMappingURL=page-style.css.map */
