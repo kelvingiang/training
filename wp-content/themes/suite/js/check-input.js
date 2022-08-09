@@ -79,25 +79,37 @@ jQuery(document).ready(function () {
     });
 
 //KIEM TRA NHAP DU LIEU RONG
-    jQuery('.type-text').keyup(function(e) {
-        var name = document.getElementById('txt-name');
-        var address = document.getElementById('txt-address');
-        jQuery(name).blur(function() {
-            if( !jQuery(name).val() ) { //is empty
-                jQuery(name).text('Please enter commerce name! ');
-            }else{
-                jQuery(name).text(' ');
-            }
-        })
-        jQuery(address).blur(function() {
-            if( !jQuery(address).val() ) { //is empty
-                jQuery(address).text('Please enter commerce address! ');
-            }else{
-                jQuery(address).text(' ');
-            }
-        })
-        
-    })
+    function isName($class){
+        if($class == '.type-text'){
+            jQuery('.type-text').focusout(function(e) {
+                var name = document.getElementById('txt-name');
+                if( !jQuery(name).val() ) { //is empty
+                    jQuery('#error-name').text('Please enter commerce name! ');
+                    name.focus();  
+                }else{
+                    jQuery('#error-name').text(' ');
+                }
+            })
+        }
+    }
+    function isAddress($class){
+        if($class == '.type-text'){
+            jQuery('.type-text').focusout(function(e) {
+                var address = document.getElementById('txt-address');
+                if( !jQuery(address).val()) { //is empty
+                    jQuery('#event_title_merss').text('Please enter commerce address! ');
+                    address.focus();
+                }else{
+                    jQuery('#event_title_merss').text(' ');
+                }
+            })
+        }
+    } 
+    var onSelectChange = function() {
+        isName('.type-text');
+        isAddress('.type-text');
+    }
+    jQuery('.type-text').change(onSelectChange);
 
-
+    
 });

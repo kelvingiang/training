@@ -8,7 +8,8 @@
             <label><?php echo __('Commerce Name'); ?><i id="error-name" class="error"></i></label>
         </div>
         <div class="text-cell">
-            <input class="type-text" type="text" name="txt-name" id="txt-name" value="<?php echo get_option('commerce_name') ?>"  /> 
+            <input class="type-text" type="text" name="txt-name" id="txt-name" 
+            value="<?php echo get_option('commerce_name') ?>" /> 
         </div>
     </div>   
     <!-- address -->
@@ -17,7 +18,8 @@
             <label><?php echo __('Address'); ?><i class="error" id="event_title_merss"></i></label>
         </div>
         <div class="text-cell">
-            <input class="type-text" type="text" name="txt-address" id="txt-address" value="<?php echo get_option('commerce_address') ?>"  /> 
+            <input class="type-text" type="text" name="txt-address" id="txt-address" 
+            value="<?php echo get_option('commerce_address') ?>" /> 
         </div>
     </div>
     <!-- mobile -->
