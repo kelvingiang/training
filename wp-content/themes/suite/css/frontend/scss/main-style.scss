@@ -2,18 +2,30 @@
     This file use frontend
     Create date( dd-mm-yy ) : 10/08/2022
 */
-$color_label: rgb(160, 160, 247);
+$color_label: rgb(247, 178, 160);
 
 
 /*
     use page,..
 */
+.title-row{
+    padding-top: 15px;
+    h2{
+        font-size: 30px;
+        font-weight: bold;
+    }
+}
 .title-cell{
     padding-top: 15px;
     label {
-      font-size: 15px;
+      font-size: 18px;
       font-weight: bold;
       color: $color_label;
       padding: auto;
+      text-align: left;
+    }
+    span{
+        font-size: 20px;
+        color: gray;
     }
 }
