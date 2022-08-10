@@ -11,103 +11,61 @@
     <!-- name -->
     <div class="meta-row">
         <div class="title-cell">
-            <label><?php echo __('Commerce Name'); ?><i id="error-name" class="error"></i></label>
-        </div>
-        <div class="text-cell">
-            <input class="type-text" type="text" name="txt-name" id="txt-name" 
-            value="<?php echo get_option('commerce_name') ?>" /> 
+            <label><?php echo __('Commerce Name'); ?> : <?php echo get_option('commerce_name') ?></label>
         </div>
     </div>   
     <!-- address -->
     <div class="meta-row">
         <div class="title-cell">
-            <label><?php echo __('Address'); ?><i class="error" id="event_title_merss"></i></label>
-        </div>
-        <div class="text-cell">
-            <input class="type-text" type="text" name="txt-address" id="txt-address" 
-            value="<?php echo get_option('commerce_address') ?>" /> 
+            <label><?php echo __('Address'); ?> : <?php echo get_option('commerce_address') ?></label>
         </div>
     </div>
     <!-- mobile -->
     <div class="meta-row">
         <div class="title-cell">
-            <label><?php echo __('Mobile'); ?></label>
-        </div>
-        <div class="text-cell">
-            <input class="type-phone" type="text" name="txt-mobile" id="txt-mobile" value="<?php echo get_option('commerce_mobile') ?>"  /> 
+            <label><?php echo __('Mobile'); ?> : <?php echo get_option('commerce_mobile') ?></label>
         </div>
     </div>
     <!-- phone -->
     <div class="meta-row">
         <div class="title-cell">
-            <label><?php echo __('Phone'); ?></label>
-        </div>
-        <div class="text-cell">
-            <input class="type-phone" type="text" name="txt-phone" id="txt-phone" value="<?php echo get_option('commerce_phone') ?>"  /> 
+            <label><?php echo __('Phone'); ?> : <?php echo get_option('commerce_phone') ?></label>
         </div>
     </div>
     <!-- fax -->
     <div class="meta-row">
         <div class="title-cell">
-            <label><?php echo __('Fax'); ?></label>
-        </div>
-        <div class="text-cell">
-            <input class="type-phone" type="text" name="txt-fax" id="txt-fax" value="<?php echo get_option('commerce_fax') ?>"  /> 
+            <label><?php echo __('Fax'); ?> : <?php echo get_option('commerce_fax') ?></label>
         </div>
     </div>
     <!-- email -->
     <div class="meta-row">
         <div class="title-cell">
-            <label><?php echo __('Email'); ?><i id="error-email" class="error"></i></label>
-        </div>
-        <div class="text-cell">
-            <input class="type-email" type="text" name="txt-email" id="txt-email" value="<?php echo get_option('commerce_email') ?>"  /> 
+            <label><?php echo __('Email'); ?> : <?php echo get_option('commerce_email') ?></label>
         </div>
     </div>
     <!-- map x - map y -->
-    <div class="meta-row-two-column">
-        <div class="col">
-            <div class="title-cell">
-                <label><?php echo __('Maps X'); ?></label>
-            </div>
-            <div class="text-cell">
-                <input class="type-number-dot" type="text" name="txt-map-x" id="txt-map-x" value="<?php echo get_option('commerce_map_x') ?>" /> 
-            </div>
-        </div>
-        <div class="col">
-            <div class="title-cell">
-                <label><?php echo __('Map Y'); ?></label>
-            </div>
-            <div class="text-cell">
-                <input class="type-number-dot" type="text" name="txt-map-y" id="txt-map-y" value="<?php echo get_option('commerce_map_y') ?>" /> 
-            </div>
-        </div>
-    </div>   
+    <div class="title-cell">
+        <label><?php echo __('Maps X'); ?> : <?php echo get_option('commerce_map_x') ?></label>
+    </div>
+    <div class="title-cell">
+        <label><?php echo __('Map Y'); ?> : <?php echo get_option('commerce_map_y') ?></label>
+    </div>  
 
     <!-- CUSTOM POST -->
     <div class="meta-row">
         <div class="title-cell">
-            <label><?php echo __('Chamber of Commerce'); ?><i id="error-email" class="error"></i></label>
-        </div>
-        <div class="text-cell">
-            <?php wp_editor(get_post_meta('1', '_info_charter', TRUE), 'info_charter', array('wpautop' => false, 'editor_height' => '300px')); ?>
+            <label><?php echo __('Chamber of Commerce'); ?>
+                : <?php get_post_meta('1', '_info_charter', TRUE) ?></label>
         </div>
     </div>
     
     <div class="meta-row">
         <div class="title-cell">
-            <label><?php echo __('Application for membership'); ?><i id="error-email" class="error"></i></label>
-        </div>
-        <div class="text-cell">
-            <?php wp_editor(get_post_meta('1', '_info_apply', TRUE), 'info_apply', array('wpautop' => false, 'editor_height' => '300px')); ?>
+            <label><?php echo __('Application for membership'); ?> 
+            : <?php get_post_meta('1', '_info_apply', TRUE) ?></label>
         </div>
     </div>
-
-
-    <div class="button-row">
-        <input type="submit" name="btn-submit" id="btn-submit" class="button button-primary button-large" value="<?php echo __('Send') ?>"/>
-    </div>
-
 
 </form>
 
