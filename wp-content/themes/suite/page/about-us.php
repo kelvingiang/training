@@ -55,13 +55,13 @@
     <!-- CUSTOM POST -->
     <div class="meta-row">
         <div class="title-cell">
-            <label><?php echo __('Chamber of Commerce'); ?>: </label> <span><?php get_post_meta('1', '_info_charter', TRUE) ?></span>
+            <label><?php echo __('Chamber of Commerce'); ?>: </label> <span><?php echo get_post_meta('1', '_info_charter', TRUE) ?></span>
         </div>
     </div>
     
     <div class="meta-row">
         <div class="title-cell">
-            <label><?php echo __('Application for membership'); ?>: </label> <span><?php get_post_meta('1', '_info_apply', TRUE) ?></span>
+            <label><?php echo __('Application for membership'); ?>: </label> <span><?php echo get_post_meta('1', '_info_apply', TRUE) ?></span>
         </div>
     </div>
 
