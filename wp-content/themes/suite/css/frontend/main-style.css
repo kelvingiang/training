@@ -22,5 +22,11 @@
   .title-cell span {
     font-size: 20px;
     color: gray; }
+.type, .text-cell .type-text, .text-cell .type-number, .text-cell .type-phone, .text-cell .type-email, .text-cell .type-number-dot {
+  width: 50%;
+  height: 40px;
+  border-radius: 2px;
+  box-shadow: 1px 2px #888888;
+  border: 1px lavender solid; }    
 
 /*# sourceMappingURL=main-style.css.map */

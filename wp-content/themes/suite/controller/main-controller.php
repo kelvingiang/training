@@ -13,12 +13,14 @@ class Main_Controller
 
             //page
             'setting_controller' => true,
+            'product_controller' => true
         );
 
         $this->_controller_options = get_option($this->_controller_name, $defaultoption);
         $this->slider_controller_function();
         $this->member_controller_function();
         $this->setting_controller_function();
+        $this->product_controller_function();
 
         add_action('admin_init', array($this, 'do_output_buffer'));
     }
@@ -44,6 +46,14 @@ class Main_Controller
         if ($this->_controller_options['setting_controller'] == true) {
             require_once(DIR_CONTROLLER . 'setting-controller.php');
             new Setting_Controller();
+        }
+    }
+
+    public function product_controller_function()
+    {
+        if ($this->_controller_options['product_controller'] == true) {
+            require_once(DIR_CONTROLLER . 'product-controller.php');
+            new Product_Controller();
         }
     }
 

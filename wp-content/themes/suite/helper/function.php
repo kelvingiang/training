@@ -20,7 +20,7 @@ function isPost()
     return $flag;
 }
 
-//===========  FUNCTION GET HINH ==============================================
+//=======================  FUNCTION GET HINH ==================================
 
 //Function duoc goi trong slider-controller.php trong phan tao taxonomy
 function custom_redirect($location)
@@ -28,4 +28,14 @@ function custom_redirect($location)
     global $post_type;
     $location = admin_url('edit.php?post_type=' . $post_type);
     return $location;
+}
+
+//========================== FUNCTION ==================================
+
+//function dung de quay tro lai trang truoc do
+function goback($num = 1)
+{
+    $paged = max(1, $arrParams['paged']);
+    $url = 'admin.php?page=' . $_REQUEST['page'] . '&paged=' . $paged . '&msg=' . $num;
+    wp_redirect($url);
 }
