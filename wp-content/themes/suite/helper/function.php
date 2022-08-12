@@ -39,3 +39,14 @@ function goback($num = 1)
     $url = 'admin.php?page=' . $_REQUEST['page'] . '&paged=' . $paged . '&msg=' . $num;
     wp_redirect($url);
 }
+
+//function lay category name tu database
+function getCategoryName()
+{
+    global $wpdb;
+    $table = $wpdb->prefix . 'product_category';
+    //$table_product = $wpdb->prefix . 'product';
+    $sql = "SELECT `category_name` FROM $table";
+    $row = $wpdb->get_results($sql, ARRAY_A);
+    return $row;
+}

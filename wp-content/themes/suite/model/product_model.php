@@ -221,17 +221,18 @@ class Product_Model extends WP_List_Table {
 
     //các item trong select box trong phần filter
     public function extra_tablenav($which) 
-    {
+    {   
+        $select_category = getCategoryName();
         if($which == 'top') {
             ?>
-                <select>
-                    <option value="selected">Select</option>
-                    <option value="1">Novel</option>
-                    <option value="2">Textbook</option>
-                    <option value="3">Pen</option>
-                    <option value="4">Paper</option>
+                <select name="selectbox-category" id="selectbox-category">
+                    <?php foreach( $select_category as $var => $selects) : ?>
+                    <option value ="<?php echo $var ?>"<?php if( $var == ['selectbox-category'] ): ?> 
+                            selected= "<?php $selects ?>" <?php endif; ?>><?php echo implode(' ',$selects) ?></option>
+                    <?php endforeach; ?>
                 </select>
             <?php
+
             // $htmlObj = new MyHtml();
             //$filterVal = @$_REQUEST['filter_branch'];
             // $first_row = array(array('ID' => '', 'name' => __('Select Industry')));
@@ -289,6 +290,11 @@ class Product_Model extends WP_List_Table {
     public function column_setorder($item)
     {
         echo '<label>' . $item['setorder'] . '</label>';
+    }
+
+    public function column_category($item)
+    {
+        echo '<label>' . $item['category'] . '</label>';
     }
 
     //các column mặc định khi load trang sẽ hiện lên
@@ -381,7 +387,7 @@ class Product_Model extends WP_List_Table {
             -- $arrData['id'] là từ tên cột ID trong database chuyển đổi qua hàm absint()
         */
         if (!is_array($arrData['ID'])) {
-            $where = array('ID' => absint($arrData['ID']));
+            $where = array('ID' => absint($arrData['id']));
             $wpdb->delete($table,$where);
         }else {
             /**
@@ -407,7 +413,7 @@ class Product_Model extends WP_List_Table {
         $data = array(
             'product_name' => $arrData['txt-product-name'],
             'price' => $arrData['txt-price'],
-            'category' => $arrData['txt-category'],
+            'category' => $arrData['selectbox-category'],
             'update_date' => date('d-m-Y'),
             'update_by' => $user,
             'setorder' => $arrData['txt-order'],

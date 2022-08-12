@@ -2,18 +2,16 @@
 $data=array(
     'setorder' => '',
     'product_name' => '',
-    'price' => '',
-    'category' => '',
-    'create_date' => '',
-    'update_date' => '',
+    'price' => ''
 );
-    
+$select_category = getCategoryName();
+
+
 if ((getParams('action')=='edit')) {
     require_once (DIR_MODEL . 'product_model.php');
     $model = new Product_Model();
     $data = $model->get_item(getParams());
- 
-   
+
 }
 
 ?>
@@ -28,12 +26,7 @@ if ((getParams('action')=='edit')) {
             $title = __('Add New Product');
         }
         ?>
-        <h2> <?php echo $title; ?>
-    
-    <?php       $currentUser = wp_get_current_user();
-        $user = $currentUser->user_login; 
-        echo $user?> 
-    </h2>
+        <h2> <?php echo $title; ?></h2>
     </div>
     <!-- order -->
     <div class="meta-row">
@@ -72,10 +65,15 @@ if ((getParams('action')=='edit')) {
             <label><?php echo __('Category') ?><i class="error" id="category_merss"></i></label>
         </div>
         <div class="text-cell">
-            <input class="type-text" type="text" name="txt-category" id="txt-category" value="<?php echo $data['category'] ?>" />
+            <select class="type-text" name="selectbox-category" id="selectbox-category">
+                <?php foreach( $select_category as $var => $selects) : ?>
+                <option value ="<?php echo implode(' ',$selects) ?>"<?php if( $var == ['selectbox-category'] ): ?> 
+                    selected= "<?php $selects ?>" <?php endif; ?>><?php echo implode(' ',$selects) ?></option>
+
+                <?php endforeach; ?>
+            </select>
         </div>
     </div>
-
     <div style="clear: both"></div>
     <div class="button-row">
         <input type="submit" name="btn-submit" id="btn-submit" class="button button-primary button-large" value="<?php echo __('Send') ?>"/>
@@ -95,7 +93,7 @@ if ((getParams('action')=='edit')) {
                 e.preventDefault();
             }
 
-            var serialVal = jQuery('#txt-category').val();
+            var serialVal = jQuery('#selectbox-category').val();
             if (serialVal === '') {
                 jQuery('#category_merss').text('<?php echo __('please input the category'); ?>');
                 e.preventDefault();
