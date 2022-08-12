@@ -28,7 +28,12 @@ if ((getParams('action')=='edit')) {
             $title = __('Add New Product');
         }
         ?>
-        <h2> <?php echo $title; ?></h2>
+        <h2> <?php echo $title; ?>
+    
+    <?php       $currentUser = wp_get_current_user();
+        $user = $currentUser->user_login; 
+        echo $user?> 
+    </h2>
     </div>
     <!-- order -->
     <div class="meta-row">
@@ -70,27 +75,6 @@ if ((getParams('action')=='edit')) {
             <input class="type-text" type="text" name="txt-category" id="txt-category" value="<?php echo $data['category'] ?>" />
         </div>
     </div>
-    
-    <div class="meta-row-two-column">
-        <!-- create date -->
-        <div class="col">
-            <div class="title-cell">
-                <label><?php echo __('Create Date') ?></label>
-            </div>
-            <div class="text-cell">
-                <input type="date" name="txt-create-date" id="txt-create-date" value="<?php echo $data['create_date'] ?>" />
-            </div>
-        </div>
-        <!-- update date -->
-        <div class="col">
-            <div class="title-cell">
-                <label><?php echo __('Update Date') ?></label>
-            </div>
-            <div class="text-cell">
-                <input type="date" name="txt-update-date" id="txt-update-date"  maxlength="50" value="<?php echo $data['update_date'] ?>" />
-            </div>
-        </div>
-    </div>  
 
     <div style="clear: both"></div>
     <div class="button-row">

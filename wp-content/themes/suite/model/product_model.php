@@ -260,7 +260,7 @@ class Product_Model extends WP_List_Table {
     public function column_cb($item) 
     {
         //$singular = $this->args['singular'];
-        $html = '<input type="checkbox" name="' . 'singular' . '[]" value="' . $item['ID'] . '"/>';
+        $html = '<input type="checkbox" name="' . 'ID' . '[]" value="' . $item['ID'] . '"/>';
         return $html;
     }
 
@@ -318,8 +318,12 @@ class Product_Model extends WP_List_Table {
         global $wpdb;
         $table = $wpdb->prefix . 'product';
         
-        //kiểm tra phần có phân dạng chuỗi hay không
-        if (!is_array($arrData['id'])) {
+        /*
+            kiểm tra phần có phân dạng chuỗi hay không
+            -- $arrData['ID'] là tên cột ID trong database
+            -- $arrData['id'] là từ tên cột ID trong database chuyển đổi qua hàm absint()
+        */
+        if (!is_array($arrData['ID'])) {
             $data = array('trash' => 1); //data ở trash
             $where = array('ID' => absint($arrData['id']));
             $wpdb->update($table,$data,$where);
@@ -330,7 +334,7 @@ class Product_Model extends WP_List_Table {
              * lấy để dấu '-' không tiếp tục lấy
              * vậy là chỉ lấy phần đầu là ID không cần tách chuỗi
              */
-            $arrData['id'] = array_map('absint', $arrData['id']);
+            $arrData['id'] = array_map('absint', $arrData['ID']);
             $ids = join(',', $arrData['id']);
             $sql = "UPDATE $table SET `trash` = '1' WHERE ID IN ($ids)";
             $wpdb->query($sql);
@@ -343,8 +347,12 @@ class Product_Model extends WP_List_Table {
         global $wpdb;
         $table = $wpdb->prefix . 'product';
         
-        //kiểm tra phần có phân dạng chuỗi hay không
-        if (!is_array($arrData['id'])) {
+        /*
+            kiểm tra phần có phân dạng chuỗi hay không
+            -- $arrData['ID'] là tên cột ID trong database
+            -- $arrData['id'] là từ tên cột ID trong database chuyển đổi qua hàm absint()
+        */
+        if (!is_array($arrData['ID'])) {
             $data = array('trash' => 0); //data ở publish
             $where = array('ID' => absint($arrData['id']));
             $wpdb->update($table,$data,$where);
@@ -355,7 +363,7 @@ class Product_Model extends WP_List_Table {
              * lấy để dấu '-' không tiếp tục lấy
              * vậy là chỉ lấy phần đầu là ID không cần tách chuỗi
              */
-            $arrData['id'] = array_map('absint', $arrData['id']);
+            $arrData['id'] = array_map('absint', $arrData['ID']);
             $ids = join(',', $arrData['id']);
             $sql = "UPDATE $table SET `trash` = '0' WHERE ID IN ($ids)";
             $wpdb->query($sql);
@@ -367,9 +375,13 @@ class Product_Model extends WP_List_Table {
         global $wpdb;
         $table = $wpdb->prefix . 'product';
         
-        //kiểm tra phần có phân dạng chuỗi hay không
-        if (!is_array($arrData['id'])) {
-            $where = array('ID' => absint($arrData['id']));
+        /*
+            kiểm tra phần có phân dạng chuỗi hay không
+            -- $arrData['ID'] là tên cột ID trong database
+            -- $arrData['id'] là từ tên cột ID trong database chuyển đổi qua hàm absint()
+        */
+        if (!is_array($arrData['ID'])) {
+            $where = array('ID' => absint($arrData['ID']));
             $wpdb->delete($table,$where);
         }else {
             /**
@@ -378,7 +390,7 @@ class Product_Model extends WP_List_Table {
              * lấy để dấu '-' không tiếp tục lấy
              * vậy là chỉ lấy phần đầu là ID không cần tách chuỗi
              */
-            $arrData['id'] = array_map('absint', $arrData['id']);
+            $arrData['id'] = array_map('absint', $arrData['ID']);
             $ids = join(',', $arrData['id']);
             $sql = "DELETE FROM $table WHERE ID IN ($ids)";
             $wpdb->query($sql);
@@ -389,22 +401,23 @@ class Product_Model extends WP_List_Table {
     {
         global $wpdb;
         $table = $wpdb->prefix . 'product';
+        $currentUser = wp_get_current_user();
+        $user = $currentUser->user_login; //lấy ra tên user
 
-        $create_date = $arrData['txt-create-date'];
-        $update_date = $arrData['txt-update-date'];
         $data = array(
             'product_name' => $arrData['txt-product-name'],
             'price' => $arrData['txt-price'],
             'category' => $arrData['txt-category'],
-            'create_date' => $create_date,
-            'update_date' => $update_date,
+            'update_date' => date('d-m-Y'),
+            'update_by' => $user,
             'setorder' => $arrData['txt-order'],
         );
 
         $dataAdd = array(
             'trash' => 0,
             'create_date' => date('d-m-Y'),
-            'update_date' => date('d-m-Y'),
+            'create_by'=> $user,
+
         );
 
         $dataInsert = array_merge($data,$dataAdd);
@@ -413,7 +426,7 @@ class Product_Model extends WP_List_Table {
         if($option['action'] == 'update'){
             $where = array('ID' => $option['ID']);
             $wpdb->update($table,$data,$where);
-        }elseif ($option['action' == 'insert']){
+        }elseif ($option['action'] == 'insert'){
             $wpdb->insert($table,$dataInsert);
         }
     }
