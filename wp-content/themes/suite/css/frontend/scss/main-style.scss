@@ -51,3 +51,12 @@ $color_label: rgb(247, 178, 160);
   .text-cell {
     .type-number-dot { @extend .type; }
   }
+/* message*/
+.error {
+  font-size: 15px;
+  color: red;
+  margin-left: 10px;
+  ::after {
+    content: "!";
+  }
+}  
