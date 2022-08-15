@@ -101,30 +101,30 @@ if ((getParams('action')=='edit')) {
         });
 
 
-        jQuery('#txt-product-name').focusout(function (e) {
-            var urlPath = '<?php echo get_template_directory_uri() . '/ajax/admin/checkemail.php' ?>';
-            jQuery.ajax({
-                url: urlPath, // lay doi tuong chuyen sang dang array
-                type: 'post',
-                data: jQuery(this).serialize(),
-                dataType: 'json',
-                success: function (data) {  // set ket qua tra ve  data tra ve co thanh phan status va message
-                    if (data.status === 'error') {
-                        jQuery('#product_merss').text(data.message);
-                        jQuery("#btn-submit").prop('disabled', true);
-                    } else if (data.status === 'done') {
-                        jQuery('#product_merss').text('');
-                        if (jQuery('#product_merss').text() === '') {
-                            jQuery("#btn-submit").prop('disabled', false);
-                        }
-                    }
-                },
-                error: function (xhr) {
-                    console.log(xhr.reponseText);
-                }
-            });
-            e.preventDefault();
-        });
+        // jQuery('#txt-product-name').focusout(function (e) {
+        //     var urlPath = '<?php //echo get_template_directory_uri() . '/ajax/admin/checkemail.php' ?>';
+        //     jQuery.ajax({
+        //         url: urlPath, // lay doi tuong chuyen sang dang array
+        //         type: 'post',
+        //         data: jQuery(this).serialize(),
+        //         dataType: 'json',
+        //         success: function (data) {  // set ket qua tra ve  data tra ve co thanh phan status va message
+        //             if (data.status === 'error') {
+        //                 jQuery('#product_merss').text(data.message);
+        //                 jQuery("#btn-submit").prop('disabled', true);
+        //             } else if (data.status === 'done') {
+        //                 jQuery('#product_merss').text('');
+        //                 if (jQuery('#product_merss').text() === '') {
+        //                     jQuery("#btn-submit").prop('disabled', false);
+        //                 }
+        //             }
+        //         },
+        //         error: function (xhr) {
+        //             console.log(xhr.reponseText);
+        //         }
+        //     });
+        //     e.preventDefault();
+        // });
 
     });
 
