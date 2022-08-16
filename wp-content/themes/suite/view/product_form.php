@@ -7,6 +7,7 @@ $data=array(
 $select_category = getCategoryName();
 
 
+
 if ((getParams('action')=='edit')) {
     require_once (DIR_MODEL . 'product_model.php');
     $model = new Product_Model();
@@ -62,14 +63,16 @@ if ((getParams('action')=='edit')) {
     <!-- category -->
     <div class="meta-row">
         <div class="title-cell">
-            <label><?php echo __('Category') ?><i class="error" id="category_merss"></i></label>
+            <label for="selectbox-category"><?php echo __('Category') ?><i class="error" id="category_merss"></i></label>
         </div>
         <div class="text-cell">
             <select class="type-text" name="selectbox-category" id="selectbox-category">
-                <?php foreach( $select_category as $var => $selects) : ?>
-                <option value ="<?php echo implode(' ',$selects) ?>"<?php if( $var == ['selectbox-category'] ): ?> 
-                    selected= "<?php $selects ?>" <?php endif; ?>><?php echo implode(' ',$selects) ?></option>
-
+                <option value="">Choose Category</option>
+                <?php foreach( $select_category as $selects) : ?>
+                <option value ="<?php echo $selects['ID'] ?>"<?php if($selects['ID'] == $data['category'] ): ?> 
+                    selected= "selected" <?php endif; ?>>
+                    <?php echo $selects['category_name']?>
+                </option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -101,7 +104,7 @@ if ((getParams('action')=='edit')) {
         });
 
 
-
+        
     });
 
 </script>

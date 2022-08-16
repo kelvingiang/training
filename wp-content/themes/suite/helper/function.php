@@ -45,8 +45,7 @@ function getCategoryName()
 {
     global $wpdb;
     $table = $wpdb->prefix . 'product_category';
-    //$table_product = $wpdb->prefix . 'product';
-    $sql = "SELECT `category_name` FROM $table";
+    $sql = "SELECT ID,category_name FROM $table";
     $row = $wpdb->get_results($sql, ARRAY_A);
     return $row;
 }

@@ -99,7 +99,7 @@ class Product_Model extends WP_List_Table {
         $orderby = (getParams('orderby') == ' ') ? 'id' : $_GET['orderby'];
         $order = (getParams('setorder') == ' ') ? 'DESC' : $_GET['setorder'];
         $tblTest = $wpdb->prefix . 'product';
-        $sql = 'SELECT * FROM ' . $tblTest . ' AS wp_p  ';
+        $sql = 'SELECT * FROM ' . $tblTest ;
         $whereArr = array(); //tạo mảng where
 
         //kiểm tra trash, trash mặc định là 0 : hiện hành, 1 : đã xóa
@@ -111,13 +111,20 @@ class Product_Model extends WP_List_Table {
 
         //kiểm tra nhánh lọc
         if(getParams('filter_branch') != ' ') {
-           //chưa sử dụng - gọi tới function extra_tablenav
+            $branch = getParams('filter_branch');
+            if ($branch > 0) {
+                $whereArr[] = "(category = $branch)";
+            } elseif ($branch == -1) {
+                $whereArr[] = "(category  = ' ')";
+            } else {
+                $whereArr[] = '';
+            }
         }
 
         //kiểm tra search
         if(getParams('s') != ' ') {
             $s = esc_sql(getParams('s'));
-            $whereArr[] = "( wp_p.product_name LIKE '%$s%')";
+            $whereArr[] = "( product_name LIKE '%$s%')";
         }
 
         //chuyển các giá trị WHERE kết với nhau bởi AND
@@ -128,13 +135,13 @@ class Product_Model extends WP_List_Table {
         //$sql .= 'ORDER BY wp_p' . esc_sql($orderby) . ' ' . esc_sql($order);
         
         $this->_sql = $sql;
+        
 
         //lấy giá trị phân trang pageing
         $paged = max(1, @$_REQUEST['paged']);
         $offset = ($paged - 1) * $this->_pre_page;
 
         $sql .= ' LIMIT  ' . $this->_pre_page . ' OFFSET ' . $offset;
-
         //lấy kết quả thông qua câu sql
         $data = $wpdb->get_results($sql, ARRAY_A);
         return $data;
@@ -222,33 +229,31 @@ class Product_Model extends WP_List_Table {
     //các item trong select box trong phần filter
     public function extra_tablenav($which) 
     {   
-        $select_category = getCategoryName();
+
         if($which == 'top') {
+            $first_row = array(array('ID' => 0, 'category_name' => __('All Categories')));
+            $last_row = array(array('ID' => -1, 'category_name' => __('Other')));
+            $list1 = array_merge($first_row, getCategoryName());
+            $list = array_merge($list1, $last_row);
+            foreach ($list as $val) {
+                $arrlist[$val['ID']] = $val['category_name'];
+            }
+            $options['data'] = $arrlist; 
+
             ?>
-                <select name="selectbox-category" id="selectbox-category">
-                    <?php foreach( $select_category as $var => $selects) : ?>
-                    <option value ="<?php echo $var ?>"<?php if( $var == ['selectbox-category'] ): ?> 
-                            selected= "<?php $selects ?>" <?php endif; ?>><?php echo implode(' ',$selects) ?></option>
+                <div class="alignleft action bulkactions">
+                    <select name="filter_branch" id="selectbox-category" >
+                    <?php foreach( $list as $selects) : ?>
+                        <option value ="<?php echo $selects['ID'] ?>"<?php if($selects['ID'] == getParams('filter_branch') ): ?> 
+                            selected= "selected" <?php endif; ?>>
+                            <?php echo $selects['category_name']?>
+                        </option>
                     <?php endforeach; ?>
-                </select>
+                    </select>
+                    <input type="submit" name="filter_action" id="filter_action" class="button" value="Filter">
+                </div>
             <?php
 
-            // $htmlObj = new MyHtml();
-            //$filterVal = @$_REQUEST['filter_branch'];
-            // $first_row = array(array('ID' => '', 'name' => __('Select Industry')));
-            // $last_row = array(array('ID' => -1, 'name' => __('Other')));
-            // $list1 = array_merge($first_row, getMemberIndustry());
-            // $list = array_merge($list1, $last_row);
-            // foreach ($list as $val) {
-            //     $arrlist[$val['ID']] = $val['name'];
-            // }
-            // $options['data'] = $arrlist; 
-
-            //thêm phần select box tìm kiếm
-            // $slbFilter = $htmlObj->selectbox('filter_branch', $filterVal, array(), $options);
-            // $attr = array('id' => 'filter_action', 'class' => 'button');
-            // $btnFilter = $htmlObj->button('filter_action', __('Filter'), $attr);
-            // echo '<div class="alignleft action bulkactions">' . $slbFilter . $btnFilter . '</div>';
         }
     }
 
@@ -294,7 +299,12 @@ class Product_Model extends WP_List_Table {
 
     public function column_category($item)
     {
-        echo '<label>' . $item['category'] . '</label>';
+        require_once(DIR_MODEL . 'product_category_model.php');
+        $model = new Product_Category_Model();
+        $row = $model->getItem($item['category']);
+
+        echo '<label>' . $row['category_name'] . '</label>';
+
     }
 
     //các column mặc định khi load trang sẽ hiện lên
