@@ -79,6 +79,7 @@ class Product_Model extends WP_List_Table {
     {
         return array(
             'product_name' =>array('product_name',true),
+            'price' => array('price', true),
             'setorder' => array('setorder', true),
             'id' => array('id', true),
         );
@@ -96,8 +97,8 @@ class Product_Model extends WP_List_Table {
         global $wpdb; //đối tượng trừu tượng database wordpress
         
         //lấy giá trị sắp xếp dữ liệu trên cột
-        $orderby = (getParams('orderby') == ' ') ? 'id' : $_GET['orderby'];
-        $order = (getParams('setorder') == ' ') ? 'DESC' : $_GET['setorder'];
+        $orderby = (getParams('orderby') == ' ') ? 'ID' : $_GET['orderby'];
+        $order = (getParams('order') == ' ') ? 'DESC' : $_GET['order'];
         $tblTest = $wpdb->prefix . 'product';
         $sql = 'SELECT * FROM ' . $tblTest ;
         $whereArr = array(); //tạo mảng where
@@ -132,8 +133,8 @@ class Product_Model extends WP_List_Table {
             $sql .= " WHERE " . join(" AND ", $whereArr);
         }
         //order by
-        //$sql .= 'ORDER BY wp_p' . esc_sql($orderby) . ' ' . esc_sql($order);
-        
+        $sql .= 'ORDER BY ' . esc_sql($orderby) . ' ' . esc_sql($order);
+
         $this->_sql = $sql;
         
 

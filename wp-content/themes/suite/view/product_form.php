@@ -2,7 +2,8 @@
 $data=array(
     'setorder' => '',
     'product_name' => '',
-    'price' => ''
+    'price' => '',
+    'category' => '',
 );
 $select_category = getCategoryName();
 
