@@ -25,7 +25,6 @@ class Member_Metabox {
         wp_nonce_field($action, $name);
 
         $select_district = array(
-            'selected' => 'District',
             'District 1' => 'District 1',
             'District 2' => 'District 2',
             'District 3' => 'District 3',
@@ -36,7 +35,7 @@ class Member_Metabox {
         echo '<div class="meta-row">
             <div class="title-cell"><label for ="metabox-member_contact">'. translate('Contact') .'</label></div>
             <div class="text-cell" >
-            <input class="type-text" id="metabox-member_contact" name="metabox-member_contact" maxlength="100"
+            <input class="type-text" type="text" id="metabox-member_contact" name="metabox-member_contact" maxlength="100"
                 placeholder = ' . translate('Contact ') .
                 'value= ' . get_post_meta($post->ID, '_metabox_member_contact', true)
             .'></div>
@@ -45,7 +44,7 @@ class Member_Metabox {
         echo '<div class="meta-row">
             <div class="title-cell"><label for ="metabox-member_address">' .translate('Address') .'</label></div>
             <div class="text-cell" >
-                <input class="type-text" id="metabox-member_address" name="metabox-member_address" maxlength="100"
+                <input class="type-text" type="text" id="metabox-member_address" name="metabox-member_address" maxlength="100"
                     placeholder = '. translate('Address ') .
                     'value=  ' . get_post_meta($post->ID, '_metabox_member_address', true) 
                 .'></div>
@@ -64,9 +63,10 @@ class Member_Metabox {
             <div class="title-cell"><label for ="metabox-member_district"> District </label></div>
             <div class="text-cell" >
                 <select class="type-text" name="metabox-member_district" id="metabox-member_district" maxlength="50">
+                    <option value="">Choose District</option>
                     <?php foreach( $select_district as $var => $district) : ?>
                     <option value ="<?php echo $var ?>"<?php if( $var == ['metabox-member_district'] ): ?> 
-                            selected="selected"<?php endif; ?>><?php echo $district ?></option>
+                        selected="selected"<?php endif; ?>><?php echo $district ?></option>
                     <?php endforeach; ?>
                 </select></div>
             </div>
