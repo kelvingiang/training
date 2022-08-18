@@ -128,7 +128,7 @@ class Member_Controller
                 'meta_key' => '_metabox_order',
                 'orderby' => '_metabox_order',
             ));
-        }elseif (isset($vars['orderby']) && 'black_list' == $vars['orderby']) {
+        } elseif (isset($vars['orderby']) && 'black_list' == $vars['orderby']) {
             $vars = array_merge($vars, array(
                 'meta_key' => '_metabox_member_black_list',
                 'orderby' => '_metabox_member_black_list',

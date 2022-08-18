@@ -4,7 +4,8 @@
 if (!class_exists('WP_List_Table')) {
     require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php ';
 }
-class Product_Model extends WP_List_Table {
+class Product_Model extends WP_List_Table
+{
 
     private $_pre_page = 30;
     private $_sql;
@@ -31,7 +32,7 @@ class Product_Model extends WP_List_Table {
         $sorttable = $this->get_sortable_columns(); //các cột được sắp xếp asc hoặc desc
 
         //đưa 3 giá trị trên vào dãy để show dữ liệu
-        $this->_column_headers = array($columns,$hidden,$sorttable);
+        $this->_column_headers = array($columns, $hidden, $sorttable);
         //lấy dữ liệu từ database
         $this->items = $this->table_data();
 
@@ -67,7 +68,7 @@ class Product_Model extends WP_List_Table {
         );
         return $arr;
     }
-     
+
     //khai báo các cột bị ẩn đi trên girdview
     public function get_hidden_columns()
     {
@@ -75,12 +76,13 @@ class Product_Model extends WP_List_Table {
     }
 
     //săp xếp cột tăng hay giảm dần
-    public function get_sortable_columns() 
+    public function get_sortable_columns()
     {
         return array(
-            'product_name' =>array('product_name',true),
+            'product_name' => array('product_name', true),
             'setorder' => array('setorder', true),
-            'id' => array('id', true),
+            'price' => array('price', true),
+            'id' => array('ID', true),
         );
     }
 
@@ -94,23 +96,23 @@ class Product_Model extends WP_List_Table {
     {
         $data = array();
         global $wpdb; //đối tượng trừu tượng database wordpress
-        
+
         //lấy giá trị sắp xếp dữ liệu trên cột
-        $orderby = (getParams('orderby') == ' ') ? 'id' : $_GET['orderby'];
-        $order = (getParams('setorder') == ' ') ? 'DESC' : $_GET['setorder'];
+        $orderby = (getParams('orderby') == ' ') ? ' ID ' : $_GET['orderby'];
+        $order = (getParams('order') == ' ') ? 'DESC' : $_GET['order'];
         $tblTest = $wpdb->prefix . 'product';
-        $sql = 'SELECT * FROM ' . $tblTest ;
+        $sql = 'SELECT * FROM ' . $tblTest;
         $whereArr = array(); //tạo mảng where
 
         //kiểm tra trash, trash mặc định là 0 : hiện hành, 1 : đã xóa
-        if(getParams('customvar') == 'trash') { //customvar là biến mặc định
+        if (getParams('customvar') == 'trash') { //customvar là biến mặc định
             $whereArr[] = "(trash = 1)";
         } else {
             $whereArr[] = "(trash = 0)";
         }
 
         //kiểm tra nhánh lọc
-        if(getParams('filter_branch') != ' ') {
+        if (getParams('filter_branch') != ' ') {
             $branch = getParams('filter_branch');
             if ($branch > 0) {
                 $whereArr[] = "(category = $branch)";
@@ -122,30 +124,31 @@ class Product_Model extends WP_List_Table {
         }
 
         //kiểm tra search
-        if(getParams('s') != ' ') {
+        if (getParams('s') != ' ') {
             $s = esc_sql(getParams('s'));
             $whereArr[] = "( product_name LIKE '%$s%')";
         }
 
         //chuyển các giá trị WHERE kết với nhau bởi AND
-        if(count($whereArr) > 0){
+        if (count($whereArr) > 0) {
             $sql .= " WHERE " . join(" AND ", $whereArr);
         }
         //order by
-        //$sql .= 'ORDER BY wp_p' . esc_sql($orderby) . ' ' . esc_sql($order);
-        
+        $sql .= 'ORDER BY ' . esc_sql($orderby) . '  ' . esc_sql($order);
+
         $this->_sql = $sql;
-        
+
 
         //lấy giá trị phân trang pageing
         $paged = max(1, @$_REQUEST['paged']);
         $offset = ($paged - 1) * $this->_pre_page;
 
         $sql .= ' LIMIT  ' . $this->_pre_page . ' OFFSET ' . $offset;
+        echo $sql;
         //lấy kết quả thông qua câu sql
         $data = $wpdb->get_results($sql, ARRAY_A);
         return $data;
-    }   
+    }
 
     //tính tổng số dòng dữ liệu để áp dụng cho việc phân trang
     public function total_items()
@@ -155,7 +158,7 @@ class Product_Model extends WP_List_Table {
     }
 
     //số tổng item dùng để phân trang
-    public function total_list() 
+    public function total_list()
     {
         global $wpdb;
         $tblOrdert = $wpdb->prefix . 'product'; //prefix là tiền tố wp
@@ -163,11 +166,11 @@ class Product_Model extends WP_List_Table {
     }
 
     //số tổng item trong trash - trash = 1
-    public function total_trash() 
+    public function total_trash()
     {
         global $wpdb;
         $tblOrdert = $wpdb->prefix . 'product'; //prefix là tiền tố wp
-        return $wpdb->get_var("SELECT COUNT(*) FROM $tblOrdert WHERE trash = 1"); 
+        return $wpdb->get_var("SELECT COUNT(*) FROM $tblOrdert WHERE trash = 1");
     }
 
     //số tổng item hiện hành - trash = 0
@@ -199,7 +202,7 @@ class Product_Model extends WP_List_Table {
         $foo_url = add_query_arg('customvar', 'published');
         $class = ($current == 'foo' ? ' class="current"' : '');
         $views['foo'] = "<a href='{$foo_url}' {$class} > " . __('Published') . " (" . $this->total_publish() . ")</a>";
-        
+
         //bar link
         $bar_url = add_query_arg('customvar', 'trash');
         $class = ($current == 'bar' ? ' class="current"' : '');
@@ -209,8 +212,8 @@ class Product_Model extends WP_List_Table {
     }
 
     //các item trong select box chức năng `ứng dụng`
-    public function get_bulk_actions() 
-    {   
+    public function get_bulk_actions()
+    {
 
         if (isset($_GET['customvar']) == 'trash') {
             $actions = array(
@@ -220,17 +223,17 @@ class Product_Model extends WP_List_Table {
         } else {
             $actions = array(
                 'trash' => __('Trash'),
-                    // 'uncheckin' => '取消報到'
+                // 'uncheckin' => '取消報到'
             );
         }
         return $actions;
     }
 
     //các item trong select box trong phần filter
-    public function extra_tablenav($which) 
-    {   
+    public function extra_tablenav($which)
+    {
 
-        if($which == 'top') {
+        if ($which == 'top') {
             $first_row = array(array('ID' => 0, 'category_name' => __('All Categories')));
             $last_row = array(array('ID' => -1, 'category_name' => __('Other')));
             $list1 = array_merge($first_row, getCategoryName());
@@ -238,21 +241,20 @@ class Product_Model extends WP_List_Table {
             foreach ($list as $val) {
                 $arrlist[$val['ID']] = $val['category_name'];
             }
-            $options['data'] = $arrlist; 
+            $options['data'] = $arrlist;
 
-            ?>
-                <div class="alignleft action bulkactions">
-                    <select name="filter_branch" id="selectbox-category" >
-                    <?php foreach( $list as $selects) : ?>
-                        <option value ="<?php echo $selects['ID'] ?>"<?php if($selects['ID'] == getParams('filter_branch') ): ?> 
-                            selected= "selected" <?php endif; ?>>
-                            <?php echo $selects['category_name']?>
+?>
+            <div class="alignleft action bulkactions">
+                <select name="filter_branch" id="selectbox-category">
+                    <?php foreach ($list as $selects) : ?>
+                        <option value="<?php echo $selects['ID'] ?>" <?php if ($selects['ID'] == getParams('filter_branch')) : ?> selected="selected" <?php endif; ?>>
+                            <?php echo $selects['category_name'] ?>
                         </option>
                     <?php endforeach; ?>
-                    </select>
-                    <input type="submit" name="filter_action" id="filter_action" class="button" value="Filter">
-                </div>
-            <?php
+                </select>
+                <input type="submit" name="filter_action" id="filter_action" class="button" value="Filter">
+            </div>
+<?php
 
         }
     }
@@ -263,7 +265,7 @@ class Product_Model extends WP_List_Table {
      * ==========================================================
      */
     //tạo các check box ở đầu dòng trống của cột
-    public function column_cb($item) 
+    public function column_cb($item)
     {
         //$singular = $this->args['singular'];
         $html = '<input type="checkbox" name="' . 'ID' . '[]" value="' . $item['ID'] . '"/>';
@@ -277,12 +279,12 @@ class Product_Model extends WP_List_Table {
         $page = getParams('page');
         $name = 'security_code';
 
-        if(isset($_GET['customvar']) == 'trash') {
+        if (isset($_GET['customvar']) == 'trash') {
             $actions = array(
                 'restore' => '<a href=" ?page=' . $page . '&action=restore&id=' . $item['ID'] . ' " >' . __('Restore') . '</a>',
                 'delete' => '<a href=" ?page=' . $page . '&action=delete&id=' . $item['ID'] . ' " >' . __('Delete Permanently') . ' </a>',
             );
-        }else {
+        } else {
             $actions = array(
                 'edit' => '<a href=" ?page=' . $page . '&action=edit&id=' . $item['ID'] . ' " >' . __('Edit') . '</a>',
                 'trash' => '<a href=" ?page=' . $page . '&action=trash&id=' . $item['ID'] . ' " >' . __('Trash') . '</a>',
@@ -304,11 +306,10 @@ class Product_Model extends WP_List_Table {
         $row = $model->getItem($item['category']);
 
         echo '<label>' . $row['category_name'] . '</label>';
-
     }
 
     //các column mặc định khi load trang sẽ hiện lên
-    public function column_default($item,$column_name)
+    public function column_default($item, $column_name)
     {
         return $item[$column_name];
     }
@@ -333,7 +334,7 @@ class Product_Model extends WP_List_Table {
     {
         global $wpdb;
         $table = $wpdb->prefix . 'product';
-        
+
         /*
             kiểm tra phần có phân dạng chuỗi hay không
             -- $arrData['ID'] là tên cột ID trong database
@@ -342,8 +343,8 @@ class Product_Model extends WP_List_Table {
         if (!is_array($arrData['ID'])) {
             $data = array('trash' => 1); //data ở trash
             $where = array('ID' => absint($arrData['id']));
-            $wpdb->update($table,$data,$where);
-        }else {
+            $wpdb->update($table, $data, $where);
+        } else {
             /**
              * $arrData['id] chuyển qua ID-barcode, ví dụ 111-222333
              * do sử dụng array_map('absint) nó chỉ lấy số nên khi
@@ -355,14 +356,13 @@ class Product_Model extends WP_List_Table {
             $sql = "UPDATE $table SET `trash` = '1' WHERE ID IN ($ids)";
             $wpdb->query($sql);
         }
-        
     }
 
     public function restoreItem($arrData = array(), $option = array())
     {
         global $wpdb;
         $table = $wpdb->prefix . 'product';
-        
+
         /*
             kiểm tra phần có phân dạng chuỗi hay không
             -- $arrData['ID'] là tên cột ID trong database
@@ -371,8 +371,8 @@ class Product_Model extends WP_List_Table {
         if (!is_array($arrData['ID'])) {
             $data = array('trash' => 0); //data ở publish
             $where = array('ID' => absint($arrData['id']));
-            $wpdb->update($table,$data,$where);
-        }else {
+            $wpdb->update($table, $data, $where);
+        } else {
             /**
              * $arrData['id] chuyển qua ID-barcode, ví dụ 111-222333
              * do sử dụng array_map('absint) nó chỉ lấy số nên khi
@@ -390,7 +390,7 @@ class Product_Model extends WP_List_Table {
     {
         global $wpdb;
         $table = $wpdb->prefix . 'product';
-        
+
         /*
             kiểm tra phần có phân dạng chuỗi hay không
             -- $arrData['ID'] là tên cột ID trong database
@@ -398,8 +398,8 @@ class Product_Model extends WP_List_Table {
         */
         if (!is_array($arrData['ID'])) {
             $where = array('ID' => absint($arrData['id']));
-            $wpdb->delete($table,$where);
-        }else {
+            $wpdb->delete($table, $where);
+        } else {
             /**
              * $arrData['id] chuyển qua ID-barcode, ví dụ 111-222333
              * do sử dụng array_map('absint) nó chỉ lấy số nên khi
@@ -432,18 +432,18 @@ class Product_Model extends WP_List_Table {
         $dataAdd = array(
             'trash' => 0,
             'create_date' => date('d-m-Y'),
-            'create_by'=> $user,
+            'create_by' => $user,
 
         );
 
-        $dataInsert = array_merge($data,$dataAdd);
+        $dataInsert = array_merge($data, $dataAdd);
 
         //kiểm tra action update hay insert
-        if($option['action'] == 'update'){
+        if ($option['action'] == 'update') {
             $where = array('ID' => $option['ID']);
-            $wpdb->update($table,$data,$where);
-        }elseif ($option['action'] == 'insert'){
-            $wpdb->insert($table,$dataInsert);
+            $wpdb->update($table, $data, $where);
+        } elseif ($option['action'] == 'insert') {
+            $wpdb->insert($table, $dataInsert);
         }
     }
 }

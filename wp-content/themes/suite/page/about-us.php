@@ -67,8 +67,5 @@
 
 </form>
 
-
-
-
 <?php
 get_footer();
