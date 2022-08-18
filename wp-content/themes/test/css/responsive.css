@@ -1,0 +1,80 @@
+
+
+@media only screen and (max-device-width: 1920px){
+    .first-space, .computer-menu  {
+        display: block;
+    }
+    .last-space, .mobile-menu{
+        display: none;
+    }
+}
+
+@media only screen and (max-device-width: 1366px){
+    .first-space, .computer-menu {
+        display: block;
+    }
+    .last-space, .mobile-menu{
+        display: none;
+    }
+}
+
+
+@media only screen and (max-device-width: 1170px){
+      .first-space, .computer-menu {
+        display: block;
+    }
+    .last-space, .mobile-menu{
+        display: none;
+    }
+}
+
+@media only screen and  (max-device-width : 970px) {
+    .first-space, .computer-menu {
+        display: none;
+    }
+    .last-space, .mobile-menu{
+        display: block;
+    }
+}
+
+@media only screen and  (max-device-width : 750px) {
+    .first-space, .computer-menu, .slider {
+        display: none;
+    }
+    .last-space, .mobile-menu{
+        display: block;
+    }
+    .second-space{
+        margin-top: 67px;
+    }
+    .head-title{
+        margin-top: 6px;
+    }
+    .head-title h4, .head-title h5{
+        font-size: 12px;
+        text-align: center;
+    }
+}
+
+@media only screen and  (max-device-width : 500px) {
+    .first-space, .computer-menu, .slider {
+        display: none;
+    }
+    .last-space, .mobile-menu{
+        display: block;
+    }
+    .second-space{
+        margin-top: 95px;
+    }
+    .head-title{
+        margin-top: 6px;
+    }
+    .head-title h4, .head-title h5{
+        font-size: 8px;
+        text-align: center;
+    }
+    
+    .mobile-menu{
+    top:70px !important;
+    }
+}

@@ -1,0 +1,43 @@
+/*
+  This file use admin
+  Create date (dd-mm-yy): 10/08/2022
+*/
+$color_black_list: rgb(27, 25, 25);
+$color_label : rgb(238, 133, 133);
+
+/*
+  use news
+*/
+
+/* edit item cell*/
+.title-cell{
+    padding-top: 15px;
+    label {
+        font-size: 15px;
+        font-weight: bold;
+        color: $color_label;
+        padding: auto;
+    }
+}
+.type{
+    width: 50%;
+    height: 40px;
+    border-radius:2px;
+    box-shadow: 1px 2px #888888;
+    border: 1px lavender solid;
+}
+.text-cell {
+    .type-text { @extend .type;}
+}
+.text-cell {
+    .type-number { @extend .type; }
+}
+.text-cell {
+    .type-phone { @extend .type; }
+}
+.text-cell {
+    .type-email { @extend .type; }
+}
+.text-cell {
+    .type-number-dot { @extend .type; }
+}
