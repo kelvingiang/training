@@ -8,7 +8,12 @@ $color_label : rgb(238, 133, 133);
 /*
   use news
 */
-
+/*table news column*/
+.column-content { width: 30%;}
+.column-category {width: 10%;}
+.column-create_by {width: 10%;}
+.column-email {width: 10%;}
+.column-img {width: 10%; height: 60px;}
 /* edit item cell*/
 .title-cell{
     padding-top: 15px;
