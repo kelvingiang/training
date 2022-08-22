@@ -44,7 +44,8 @@ class Admin_Metabox_News {
         </div>';
         //email
         echo '<div class="meta-row">
-            <div class="title-cell"><label for ="metabox-news-email">' . translate('Email') . '</label></div>
+            <div class="title-cell"><label for ="metabox-news-email">' . translate('Email') . '</label>
+                <i id="error-email" class="error"></i></div>
             <div class="text-cell" >
                 <input class="type-email" id="metabox-news-email" name="metabox-news-email" maxlength="50"
                 placeholder = ' . translate('Email ')  .

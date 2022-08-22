@@ -36,11 +36,10 @@ jQuery(document).ready(function () {
 
   // KIEM TRA NHAP EMAIL
   jQuery(".type-email").focusout(function (e) {
-    console.log(jQuery(this).val());
-    var email = jQuery(this).val();
+    var email = document.getElementById("txt-email");
     var filter =
       /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    if (!filter.test(email)) {
+    if (!filter.test(email.value)) {
       jQuery("#error-email").text("請輸入正確 E-mail 地址 ! ");
       email.focus;
     } else {
