@@ -64,7 +64,7 @@ class Admin_Model_Member extends WP_List_Table {
             'cell_phone' => __('Cell Phone'),
             'create_date' => __('Create Date'),
             'update_date' => __('Update Date'),
-            'setorder' => __('Order'),
+            //'setorder' => __('Order'),
         );
         return $arr;
     }
@@ -110,31 +110,29 @@ class Admin_Model_Member extends WP_List_Table {
             $whereArr[] = "(trash = 0)";
         }
 
-        //kiểm tra nhánh lọc
-        if(getParams('filter_branch_group') != ' ' && getParams('filter_branch_indus') != ' ') {
-            $branch_group = getParams('filter_branch_group');
-            $branch_indus = getParams('filter_branch_indus');
-            if ($branch_group > 0 && $branch_indus > 0) {
-                $whereArr[] = "(group_id = $branch_group )"; 
-                $whereArr[] = "(industry_id = $branch_indus )"; 
-            } elseif ($branch_group == -1 && $branch_indus == -1) {
+        //kiểm tra filter industry 
+        if(getParams('filter_group') != ' ') {
+            $branch = getParams('filter_group');
+            if ($branch > 0) {
+                $whereArr[] = "(group_id = $branch )"; 
+            } elseif ($branch == -1) {
                 $whereArr[] = "(group_id  = ' ')";
-                $whereArr[] = "(industry_id = ' ')"; 
             } else {
                 $whereArr[] = '';
             }
         }
 
-        // if(getParams('filter_branch_indus') != ' ') {
-        //     $branch = getParams('filter_branch_indus');
-        //     if ($branch > 0) {
-        //         $whereArr[] = "(industry_id = $branch )"; 
-        //     } elseif ($branch == -1) {
-        //         $whereArr[] = "(industry_id  = ' ')";
-        //     } else {
-        //         $whereArr[] = '';
-        //     }
-        // }
+        //kiểm tra filter industry 
+        if(getParams('filter_industry') != ' ') {
+            $branch = getParams('filter_industry');
+            if ($branch > 0) {
+                $whereArr[] = "(industry_id = $branch )"; 
+            } elseif ($branch == -1) {
+                $whereArr[] = "(industry_id  = ' ')";
+            } else {
+                $whereArr[] = '';
+            }
+        }
 
         //kiểm tra search
         if(getParams('s') != ' ') {
@@ -255,13 +253,13 @@ class Admin_Model_Member extends WP_List_Table {
             $options['data'] = $arrlist;
 
             ?>
-                <select name="filter_branch_group">
+                <select name="filter_group" id="filter_group">
                     <?php foreach( $list as $selects) : ?>
-                    <option value ="<?php echo $selects['ID'] ?>"<?php if( $selects['ID'] == getParams('filter_branch_group') ): ?> 
+                    <option value ="<?php echo $selects['ID'] ?>"<?php if( $selects['ID'] == getParams('filter_group') ): ?> 
                             selected= "selected" <?php endif; ?>><?php echo $selects['cate_name'] ?></option>
                     <?php endforeach; ?>
                 </select>
-                <!-- <input type="submit" name="filter_action" id="filter_action" class="button" value="Filter">  -->
+                <input type="submit" name="filter_action" id="filter_action" class="button" value="Filter">
             <?php
 
         }
@@ -278,16 +276,18 @@ class Admin_Model_Member extends WP_List_Table {
             $options['data'] = $arrlist;
 
             ?>
-                <select name="filter_branch_indus">
+             <select name="filter_industry" id="filter_industry">
                     <?php foreach( $list as $selects) : ?>
-                    <option value ="<?php echo $selects['ID'] ?>"<?php if( $selects['ID'] == getParams('filter_branch_indus') ): ?> 
-                            selected= "selected" <?php endif; ?>><?php echo $selects['cate_name'] ?></option>
-                    <?php endforeach; ?>
+                     <option value ="<?php echo $selects['ID'] ?>"<?php if( $selects['ID'] == getParams('filter_industry') ): ?> 
+                             selected= "selected" <?php endif; ?>><?php echo $selects['cate_name'] ?></option>
+                     <?php endforeach; ?>
                 </select>
-                <!-- <input type="submit" name="filter_action" id="filter_action" class="button" value="Filter">  -->
+                <input type="submit" name="filter_action" id="filter_action" class="button" value="Filter"> 
             <?php
-        }
-        ?><input type="submit" name="filter_action" id="filter_action" class="button" value="Filter"><?php
+         }
+        ?>
+        <!-- <input type="submit" name="filter_action" id="filter_action" class="button" value="Filter">  -->
+        <?php
         
     }
 

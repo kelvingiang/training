@@ -50,9 +50,15 @@ class Admin_Controller_Member {
     public function createUrl() {
         echo $url = 'admin.php?page=' . getParams('page');
         //filter status
-        if (!empty(getParams('filter_branch'))) {
-            if (getParams('filter_branch') >= -1) {
-                $url .= '&filter_branch=' . getParams('filter_branch');
+        if (!empty(getParams('filter_group'))) {
+            if (getParams('filter_group') >= -1) {
+                $url .= '&filter_group=' . getParams('filter_group');
+            }
+        }
+        //filter status
+        if (!empty(getParams('filter_industry'))) {
+            if (getParams('filter_industry') >= -1) {
+                $url .= '&filter_industry=' . getParams('filter_industry');
             }
         }
         //search

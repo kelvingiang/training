@@ -38,7 +38,8 @@ class Admin_Controller_Member_Industry {
         if (isPost()) {
             require_once (DIR_MODEL . 'admin-model-member-cate.php');
             $model = new Admin_Model_Member_Cate();
-            $model->save($_POST, 'add');
+            $option = array('add', '2');
+            $model->save($_POST, $option);
         }
         require_once ( DIR_VIEW . 'admin-view-member-cate-industry-view.php');
     }
@@ -58,7 +59,7 @@ class Admin_Controller_Member_Industry {
         $id = getParams('id');
         require_once (DIR_MODEL . 'admin-model-member-cate.php');
         $model = new Admin_Model_Member_Cate();
-        $model->delete($id);
+        $model->deleteIndustry($id);
         goback();
     }
 }

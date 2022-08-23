@@ -39,7 +39,8 @@ class Admin_Controller_Member_Group {
         if (isPost()) {
             require_once (DIR_MODEL . 'admin-model-member-cate.php');
             $model = new Admin_Model_Member_Cate();
-            $model->save($_POST, 'add');
+            $option = array('add','1');
+            $model->save($_POST, $option);
         }
         require_once ( DIR_VIEW . 'admin-view-member-cate-group-view.php');
     }
@@ -59,7 +60,7 @@ class Admin_Controller_Member_Group {
         $id = getParams('id');
         require_once (DIR_MODEL . 'admin-model-member-cate.php');
         $model = new Admin_Model_Member_Cate();
-        $model->delete($id);
+        $model->deleteGroup($id);
         goback();
     }
 }
