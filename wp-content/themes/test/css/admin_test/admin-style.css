@@ -47,4 +47,41 @@
 .error ::after {
   content: "!"; }
 
+/* product-category tbl*/
+.category_list {
+  border: 1px solid;
+  margin: 5px;
+  border-radius: 2px; }
+  .category_list li {
+    border-bottom: 1px solid;
+    line-height: 30px;
+    padding: 0px;
+    margin: 0px;
+    height: 35px; }
+  .category_list li:last-child {
+    border-bottom: 0px; }
+  .category_list li:first-child {
+    height: 50px;
+    background-color: peachpuff;
+    color: black;
+    line-height: 50px;
+    font-size: 15px;
+    font-weight: bold; }
+  .category_list li:nth-child(even) {
+    background-color: white;
+    display: block; }
+  .category_list li div {
+    float: left;
+    text-align: center;
+    height: 30px; }
+  .category_list li div:nth-child(1) {
+    width: 25%; }
+  .category_list li div:nth-child(2) {
+    width: 50%; }
+  .category_list li div:nth-child(3) {
+    width: 25%; }
+  .category_list li div a {
+    text-decoration: none;
+    font-weight: bold; }
+
 /*# sourceMappingURL=admin-style.css.map */

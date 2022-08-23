@@ -44,3 +44,24 @@ function goback($num = 1)
     wp_redirect($url);
 }
 
+//type 1: group_id, 2: industry_id
+//function lay category name tu database qua group_id
+function getCategoryNameByGroupID()
+{
+    global $wpdb;
+    $table = $wpdb->prefix . 'member_cate';
+    $sql = "SELECT * FROM  $table WHERE type = 1";
+    $row = $wpdb->get_results($sql, ARRAY_A);
+    return $row;
+}
+
+//function lay category name tu database qua industry_id
+function getCategoryNameByIndustryID()
+{
+    global $wpdb;
+    $table = $wpdb->prefix . 'member_cate';
+    $sql = "SELECT * FROM  $table WHERE type = 2";
+    $row = $wpdb->get_results($sql, ARRAY_A);
+    return $row;
+}
+
