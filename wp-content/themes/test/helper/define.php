@@ -26,7 +26,7 @@ define('DIR_FILE', THEME_URL . DS . 'file' . DS);
 define('DIR_SHORTCODE', THEME_URL . DS . 'shortcode' . DS);
 
 define('PART_IMAGES', THEME_PART  .'/images/');
-define('PART_IMAGES_MEMBER', PART_IMAGES. '/member/');
+define('PART_IMAGES_MEMBER', PART_IMAGES. 'member/');
 define('PART_ICON', PART_IMAGES. '/icon/' );
 define('PART_QRCODE', PART_IMAGES. '/qrcode/' );
 define('PART_FILE', THEME_PART .'/file/');
