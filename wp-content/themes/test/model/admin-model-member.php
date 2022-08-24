@@ -420,8 +420,7 @@ class Admin_Model_Member extends WP_List_Table {
     {
         global $wpdb;
         $table = $wpdb->prefix . 'product';
-        $this->deleteImg($arrData['ID']); // xóa hình
-
+        $this->deleteImg($arrData['ID']);
         /*
             kiểm tra phần có phân dạng chuỗi hay không
             -- $arrData['ID'] là tên cột ID trong database
@@ -515,14 +514,14 @@ class Admin_Model_Member extends WP_List_Table {
             'setorder' => $arrData['txt-order'],
             'industry_id' => $arrData['sel_industry_id'],
             'group_id' => $arrData['sel_group_id'],
-
+            'img' => $file_name,
         );
 
         $dataAdd = array(
             'trash' => 0,
             'create_date' => date('d-m-Y'),
             'create_by'=> $user,
-            'img' => $file_name,
+            //'img' => $file_name,
 
         );
 
