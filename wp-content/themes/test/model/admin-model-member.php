@@ -59,12 +59,13 @@ class Admin_Model_Member extends WP_List_Table {
         $arr = array(
             'cb' => '<input type="checkbox" />', // bắt buộc
             'company_name' => __('Company Name'),
+            'img' => __('Image'),
             'contact_name' => __('Contact Name'),
             'phone' => __('Phone'),
             'cell_phone' => __('Cell Phone'),
             'create_date' => __('Create Date'),
             'update_date' => __('Update Date'),
-            //'setorder' => __('Order'),
+            'setorder' => __('Order'),
         );
         return $arr;
     }
@@ -325,6 +326,13 @@ class Admin_Model_Member extends WP_List_Table {
         return $html;
     }
 
+    public function column_img($item)
+    {
+        if(!empty($item['img'])) {
+            echo '<img style="width:100px" src=" ' . PART_IMAGES_MEMBER . $item["img"] . ' " />' ;
+        }
+    }
+
     public function column_setorder($item)
     {
         echo '<label>' . $item['setorder'] . '</label>';
@@ -412,7 +420,8 @@ class Admin_Model_Member extends WP_List_Table {
     {
         global $wpdb;
         $table = $wpdb->prefix . 'product';
-        
+        $this->deleteImg($arrData['ID']); // xóa hình
+
         /*
             kiểm tra phần có phân dạng chuỗi hay không
             -- $arrData['ID'] là tên cột ID trong database
@@ -435,12 +444,67 @@ class Admin_Model_Member extends WP_List_Table {
         }
     }
 
+    private function deleteImg($arrID)
+    {
+        global $wpdb;
+        $table = $wpdb->prefix . 'member';
+        if(!is_array($arrID)) {
+            $sql = "SELECT * FROM $table WHERE ID= $arrID";
+            $row = $wpdb->get_row($sql, ARRAY_A);
+            //xoá hình trong folder
+            unlink(DIR_IMAGE_MEMBER . $row['img']);
+        } else{
+            foreach($arrID as $key) {
+                $sql = "SELECT * FROM $table WHERE ID = $key";
+                $row = $wpdb->get_row($sql, ARRAY_A);
+                //xóa hình
+                unlink(DIR_IMAGE_MEMBER) . $row['img'];
+            }
+        }
+    }
+
     public function saveItem($arrData = array(), $option = array())
     {
         global $wpdb;
         $table = $wpdb->prefix . 'member';
         $currentUser = wp_get_current_user();
         $user = $currentUser->user_login; //lấy ra tên user
+
+        //xử lý hình
+        if(!empty($_FILES['member_img']['name'])) { 
+            $errors = array();
+            $file_name = $_FILES['member_img']['name'];
+            $file_size = $_FILES['member_img']['size'];
+            $file_tmp = $_FILES['member_img']['tmp_name'];
+            $file_type = $_FILES['member_img']['type'];
+
+            $file_trim = ((explode('.', $_FILES['member_img']['name']))); //tách chuỗi 
+            $trim_name = strtolower($file_trim[0]);
+            $trim_type = strtolower($file_trim[1]);
+
+            $extensions = array("jpeg", "jpg", "png", "bmp"); //đuôi hình
+            if (in_array($trim_type, $extensions) === false) {
+                $errors[] = "上傳照片檔案是 JPEG, PNG, BMP.";
+            }
+            if ($file_size > 2097152) {
+                $errors[] = '上傳檔案容量不可大於 2 MB';
+            }
+
+            //kiểm tra lỗi
+            if(empty($errors) == true) {
+                //upload hình
+                //xóa hình barcode cũ
+                if(is_file(DIR_IMAGE_MEMBER . $arrData['hidden_img'])) {
+                    unlink(DIR_IMAGE_MEMBER . $arrData['hidden_img']);
+                }
+                move_uploaded_file($file_tmp, (DIR_IMAGE_MEMBER . $file_name));
+            }else {
+                return $errors;
+            }
+        } else {
+            $file_name = $arrData['hidden_img'];
+        }
+
         $data = array(
             'company_name' => $arrData['txt-company-name'],
             'contact_name' => $arrData['txt-contact-name'],
@@ -458,6 +522,7 @@ class Admin_Model_Member extends WP_List_Table {
             'trash' => 0,
             'create_date' => date('d-m-Y'),
             'create_by'=> $user,
+            'img' => $file_name,
 
         );
 

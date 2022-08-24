@@ -19,12 +19,14 @@ define('DIR_ICON', DIR_IMAGES  . 'icon' . DS);
 define('DIR_IMAGE_GUESTS', DIR_IMAGES . 'guests' . DS);
 define('DIR_IMAGE_QRCODE', DIR_IMAGES . 'qrcode' . DS);
 define('DIR_IMAGE_QRCODE_NAME', DIR_IMAGES . 'qrcode-name' . DS);
+define('DIR_IMAGE_MEMBER', DIR_IMAGES . 'member' . DS);
 
 define('DIR_COMPONENT', THEME_URL . DS . 'component' . DS);
 define('DIR_FILE', THEME_URL . DS . 'file' . DS);
 define('DIR_SHORTCODE', THEME_URL . DS . 'shortcode' . DS);
 
 define('PART_IMAGES', THEME_PART  .'/images/');
+define('PART_IMAGES_MEMBER', PART_IMAGES. '/member/');
 define('PART_ICON', PART_IMAGES. '/icon/' );
 define('PART_QRCODE', PART_IMAGES. '/qrcode/' );
 define('PART_FILE', THEME_PART .'/file/');

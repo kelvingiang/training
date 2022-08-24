@@ -6,7 +6,8 @@ $data = array(
     'cell_phone' => '',
     'setorder' => '',
     'group_id' => '',
-    'industry_id' => ''
+    'industry_id' => '',
+    'img' => '',
 );
 
 $selectCateByGroupID = getCategoryNameByGroupID();
@@ -120,6 +121,25 @@ if ((getParams('action')=='edit')) {
             </select>
         </div>
     </div>
+    <!-- image -->
+    <div class="meta-row">
+        <div class="title-cell">
+            <label><?php echo __('Image'); ?></label>
+        </div>
+        <div class="text-cell">
+            <?php 
+            if(empty($data['img'])) {
+                $member_img = 'no-image.jpg';
+            }else {
+                $member_img = $data['img'];
+            }
+            ?>
+            <div id="show-img" style=" background-image: url('<?php echo PART_IMAGES_MEMBER . $member_img; ?>');">
+            </div>
+            <input type="file" id="member_img" name="member_img" accept=".png, .jpg, .jpeg, .bmp"/>
+            <input type="hidden" name="hidden_img" id="hidden_img" value="<?php echo $data['img'] ?>"/> 
+        </div>
+    </div>
     <div style="clear: both"></div>
     <div class="button-row">
         <input type="submit" name="btn-submit" id="btn-submit" class="button button-primary button-large" value="<?php echo __('Send') ?>"/>
@@ -132,7 +152,6 @@ if ((getParams('action')=='edit')) {
 
         jQuery('#btn-submit').click(function (e) {
             // KIEM TRA CAC TRUONG KHONG DC RONG 
-
             var serialVal = jQuery('#txt-company-name').val();
             if (serialVal === '') {
                 jQuery('#company_merss').text('<?php echo __('please input the company name'); ?>');
@@ -152,6 +171,21 @@ if ((getParams('action')=='edit')) {
             }
         });
 
+        jQuery("#member_img").on("change", function() {
+            var file = !!this.file ? this.file : [];
+            if(!file.length || !window.FileReader)
+                return; // no file selected or no FileReader support
+
+            if (/^image/.test(files[0].type)) { // only image file
+                var reader = new FileReader(); // instance of the FileReader
+                reader.readAsDataURL(files[0]); // read the local file
+
+                reader.onloadend = function() { // set image data as background of div
+                    jQuery("#show-img").css("background-image", "url(" + this.result + ")");
+                };
+                console.log(result);
+            }
+        });
         
     });
 
