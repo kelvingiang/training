@@ -100,4 +100,12 @@ $color_label : rgb(238, 133, 133);
       text-decoration: none;
       font-weight: bold;
     }
-}        
+}       
+
+/* image */
+.show-img {
+  width: 400px;
+  height: 200px;
+  border-radius: 2px;
+  border: 1px rgb(139, 139, 145) solid;
+}

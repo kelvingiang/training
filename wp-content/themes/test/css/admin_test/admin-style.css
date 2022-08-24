@@ -84,4 +84,11 @@
     text-decoration: none;
     font-weight: bold; }
 
+/* image */
+.show-img {
+  width: 400px;
+  height: 200px;
+  border-radius: 2px;
+  border: 1px #8b8b91 solid; }
+
 /*# sourceMappingURL=admin-style.css.map */

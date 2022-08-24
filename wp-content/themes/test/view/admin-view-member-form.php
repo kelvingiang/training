@@ -134,7 +134,7 @@ if ((getParams('action')=='edit')) {
                 $member_img = $data['img'];
             }
             ?>
-            <div id="show-img" style=" background-image: url('<?php echo PART_IMAGES_MEMBER . $member_img; ?>');">
+            <div id="show-img" class="show-img" style=" background-image: url('<?php echo PART_IMAGES_MEMBER . $member_img; ?>');">
             </div>
             <input type="file" id="member_img" name="member_img" accept=".png, .jpg, .jpeg, .bmp"/>
             <input type="hidden" name="hidden_img" id="hidden_img" value="<?php echo $data['img'] ?>"/> 

@@ -492,7 +492,7 @@ class Admin_Model_Member extends WP_List_Table {
             //kiểm tra lỗi
             if(empty($errors) == true) {
                 //upload hình
-                //xóa hình barcode cũ
+                //xóa hình barcode cũ, hình không sử dụng
                 if(is_file(DIR_IMAGE_MEMBER . $arrData['hidden_img'])) {
                     unlink(DIR_IMAGE_MEMBER . $arrData['hidden_img']);
                 }
@@ -502,6 +502,7 @@ class Admin_Model_Member extends WP_List_Table {
             }
         } else {
             $file_name = $arrData['hidden_img'];
+            
         }
 
         $data = array(
@@ -521,7 +522,6 @@ class Admin_Model_Member extends WP_List_Table {
             'trash' => 0,
             'create_date' => date('d-m-Y'),
             'create_by'=> $user,
-            //'img' => $file_name,
 
         );
 
@@ -530,7 +530,7 @@ class Admin_Model_Member extends WP_List_Table {
         //kiểm tra action update hay insert
         if($option['action'] == 'update'){
             $where = array('ID' => $option['ID']);
-            $wpdb->update($table,$data,$where);
+            $wpdb->update($table,$data,$where);    
         }elseif ($option['action'] == 'insert'){
             $wpdb->insert($table,$dataInsert);
         }
