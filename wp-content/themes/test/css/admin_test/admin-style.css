@@ -86,9 +86,12 @@
 
 /* image */
 .show-img {
-  width: 400px;
-  height: 200px;
+  width: 250px;
+  height: 180px;
   border-radius: 2px;
-  border: 1px #8b8b91 solid; }
+  border: 1px #8b8b91 solid;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 4px #c5c5eb);
+  background-repeat: no-repeat; }
 
 /*# sourceMappingURL=admin-style.css.map */

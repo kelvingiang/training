@@ -10,15 +10,13 @@ $data = array(
     'img' => '',
 );
 
-$selectCateByGroupID = getCategoryNameByGroupID();
-$selectCateByIndustryID = getCategoryNameByIndustryID();
-
+require_once (DIR_MODEL . 'admin-model-member.php');
+$model = new Admin_Model_Member();
+$selectCateByGroupID = $model->getCategoryNameByGroupID();
+$selectCateByIndustryID = $model->getCategoryNameByIndustryID();
 
 if ((getParams('action')=='edit')) {
-    require_once (DIR_MODEL . 'admin-model-member.php');
-    $model = new Admin_Model_Member();
     $data = $model->get_item(getParams());
-
 }
 ?>
 
@@ -172,10 +170,10 @@ if ((getParams('action')=='edit')) {
         });
 
         jQuery("#member_img").on("change", function() {
-            var file = !!this.file ? this.file : [];
-            if(!file.length || !window.FileReader)
+            var files = !!this.files ? this.files : [];
+            if(!files.length || !window.FileReader)
                 return; // no file selected or no FileReader support
-
+            
             if (/^image/.test(files[0].type)) { // only image file
                 var reader = new FileReader(); // instance of the FileReader
                 reader.readAsDataURL(files[0]); // read the local file

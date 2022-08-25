@@ -246,7 +246,7 @@ class Admin_Model_Member extends WP_List_Table {
 
             $first_row = array(array('ID' => 0, 'cate_name' => __('All Groups')));
             $last_row = array(array('ID' => -1, 'cate_name' => __('Other')));
-            $list1 = array_merge($first_row, getCategoryNameByGroupID());
+            $list1 = array_merge($first_row, $this->getCategoryNameByGroupID());
             $list = array_merge($list1, $last_row);
             foreach ($list as $val) {
                 $arrlist[$val['ID']] = $val['cate_name'];
@@ -269,7 +269,7 @@ class Admin_Model_Member extends WP_List_Table {
 
             $first_row = array(array('ID' => 0, 'cate_name' => __('All Industries')));
             $last_row = array(array('ID' => -1, 'cate_name' => __('Other')));
-            $list1 = array_merge($first_row, getCategoryNameByIndustryID());
+            $list1 = array_merge($first_row, $this->getCategoryNameByIndustryID());
             $list = array_merge($list1, $last_row);
             foreach ($list as $val) {
                 $arrlist[$val['ID']] = $val['cate_name'];
@@ -496,6 +496,7 @@ class Admin_Model_Member extends WP_List_Table {
                 if(is_file(DIR_IMAGE_MEMBER . $arrData['hidden_img'])) {
                     unlink(DIR_IMAGE_MEMBER . $arrData['hidden_img']);
                 }
+                $file_name =$arrData['txt-contact-name'].'.'.$trim_type;
                 move_uploaded_file($file_tmp, (DIR_IMAGE_MEMBER . $file_name));
             }else {
                 return $errors;
@@ -534,5 +535,26 @@ class Admin_Model_Member extends WP_List_Table {
         }elseif ($option['action'] == 'insert'){
             $wpdb->insert($table,$dataInsert);
         }
+    }
+
+    //type 1: group_id, 2: industry_id
+    //function lay category name tu database qua group_id
+    function getCategoryNameByGroupID()
+    {
+        global $wpdb;
+        $table = $wpdb->prefix . 'member_cate';
+        $sql = "SELECT * FROM  $table WHERE type = 1";
+        $row = $wpdb->get_results($sql, ARRAY_A);
+        return $row;
+    }
+
+    //function lay category name tu database qua industry_id
+    function getCategoryNameByIndustryID()
+    {
+        global $wpdb;
+        $table = $wpdb->prefix . 'member_cate';
+        $sql = "SELECT * FROM  $table WHERE type = 2";
+        $row = $wpdb->get_results($sql, ARRAY_A);
+        return $row;
     }
 }
