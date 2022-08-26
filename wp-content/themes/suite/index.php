@@ -13,6 +13,10 @@
                 <!-- gọi đến template-member.php -->
                 <a style="font-size: 20px;"  href="<?php echo home_url('members'); ?>">Member </a>
             </div>
+            <div>
+                <!-- gọi đến template-product.php -->
+                <a style="font-size: 20px;"  href="<?php echo home_url('products'); ?>">Product </a>
+            </div>
         </div>    
     </div>
 </div>

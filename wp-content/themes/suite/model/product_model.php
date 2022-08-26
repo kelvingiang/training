@@ -243,7 +243,7 @@ class Product_Model extends WP_List_Table
             }
             $options['data'] = $arrlist;
 
-?>
+        ?>
             <div class="alignleft action bulkactions">
                 <select name="filter_branch" id="selectbox-category">
                     <?php foreach ($list as $selects) : ?>
@@ -254,7 +254,7 @@ class Product_Model extends WP_List_Table
                 </select>
                 <input type="submit" name="filter_action" id="filter_action" class="button" value="Filter">
             </div>
-<?php
+        <?php
 
         }
     }
