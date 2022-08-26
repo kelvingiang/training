@@ -21,6 +21,10 @@ function isPost()
 }
 
 //=======================  FUNCTION GET HINH ==================================
+function get_image($name = '')
+{
+    return get_template_directory_uri() . '/images/' . $name;
+}
 
 //Function duoc goi trong slider-controller.php trong phan tao taxonomy
 function custom_redirect($location)
