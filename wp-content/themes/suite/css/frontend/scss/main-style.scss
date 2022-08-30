@@ -6,7 +6,7 @@ $color_label: rgb(247, 178, 160);
 
 
 /*
-    use page,..
+    use page, template,..
 */
 .title-row{
     padding-top: 15px;
@@ -60,3 +60,14 @@ $color_label: rgb(247, 178, 160);
     content: "!";
   }
 }  
+
+.member-group {
+  margin-top: 15px;
+  a {
+    font-size: 20px;
+    color: rgb(60, 78, 245);
+    padding-left: 10px;
+  }
+
+}
+

@@ -20,13 +20,13 @@ $table = $wpdb->prefix . 'product';
     <div>
         <ul class="article-list" >
             <?php 
-            $sql = "SELECT * FROM $table limit 7";
+            $sql = "SELECT ID,product_name FROM $table limit 7";
             $data = $wpdb->get_results($sql, ARRAY_A);
             if (!empty($data)) {
                 foreach ($data as $key => $val) {
                     ?>
                     <li class="">
-                        <a href="<?php //echo home_url('products') . '/' . $val['product_name']; ?>"><?php echo $val['product_name'] ?></a>  
+                        <a href="<?php echo home_url('products') . '/' . $val['ID']; ?>"><?php echo $val['product_name'] ?></a>  
                     </li>
                     <?php
                 }

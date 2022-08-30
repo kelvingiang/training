@@ -3,7 +3,7 @@
     Create date( dd-mm-yy ) : 10/08/2022
 */
 /*
-    use page,..
+    use page, template,..
 */
 .title-row {
   padding-top: 15px; }
@@ -37,5 +37,12 @@
   margin-left: 10px; }
   .error ::after {
     content: "!"; }
+
+.member-group {
+  margin-top: 15px; }
+  .member-group a {
+    font-size: 20px;
+    color: #3c4ef5;
+    padding-left: 10px; }
 
 /*# sourceMappingURL=main-style.css.map */
