@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
-<div class="row col-md-4" style="margin-top: 100px;"> 
+<div class="row " style="margin-top: 100px;"> 
     <!-- lay ra ten category -->
     <?php $member_group = get_query_var('member-member_group');?>       
-    <div class="group-border" >
+    <div class="group-border" style="width:40%;" >
         <div class="group-title">
             <label><?php  echo $member_group; ?> </label>
         <div>
@@ -34,4 +34,4 @@
     </div>
 </div>    
 
-<?php //get_footer(); ?>
+<?php get_footer(); ?>

@@ -10,8 +10,8 @@ $select_category = getCategoryName();
 
 
 if ((getParams('action')=='edit')) {
-    require_once (DIR_MODEL . 'product_model.php');
-    $model = new Product_Model();
+    require_once (DIR_MODEL . 'product_model_function.php');
+    $model = new Product_Model_Function();
     $data = $model->get_item(getParams());
 
 }

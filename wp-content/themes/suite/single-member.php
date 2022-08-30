@@ -1,5 +1,7 @@
-<h2>Info member <?php the_title(); ?></h2>
-<section id="content" role="main">
+<?php get_header()?>
+
+<section id="content" role="main" style="margin-top: 100px;">
+    <h2 style="font-size: 30px; font-weight:bold">Info member <?php the_title(); ?></h2>
     <div class="">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <div class="meta-row">
@@ -39,29 +41,3 @@
     </footer>
 </section>
 
-<style>
-    .title-row {
-    padding-top: 15px; }
-    .title-row h2 {
-        font-size: 30px;
-        font-weight: bold; }
-
-    .title-cell {
-    padding-top: 15px; }
-    .title-cell label {
-        font-size: 18px;
-        font-weight: bold;
-        color: #f7b2a0;
-        padding: auto;
-        text-align: left; }
-    .title-cell span {
-        font-size: 20px;
-        color: gray; }
-
-    .type, .text-cell .type-text, .text-cell .type-number, .text-cell .type-phone, .text-cell .type-email, .text-cell .type-number-dot {
-    width: 50%;
-    height: 40px;
-    border-radius: 2px;
-    box-shadow: 1px 2px #888888;
-    border: 1px lavender solid; }
-</style>

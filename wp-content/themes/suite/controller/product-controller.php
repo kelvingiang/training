@@ -86,12 +86,18 @@ class Product_Controller {
         return $model;
     }
 
+    public function model_function() {
+        require_once(DIR_MODEL . 'product_model_function.php');
+        $model = new Product_Model_Function();
+        return $model;
+    }
+
     //them moi item
     public function addAction() {
         //kiem tra phuong thuc GET hay POST
         if(isPost()) {
             $arr = array('action' => 'insert');
-            $this->model()->saveItem($_POST,$arr); 
+            $this->model_function()->saveItem($_POST,$arr); 
             goback();
         }
         //show phần form dữ liệu
@@ -107,7 +113,7 @@ class Product_Controller {
          */
         if(isPost()) {
             $arr = array('action' => 'update', 'ID' => getParams('id'));
-            $this->model()->saveItem($_POST, $arr);
+            $this->model_function()->saveItem($_POST, $arr);
             goback(); 
         }
         //show phần form dữ liệu
@@ -126,19 +132,19 @@ class Product_Controller {
 
     //xoa item
     public function deleteAction() {
-        $this->model()->deleteItem(getParams());
+        $this->model_function()->deleteItem(getParams());
         goback();
     }
 
     //khoi phuc item
     public function restoreAction() {
-        $this->model()->restoreItem(getParams());
+        $this->model_function()->restoreItem(getParams());
         goback();
     }
 
     //trash item
     public function trashAction() {
-        $this->model()->trashItem(getParams());
+        $this->model_function()->trashItem(getParams());
         goback();
     }
 }
