@@ -56,6 +56,7 @@ function getCategoryName()
 
 //=============================== MENU ==============================
 register_nav_menu('computer-menu', __('Computer Menu')); 
+register_nav_menu('mobile-menu', __('Mobile Menu')); 
 
 //function khai bao trong template-menu.php
 function suite_menu($slug)
