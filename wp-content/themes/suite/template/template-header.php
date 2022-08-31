@@ -13,5 +13,5 @@
             <?php get_search_form(); ?>
         </section>
     </header>
-    
+    <?php get_template_part('template/template', 'menu'); ?>
 </div>

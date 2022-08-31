@@ -53,3 +53,20 @@ function getCategoryName()
     $row = $wpdb->get_results($sql, ARRAY_A);
     return $row;
 }
+
+//=============================== MENU ==============================
+register_nav_menu('computer-menu', __('Computer Menu')); 
+
+//function khai bao trong template-menu.php
+function suite_menu($slug)
+{
+    $menu = array(
+        'theme_location' => $slug, // chon menu dc thiet lap truoc
+        'container' => 'nav', // tap html chua menu nay
+        'container_class' => 'primary-menu', // class cua mennu
+        'items_wrap' => '<ul id="%1$s" class="%2$s sf-menu">%3$s</ul>'
+    );
+
+    wp_nav_menu($menu);
+}
+

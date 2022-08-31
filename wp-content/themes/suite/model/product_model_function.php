@@ -5,8 +5,8 @@ class Product_Model_Function {
     public function get_item($arrData = array(), $option = array())
     {
         global $wpdb;
-        $id = absint($arrData['id']); //chuyển id về kiều int
         $table = $wpdb->prefix . 'product'; //prefix tiền tố là wp
+        $id = absint($arrData['id']); //chuyển id về kiều int
         $sql = "SELECT * FROM $table WHERE ID = $id";
         $row = $wpdb->get_row($sql, ARRAY_A);
         return $row;
@@ -129,20 +129,16 @@ class Product_Model_Function {
         }
     }
 
-    public function getAllData()
-    {   
-        global $wpdb;
-        $table = $wpdb->prefix . 'product'; //prefix tiền tố là wp
-        $sql = "SELECT * FROM $table ";
-        $row = $wpdb->get_results($sql, ARRAY_A);
-        return $row;
-    }
-
     public function getAllDataByCategory($item)
     {   
         global $wpdb;
         $table = $wpdb->prefix . 'product'; //prefix tiền tố là wp
-        $sql = "SELECT * FROM $table WHERE category = $item";
+        if($item == ''){
+            $sql = "SELECT * FROM $table ";
+        }else{
+            $sql = "SELECT * FROM $table WHERE category = $item";
+        }
+        
         $row = $wpdb->get_results($sql, ARRAY_A);
         return $row;
     }

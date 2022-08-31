@@ -31,5 +31,11 @@
 <div id="back-top-wrapper" >
     <a id="back-top" ><i class="fas fa-chevron-circle-up"></i>
 </div>
+<script>
+    jQuery(document).ready( function () {
+        jQuery('.primary-menu').superfish();
+    })
+    
+</script>
 </body>
 </html>

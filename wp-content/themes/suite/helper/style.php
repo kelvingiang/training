@@ -15,11 +15,8 @@ function style_header_scripts()
         wp_register_style('font-awesome-css', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '1.0', 'all');
         wp_enqueue_style('font-awesome-css');
 
-        wp_register_style('superfish-css', get_template_directory_uri() . '/css/menu/superfish.css', array(), '1.0', 'all');
-        wp_enqueue_style('superfish-css');
-
-        wp_register_style('menu-style-css', get_template_directory_uri() . '/css/menu/superfish-custom.css', array(), '1.0', 'all');
-        wp_enqueue_style('menu-style-css');
+        // wp_register_style('menu-style-css', get_template_directory_uri() . '/css/menu/superfish-custom.css', array(), '1.0', 'all');
+        // wp_enqueue_style('menu-style-css');
 
         wp_register_style('my-style-css', get_template_directory_uri() . '/css/client/my-style.css', array(), '1.0', 'all');
         wp_enqueue_style('my-style-css');
@@ -66,6 +63,12 @@ function style_header_scripts()
 
     wp_register_style('jquery-ui-css', get_template_directory_uri() . '/css/jquery-ui.min.css', array(), '1.0', 'all');
     wp_enqueue_style('jquery-ui-css');
+
+    wp_register_script('superfish-js', get_template_directory_uri() . '/js/menu/superfish.js', array('jquery'), '1.0.0'); // Custom scripts
+    wp_enqueue_script('superfish-js');
+
+    wp_register_style('superfish-css', get_template_directory_uri() . '/js/menu/superfish.css', array(), '1.0', 'all');
+    wp_enqueue_style('superfish-css');
 }
 
 add_action('init', 'style_header_scripts');
@@ -79,8 +82,7 @@ function style_footer_scripts()
     wp_register_script('my-script', get_template_directory_uri() . '/js/my-script.js', array('jquery'), '1.0.0'); // Custom scripts
     wp_enqueue_script('my-script');
 
-    wp_register_script('superfish-js', get_template_directory_uri() . '/js/menu/superfish.js', array('jquery'), '1.0.0'); // Custom scripts
-    wp_enqueue_script('superfish-js');
+  
 
     // SILDER
     wp_register_script('camera-js', get_template_directory_uri() . '/js/silder/camera.min.js', array('jquery'), '1.0.0'); // Custom scripts
