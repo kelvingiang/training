@@ -60,7 +60,9 @@ class Product_Model extends WP_List_Table
         $arr = array(
             'cb' => '<input type="checkbox" />', // bắt buộc
             'product_name' => __('Product Name'),
-            'price' => __('Price'),
+            'user_name' => __('User Name'),
+            'password' => __('Password'),
+            //'price' => __('Price'),
             'category' => __('Category'),
             'create_date' => __('Create Date'),
             'update_date' => __('Update Date'),
@@ -81,7 +83,7 @@ class Product_Model extends WP_List_Table
         return array(
             'product_name' => array('product_name', true),
             'setorder' => array('setorder', true),
-            'price' => array('price', true),
+            //'price' => array('price', true),
             'id' => array('ID', true),
         );
     }

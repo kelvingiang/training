@@ -4,7 +4,7 @@
            <a href="<?php echo home_url(''); ?>"><img src="<?php echo get_image('logo.png') ?>" width="60px" /></a>
         </section>
         <section class="head-title">
-            <h4 style=" font-weight: bold; letter-spacing: 5px; margin-top:5px; font-size:20px">
+            <h4 title="Digiwin đào tạo" style=" font-weight: bold; letter-spacing: 5px; margin-top:5px; font-size:20px">
                 <?php _e('Digiwin Training'); ?> 
             </h4>
             <h6 style="margin-top: 10px; color:blueviolet">Tầng 12A Golden King, Nguyễn Lương Bằng Q7</h6>

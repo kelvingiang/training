@@ -4,6 +4,8 @@ $data=array(
     'product_name' => '',
     'price' => '',
     'category' => '',
+    'user_name' => '',
+    'password' => '',
 );
 $select_category = getCategoryName();
 
@@ -29,6 +31,28 @@ if ((getParams('action')=='edit')) {
         }
         ?>
         <h2> <?php echo $title; ?></h2>
+    </div>
+    <!-- username - password -->
+    <div class="meta-row-two-column">
+        <div class="col">
+            <div class="title-cell">
+                <label><?php echo __('User Name') ?><i class="error" id="username_merss"></i></label>
+            </div>
+            <div class="text-cell">
+                <input type="text" name="txt-username" id="txt-username" class="type-text"  
+                    value="<?php echo $data['user_name']; ?>"  />
+            </div>
+        </div>
+        <div class="col">
+            <div class="title-cell">
+                    <label><?php echo __('Password') ?><i class="error" id="pass_merss"></i></label>
+                </div>
+                <div class="text-cell">
+                    <input type="text" name="txt-password" id="txt-password" class="type-text"  
+                        value="<?php echo $data['password']; ?>"  />
+            </div>
+        </div>
+
     </div>
     <!-- order -->
     <div class="meta-row">
@@ -100,6 +124,18 @@ if ((getParams('action')=='edit')) {
             var serialVal = jQuery('#selectbox-category').val();
             if (serialVal === '') {
                 jQuery('#category_merss').text('<?php echo __('please input the category'); ?>');
+                e.preventDefault();
+            }
+
+            var serialVal = jQuery('#txt-username').val();
+            if (serialVal === '') {
+                jQuery('#username_merss').text('<?php echo __('please input the user name'); ?>');
+                e.preventDefault();
+            }
+
+            var serialVal = jQuery('#txt-password').val();
+            if (serialVal === '') {
+                jQuery('#pass_merss').text('<?php echo __('please input the password'); ?>');
                 e.preventDefault();
             }
         });

@@ -24,7 +24,8 @@ $categories = get_categories($argsCate);
 $wp_query = new WP_Query($args);
 ?>
 <div class="row">
-    <div style="width: 50%;float: left; padding-right: 30px">
+  
+    <div class="col-lg-6 col-md-6 col-sm-6 ">
         <div class="group-border" >
             <div class="group-title">
                 <label> <?php _e('Member') ?></label>
@@ -49,7 +50,7 @@ $wp_query = new WP_Query($args);
             </div>
         </div>
     </div>
-    <div style="width: 50%;float: left; padding-left:30px">
+    <div class="col-lg-6 col-md-6 col-sm-6 ">
         <h1 style="font-size: 22px; font-weight:bold; color:crimson">Memeber Group</h1>
         <?php foreach ($categories as $cate) { ?>
         <div class="list-group member-group">

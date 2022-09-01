@@ -15,8 +15,8 @@
                 <a style="font-size: 20px;"  href="<?php echo home_url('members'); ?>">Member </a>
             </li>
             <li class="list-group-item">
-                <!-- gọi đến template-product.php -->
-                <a style="font-size: 20px;"  href="<?php echo home_url('products'); ?>">Product </a>
+                <!-- gọi đến template-product-login.php -->
+                <a style="font-size: 20px;"  href="<?php echo home_url('product-login'); ?>">Product </a>
             </li>
         </ul>    
     </div>

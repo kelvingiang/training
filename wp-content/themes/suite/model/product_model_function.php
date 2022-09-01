@@ -109,6 +109,8 @@ class Product_Model_Function {
             'update_date' => date('d-m-Y'),
             'update_by' => $user,
             'setorder' => $arrData['txt-order'],
+            'user_name' => $arrData['txt-username'],
+            'password' => md5($arrData['txt-password']),
         );
 
         $dataAdd = array(
@@ -129,17 +131,37 @@ class Product_Model_Function {
         }
     }
 
+    public function getAllData()
+    {
+        global $wpdb;
+        $table = $wpdb->prefix . 'product'; //prefix tiền tố là wp
+        $sql = "SELECT * FROM $table";
+        $row = $wpdb->get_results($sql, ARRAY_A);
+        return $row;
+    } 
+
     public function getAllDataByCategory($item)
     {   
         global $wpdb;
         $table = $wpdb->prefix . 'product'; //prefix tiền tố là wp
-        if($item == ''){
-            $sql = "SELECT * FROM $table ";
-        }else{
-            $sql = "SELECT * FROM $table WHERE category = $item";
-        }
-        
+        $item == '' ? $sql = "SELECT * FROM $table " : $sql = "SELECT * FROM $table WHERE category = $item";
         $row = $wpdb->get_results($sql, ARRAY_A);
         return $row;
+    }
+
+    public function checkUserAndPass($user, $pass)
+    {
+        global $wpdb;
+        $table = $wpdb->prefix . 'product'; //prefix tiền tố là wp
+        $sql = "SELECT * FROM $table WHERE user_name = '$user' and password = '$pass'";
+        $row = $wpdb->get_row($sql, ARRAY_A);
+        if(empty($row)){
+            $rs = " Wrong username or password!";
+        }else{
+            $_SESSION['txt-username'] = $row['ID'];
+            $rs = " Hello " . $user . ". You successful login!";
+
+        }
+        return $rs;
     }
 }    
