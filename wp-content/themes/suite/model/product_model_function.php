@@ -149,7 +149,7 @@ class Product_Model_Function {
         return $row;
     }
 
-    public function checkUserAndPass($user, $pass)
+    public function productLogin($user, $pass)
     {
         global $wpdb;
         $table = $wpdb->prefix . 'product'; //prefix tiền tố là wp
@@ -158,10 +158,19 @@ class Product_Model_Function {
         if(empty($row)){
             $rs = " Wrong username or password!";
         }else{
-            $_SESSION['txt-username'] = $row['ID'];
-            $rs = " Hello " . $user . ". You successful login!";
-
+            $_SESSION['txt-username'] = $row['ID']; //lưu session username gắn bằng id
+            wp_redirect(home_url('products')); 
         }
         return $rs;
     }
+
+    public function productLogout()
+    {
+        if(isset($_SESSION['txt-username'])){
+            unset($_SESSION['txt-username']); //xóa session login
+            wp_redirect(home_url('product-login')); 
+        }
+    
+    }
+    
 }    
