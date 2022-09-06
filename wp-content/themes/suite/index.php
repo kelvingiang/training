@@ -16,7 +16,7 @@
             </li>
             <li class="list-group-item">
                 <!-- gọi đến template-product-login.php -->
-                <a style="font-size: 20px;"  href="<?php echo home_url('product-login'); ?>">Product </a>
+                <a style="font-size: 20px;"  href="<?php echo home_url('product-login'); ?>">Product Login </a>
             </li>
         </ul>    
     </div>

@@ -51,6 +51,7 @@
         });
     </script>
 </head>
+
 <body <?php body_class(); ?>>
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDR56BR"

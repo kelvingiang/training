@@ -68,6 +68,48 @@ $color_label: rgb(247, 178, 160);
     color: rgb(60, 78, 245);
     padding-left: 10px;
   }
-
+}
+/* login form */
+.btn-login{  
+  font-size: 18px;
+  background: #6ee47e;  
+  padding: 7px;  
+  margin-left: 70%; 
+  border-radius: 2px;
+  border: #fff solid 1px;
+  a{
+    color: #fff; 
+  }
+} 
+.btn-logout{
+  font-size: 18px;  
+  background: #f1aa9d;  
+  padding: 7px;  
+  margin-left: 90%; 
+  border-radius: 3px;
+  border: #fff solid 1px;
+  a{
+    color: #fff;
+  }
+}
+.lbl-login{
+  color: #337ab7;
+  font-size: 30px;
+  text-align: center;
+} 
+.lbl-password{
+  color: $color_label;
+  font-size: 20px;
+}
+.lbl-username{
+  color: $color_label;
+  font-size: 20px;
+}
+.login-form{
+  border: rgba(158, 151, 151, 0.89) solid 2px;
+  border-radius: 2px;
+  margin: 30px auto;
+  padding:10px;
+  float: left;
 }
 
