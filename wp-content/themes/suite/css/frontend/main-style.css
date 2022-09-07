@@ -45,7 +45,7 @@
     color: #3c4ef5;
     padding-left: 10px; }
 
-/* login form */
+/* login form - change password */
 .btn-login {
   font-size: 18px;
   background: #6ee47e;
@@ -66,16 +66,23 @@
   .btn-logout a {
     color: #fff; }
 
+.btn-change-pass {
+  font-size: 18px;
+  background: #cdf19d;
+  padding: 7px;
+  margin-left: 90%;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  border: #fff solid 3px; }
+  .btn-change-pass a {
+    color: #fff; }
+
 .lbl-login {
   color: #337ab7;
   font-size: 30px;
   text-align: center; }
 
-.lbl-password {
-  color: #f7b2a0;
-  font-size: 20px; }
-
-.lbl-username {
+.lbl-form {
   color: #f7b2a0;
   font-size: 20px; }
 
@@ -85,5 +92,14 @@
   margin: 30px auto;
   padding: 10px;
   float: left; }
+
+/* button disabled */
+button:disabled,
+.btn-disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc; }
+  button:disabled a,
+  .btn-disabled a {
+    color: #666666; }
 
 /*# sourceMappingURL=main-style.css.map */

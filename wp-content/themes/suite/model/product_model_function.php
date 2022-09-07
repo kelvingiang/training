@@ -172,5 +172,23 @@ class Product_Model_Function {
         }
     
     }
+
+    public function changeProductPassword($oldPass,$newPass)
+    {
+        global $wpdb;
+        $table = $wpdb->prefix . 'product';
+        $sql = "SELECT password FROM $table WHERE ID = " . $_SESSION['txt-username'] . " and password = '$oldPass'";
+        $row = $wpdb->get_row($sql, ARRAY_A);
+        if(!empty($row['password'])){
+            if($oldPass == $row['password']){
+                $sql = "UPDATE $table set password = '$newPass' WHERE ID = " . $_SESSION['txt-username'];
+                $wpdb->query($sql);
+                $mess = "Password changed sucessfully!"; 
+            }else{
+                $mess = "Password is not correct!";
+            }
+            return $mess;
+        }        
+    }
     
 }    

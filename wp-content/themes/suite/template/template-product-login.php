@@ -11,12 +11,12 @@
     <div class="col-md-4 login-form">
         <h5 class="lbl-login">Login</h5>
         <div class="form-group">
-            <label for="user_name" class="lbl-username"><?php echo __('User Name') ?> <i class="error" id="user_merss"></i></label>
+            <label for="user_name" class="lbl-form"><?php echo __('User Name') ?> <i class="error" id="user_merss"></i></label>
             <input type="text" class="form-control type-text" name="txt-username" id="txt-username"
                 placeholder="Enter the user name"/>
         </div> 
         <div class="form-group">
-            <label for="password" class="lbl-password"><?php echo __('Password') ?> <i class="error" id="pass_merss"></i></label>
+            <label for="password" class="lbl-form"><?php echo __('Password') ?> <i class="error" id="pass_merss"></i></label>
             <input type="password" class="form-control type-text" name="txt-password" id="txt-password"
                 placeholder="Enter the password"/>
             <input type="checkbox" onclick="showPassword()">Show Password   
@@ -55,11 +55,7 @@
 
     function showPassword() {
         var str =document.getElementById('txt-password');
-        if(str.type === "password"){
-            str.type = "text";
-        }else{
-            str.type = "password";
-        }
+        str.type === "password" ? str.type = "text" : str.type = "password";
     }
 </script>
     
