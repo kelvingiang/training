@@ -15,3 +15,6 @@
     </header>
     <?php get_template_part('template/template', 'menu'); ?>
 </div>
+<div class="row "><?php get_template_part('template/template', 'slider'); ?></div>
+
+

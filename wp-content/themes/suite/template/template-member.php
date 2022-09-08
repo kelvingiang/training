@@ -24,31 +24,24 @@ $categories = get_categories($argsCate);
 $wp_query = new WP_Query($args);
 ?>
 <div class="row">
-  
     <div class="col-lg-6 col-md-6 col-sm-6 ">
-        <div class="group-border" >
-            <div class="group-title">
-                <label> <?php _e('Member') ?></label>
-            </div>
-            <div>
-                <ul class="article-list" >
-                    <?php
-                    if ($wp_query->have_posts()):
-                        while ($wp_query->have_posts()):
-                            $wp_query->the_post();
-                            ?>
-                            <li>
-                                <a class="article-title" href="<?php the_permalink(); ?>"><?php the_title() ?></a>
-                            </li>
-                            <?php
-                        endwhile;
-                    endif;
-                    wp_reset_postdata();
-                    wp_reset_query();
-                    ?>
-                </ul>
-            </div>
-        </div>
+        <ul class="list-group ">
+            <li class="list-group-item active" aria-current="true" style="font-size: 20px; color:white; text-align:center"><?php _e('Member') ?></li>
+            <?php
+                if ($wp_query->have_posts()):
+                    while ($wp_query->have_posts()):
+                        $wp_query->the_post();
+                        ?>
+                        <li class="list-group-item member-group">
+                            <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>
+                        </li>
+                        <?php
+                    endwhile;
+                endif;
+                wp_reset_postdata();
+                wp_reset_query();
+            ?>
+        </ul> 
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 ">
         <h1 style="font-size: 22px; font-weight:bold; color:crimson">Memeber Group</h1>

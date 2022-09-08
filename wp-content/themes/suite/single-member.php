@@ -1,6 +1,6 @@
 <?php get_header()?>
 
-<section id="content" role="main" style="margin-top: 120px;">
+<section id="content" role="main" style="margin: 100px;">
     <h2 style="font-size: 30px; font-weight:bold">Info member <?php the_title(); ?></h2>
     <div class="">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>

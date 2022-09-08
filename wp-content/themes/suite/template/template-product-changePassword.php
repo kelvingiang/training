@@ -12,21 +12,21 @@
         <h5 class="lbl-login">Change Password</h5>
         <div class="form-group">
             <label for="current_pass" class="lbl-form"><?php echo __('Current Password') ?> <i class="error" id="cur_pass_merss"></i></label>
-            <input type="password" class="form-control type-text" name="txt-currentPass" id="txt-currentPass"
+            <input type="password" class="form-control " name="txt-currentPass" id="txt-currentPass"
                 placeholder="Enter the current password"/>
             <input type="checkbox" onclick="showCurrentPassword()">Show
         </div> 
         <!-- new pass -->
         <div class="form-group">
             <label for="new_pass" class="lbl-form"><?php echo __('New Password') ?> <i class="error" id="new_pass_merss"></i></label>
-            <input type="password" class="form-control type-text" name="txt-newPass" id="txt-newPass"
+            <input type="password" class="form-control " name="txt-newPass" id="txt-newPass"
                 placeholder="Enter the new password"/>
             <input type="checkbox" onclick="showNewPassword()">Show
         </div> 
         <!-- confirm pass -->
         <div class="form-group">
             <label for="confirm_pass" class="lbl-form"><?php echo __('Confirm Password') ?> <i class="error" id="confirm_pass_merss"></i></label>
-            <input type="password" class="form-control type-text" name="txt-confirmPass" id="txt-confirmPass"
+            <input type="password" class="form-control " name="txt-confirmPass" id="txt-confirmPass"
                 placeholder="Enter the confirm password"/>
             <i class="error" id="check_confirm_pass_merss"></i>    
         </div> 
@@ -67,8 +67,9 @@
 
         jQuery('#txt-confirmPass').on('keyup', function() {
             if(jQuery('#txt-newPass').val() == jQuery('#txt-confirmPass').val()) {
+                console.log('aaa');
                 jQuery('#check_confirm_pass_merss').html('Password matching!').css('color', 'green');
-                jQuery('#btn-product-change').attr("disabled", false).addClass('btn-login'); 
+                jQuery('#btn-product-change').attr("disabled", false).addClass('btn-login').removeClass('btn-disabled');
             }else{
                 jQuery('#check_confirm_pass_merss').html('Password not matching!').css('color', 'red');
                 jQuery('#btn-product-change').attr("disabled", true).addClass('btn-disabled'); 
