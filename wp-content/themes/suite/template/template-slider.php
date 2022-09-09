@@ -1,43 +1,47 @@
-<div id="myCarousel" class="carousel slide " data-bs-ride="false">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#btn-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#btn-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#btn-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="<?php echo PART_IMAGES . 'slider/sea.jpg' ?>" class="d-block w-100 img-thumbnail img" alt="">
-        </div>
-        <div class="carousel-item">
-            <img src="<?php echo PART_IMAGES . 'slider/leaf.jpg' ?>" class="d-block w-100 img-thumbnail img" alt="">
-        </div>
-        <div class="carousel-item">
-            <img src="<?php echo PART_IMAGES . 'slider/road.jpg' ?>" class="d-block w-100 img-thumbnail img" alt="">
-        </div>
-    </div>
-    <button class="left carousel-control-prev" type="button" data-bs-target="#btn-carousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="right carousel-control-next" type="button" data-bs-target="#btn-carousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-    </div>   
+<?php
+global $post;
+$args = array(
+    'post_type' => 'slider',
+    'posts_per_page' => 5,
+    'post_status' => 'publish',
+    // 'category_name' => '',
+    // 'meta_query' => array(
+    //     array(
+    //         'key' => '',
+    //         'value' => '0',
+    //         'compare' => '='
+    //     )
+    // 
+);
+$wp_query = new WP_Query($args);
+?>
+<div class="col-md-3"></div>
+<div class="skitter skitter-large with-dots col-md-6">
+    <ul>
+    <?php
+        if ($wp_query->have_posts()):
+            while ($wp_query->have_posts()):
+                $wp_query->the_post();
+                ?>
+                <li>
+                    <a href="#cubeStopRandom"></a>
+                    <?php 
+                    // [0]: url, [1]: width, [2]: height, [4]:is_intermediate
+                    $url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full');
+                        ?>
+                    <img src="<?php echo $url[0]; ?>" class="cubeStopRandom"/> 
+                </li>
+                <?php
+            endwhile;
+        endif;
+        wp_reset_postdata();
+        wp_reset_query();
+    ?>
+    </ul>
 </div>
 <script>
     jQuery(document).ready(function() {
-        // Activate Carousel
-        jQuery("#myCarousel").carousel({
-            interval: 2000,
-        });
-
-        //Enable Carousel Controls
-        jQuery(".left").click(function(){
-            jQuery("#myCarousel").carousel("prev");
-        });
-        jQuery(".right").click(function(){
-            jQuery("#myCarousel").carousel("next");
-        });
+        //skitter
+        jQuery('.skitter-large').skitter();
     })
 </script>
