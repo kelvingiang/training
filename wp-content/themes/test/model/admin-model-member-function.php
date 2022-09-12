@@ -216,4 +216,55 @@ class Admin_Model_Member_Function {
         $row = $wpdb->get_results($sql, ARRAY_A);
         return $row;
     }
+
+    public function getAllDataByCategory($item)
+    {   
+        global $wpdb;
+        $table = $wpdb->prefix . 'member'; //prefix tiền tố là wp
+        $item == '' ? $sql = "SELECT * FROM $table " : $sql = "SELECT * FROM $table WHERE category = $item";
+        $row = $wpdb->get_results($sql, ARRAY_A);
+        return $row;
+    }
+
+    public function memberLogin($user, $pass)
+    {
+        global $wpdb;
+        $table = $wpdb->prefix . 'member'; //prefix tiền tố là wp
+        $sql = "SELECT * FROM $table WHERE user_name = '$user' and password = '$pass'";
+        $row = $wpdb->get_row($sql, ARRAY_A);
+        if(empty($row)){
+            $rs = " Wrong username or password!";
+        }else{
+            $_SESSION['txt-username'] = $row['ID']; //lưu session username gắn bằng id
+            wp_redirect(home_url('member-test')); 
+        }
+        return $rs;
+    }
+
+    public function memberLogout()
+    {
+        if(isset($_SESSION['txt-username'])){
+            unset($_SESSION['txt-username']); //xóa session login
+            wp_redirect(home_url('member-login')); 
+        }
+    
+    }
+
+    public function changeMemberPassword($oldPass,$newPass)
+    {
+        global $wpdb;
+        $table = $wpdb->prefix . 'member';
+        $sql = "SELECT password FROM $table WHERE ID = " . $_SESSION['txt-username'] . " and password = '$oldPass'";
+        $row = $wpdb->get_row($sql, ARRAY_A);
+        if(!empty($row['password'])){
+            if($oldPass == $row['password']){
+                $sql = "UPDATE $table set password = '$newPass' WHERE ID = " . $_SESSION['txt-username'];
+                $wpdb->query($sql);
+                $mess = "Password changed sucessfully!"; 
+            }else{
+                $mess = "Password is not correct!";
+            }
+            return $mess;
+        }        
+    }
 }

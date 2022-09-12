@@ -19,8 +19,8 @@ class Rewrite_Url {
 //        $redirect = 'index.php?pagename=$matches[1]&page=$matches[2]&cate=$matches[3]';
 //        add_rewrite_rule($regex, $redirect, 'top');
 //                
-        $regex2 = '([^/]*)/industry/([^/]*)/?';
-        $redirect2 = 'index.php?pagename=$matches[1]&industry=$matches[2]';
+        $regex2 = '([^/]*)/category/([^/]*)/?';
+        $redirect2 = 'index.php?pagename=$matches[1]&category=$matches[2]';
         add_rewrite_rule($regex2, $redirect2, 'top');
 
         $regex3 = '([^/]*)/page/([^/]*)/?';
@@ -54,7 +54,7 @@ class Rewrite_Url {
 //// KHAI BAO THAM SO MOI TREN URL, KHI TRONG WP KHONG CO PARAM NAY
     public function add_query_vars($vars) {
         $vars[] = 'page';
-        $vars[] = 'industry';
+        $vars[] = 'category';
         return $vars;
     }
 
