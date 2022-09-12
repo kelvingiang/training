@@ -9,6 +9,7 @@ class Admin_Controller_Main {
         $defaultoption = array(
             //custom post
             'admin_controller_news' => true,
+            'admin_controller_slider' => true,
 
             //page
             'admin_controller_member' => true,
@@ -18,6 +19,7 @@ class Admin_Controller_Main {
 
         $this->_controller_options = get_option($this->_controller_name, $defaultoption);
         $this->admin_controller__news_function();
+        $this->admin_controller__slider_function();
         $this->admin_controller__member_function();
         $this->admin_controller__member_group_function();
         $this->admin_controller__member_industry_function();
@@ -58,6 +60,15 @@ class Admin_Controller_Main {
         
             require_once(DIR_CONTROLLER . 'admin-controller-member-industry.php');
             new Admin_Controller_Member_Industry();
+        }
+    }
+
+    public function admin_controller__slider_function()
+    {
+        if ($this->_controller_options['admin_controller_slider'] == true) {
+        
+            require_once(DIR_CONTROLLER . 'admin-controller-slider.php');
+            new Admin_Controller_Slider();
         }
     }
 

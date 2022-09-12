@@ -44,5 +44,21 @@ function goback($num = 1)
     wp_redirect($url);
 }
 
+//=============================== MENU ==============================
+register_nav_menu('main-menu', __('Main Menu'));  
+
+//function khai bao trong template-menu.php
+function suite_menu($slug)
+{
+    $menu = array(
+        'theme_location' => $slug, // chon menu dc thiet lap truoc
+        'container' => 'nav', // tap html chua menu nay
+        'container_class' => 'primary-menu', // class cua mennu
+        'items_wrap' => '<ul id="%1$s" class="%2$s sf-menu">%3$s</ul>'
+    );
+
+    wp_nav_menu($menu);
+}
+
 
 

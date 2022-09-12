@@ -38,6 +38,21 @@
   box-shadow: 1px 2px #888888;
   border: 1px lavender solid; }
 
+/* two column*/
+.meta-row-two-column {
+  height: 60px;
+  margin: 10px 0px 20px; }
+
+.meta-row-two-column .col {
+  float: left;
+  width: 33.2%; }
+
+.meta-row-two-column .col .title-cell {
+  height: 22px; }
+
+.meta-row-two-column .col .text-cell {
+  width: 100%; }
+
 /* message*/
 .error {
   font-size: 15px;
@@ -93,5 +108,18 @@
   image-rendering: pixelated;
   filter: drop-shadow(0 0 4px #c5c5eb);
   background-repeat: no-repeat; }
+
+/* check-box */
+.checkbox-label {
+  font-size: 15px;
+  font-weight: bold;
+  color: #ee8585;
+  padding: auto; }
+
+.show-home {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #e97d7d; }
 
 /*# sourceMappingURL=admin-style.css.map */

@@ -92,12 +92,18 @@ class Admin_Controller_Member {
         return $model;
     }
 
+    public function model_F() {
+        require_once(DIR_MODEL . 'admin-model-member-function.php');
+        $model = new Admin_Model_Member_Function();
+        return $model;
+    }
+
     //them moi item
     public function addAction() {
         //kiem tra phuong thuc GET hay POST
         if(isPost()) {
             $arr = array('action' => 'insert');
-            $this->model()->saveItem($_POST,$arr); 
+            $this->model_F()->saveItem($_POST,$arr); 
             goback();
         }
         //show phần form dữ liệu
@@ -113,7 +119,7 @@ class Admin_Controller_Member {
          */
         if(isPost()) {
             $arr = array('action' => 'update', 'ID' => getParams('id'));
-            $this->model()->saveItem($_POST, $arr);
+            $this->model_F()->saveItem($_POST, $arr);
             goback(); 
         }
         //show phần form dữ liệu
@@ -132,19 +138,19 @@ class Admin_Controller_Member {
 
     //xoa item
     public function deleteAction() {
-        $this->model()->deleteItem(getParams());
+        $this->model_F()->deleteItem(getParams());
         goback();
     }
 
     //khoi phuc item
     public function restoreAction() {
-        $this->model()->restoreItem(getParams());
+        $this->model_F()->restoreItem(getParams());
         goback();
     }
 
     //trash item
     public function trashAction() {
-        $this->model()->trashItem(getParams());
+        $this->model_F()->trashItem(getParams());
         goback();
     }
 }

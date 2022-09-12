@@ -1,13 +1,15 @@
-<?php 
+<?php
 
-class Admin_Controller_News {
+class Admin_Controller_Slider
+{
+
     public function __construct()
     {
         add_action('init', array($this, 'register_custom_post'));
-        add_action('manage_edit-news_columns', array($this, 'manage_columns'));
-        add_action('manage_news_posts_custom_column', array($this, 'render_columns'));
+        add_action('manage_edit-slider_columns', array($this, 'manage_columns'));
+        add_action('manage_slider_posts_custom_column', array($this, 'render_columns'));
 
-        add_filter('manage_edit-news_sortable_columns', array($this, 'sortable_views_column'));
+        add_filter('manage_edit-slider_sortable_columns', array($this, 'sortable_views_column'));
         add_filter('request', array($this, 'sort_views_column'));
 
         add_action('init', array($this, 'create_taxonomies'));
@@ -16,19 +18,19 @@ class Admin_Controller_News {
     public function register_custom_post()
     {
         $labels = array(
-            'name' => __('News', 'dp'),
-            'singular_name' => __('News', 'dp'),
-            'add_new' => __('Add News Item', 'dp'),
+            'name' => __('Slider', 'dp'),
+            'singular_name' => __('Slider', 'dp'),
+            'add_new' => __('Add Item', 'dp'),
             'add_new_item' => __('Add Item', 'dp'),
             'edit_item' => __('Edit', 'dp'),
             'new_item' => __('Add Item', 'dp'),
-            'all_items' => __('All News Item', 'dp'),
+            'all_items' => __('All Item', 'dp'),
             'view_item' => __('View Item', 'dp'),
             'search_items' => __('Search', 'dp'),
-            'not_found' => __('No news found.', 'dp'),
+            'not_found' => __('No slides found.', 'dp'),
             'not_found_in_trash' => __('No found in Trash.', 'dp'),
             'parent_item_colon' => '',
-            'menu_name' => __('News', 'dp')
+            'menu_name' => __('Slider', 'dp') . '944 x 300'
         );
         $args = array(
             'labels' => $labels,
@@ -43,26 +45,24 @@ class Admin_Controller_News {
             'capability_type' => 'post',
             'has_archive' => true,
             'hierarchical' => false,
-            'menu_position' => 6,
-            'supports' => array('title','editor', 'thumbnail'),
+            'menu_position' => 5,
+            'supports' => array('title', 'thumbnail'),
         );
-        register_post_type('news', $args);
+        register_post_type('slider', $args);
     }
 
     //==== QUAN LY COT HIEN THI TRON BANG   
     public function manage_columns($columns)
     {
+        $date_label = __('Create Date', 'suite');
         unset($columns['date']); // an cot ngay mac dinh
         unset($columns['modified']); // an cot ngay mac dinh
         unset($columns['postdate']); // an cot ngay mac dinh
         //==== THEM COT VA BAN
         $columns['img'] = __('Image', 'suite');
-        $columns['content'] = __('Content', 'suite');
-        $columns['category'] = __('Category');
-        $columns['create_by'] = __('Create By');
-        $columns['email'] = __('Email');
         $columns['setorder'] = __('Show Order', 'suite');
-        $columns['show_at_home'] = __('Show at Home'); // checkbox
+        $columns['category'] = __('Category');
+        $columns['date'] = $date_label;
         return $columns;
     }
 
@@ -70,9 +70,6 @@ class Admin_Controller_News {
     public function render_columns($columns)
     {
         global $post;
-        if ($columns == 'content') {
-            the_content();
-        }
         if ($columns == 'img') {
             echo '<a href="' . get_admin_url() . 'post.php?post=' . $post->ID . '&action=edit">';
             if (has_post_thumbnail()) {
@@ -89,7 +86,7 @@ class Admin_Controller_News {
 
         if ($columns == 'category') {
             global $post;
-            $terms = wp_get_post_terms($post->ID, 'news_category');
+            $terms = wp_get_post_terms($post->ID, 'slide_category');
 
             if (count($terms) > 0) {
                 foreach ($terms as $key => $term) {
@@ -97,21 +94,6 @@ class Admin_Controller_News {
                 }
             }
         }
-
-        if ($columns == 'create_by') {
-            echo get_post_meta($post->ID, '_metabox_news_create_by', true);
-        }
-
-        if ($columns == 'email') {
-            echo get_post_meta($post->ID, '_metabox_news_email', true);
-        }
-
-        if ($columns == 'show_at_home') {
-            if (get_post_meta($post->ID, '_metabox_show_at_home', true) == 1) {
-                echo '<div class="show-home"></div>';
-            }
-        }
-
     }
 
     //====== SAP SEP THEO TRINH TU
@@ -131,12 +113,7 @@ class Admin_Controller_News {
                     'orderby' => '_metabox_order' //Custom field value (number)
                 )
             );
-        }elseif (isset($vars['orderby']) && 'show_at_home' == $vars['orderby']) {
-            $vars = array_merge($vars, array(
-                'meta_key' => '_metabox_show_at_home',
-                'orderby' => '_metabox_show_at_home',
-            ));
-        }
+        };
         return $vars;
     }
 
@@ -156,14 +133,14 @@ class Admin_Controller_News {
             'new_item_name' => __('Add New'),
             'menu_name' => __('Category')
         );
-        register_taxonomy('news_category', 'news', array(
+        register_taxonomy('slide_category', 'slider', array(
             'hierarchical' => true,
             'labels' => $labels,
             'show_ui' => true,
             'query_var' => true,
             'taxonomy' => 'category',
             'rewrite' => array(
-                'slug' => 'news-category',
+                'slug' => 'slide-category',
                 'hierarchical' => true,
             )
         ));

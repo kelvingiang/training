@@ -8,10 +8,12 @@ $data = array(
     'group_id' => '',
     'industry_id' => '',
     'img' => '',
+    'user_name' => '',
+    'password' => '',
 );
 
-require_once (DIR_MODEL . 'admin-model-member.php');
-$model = new Admin_Model_Member();
+require_once (DIR_MODEL . 'admin-model-member-function.php');
+$model = new Admin_Model_Member_Function();
 $selectCateByGroupID = $model->getCategoryNameByGroupID();
 $selectCateByIndustryID = $model->getCategoryNameByIndustryID();
 
@@ -31,6 +33,27 @@ if ((getParams('action')=='edit')) {
         }
         ?>
         <h2> <?php echo $title; ?></h2>
+    </div>
+    <!-- username - password -->
+    <div class="meta-row-two-column">
+        <div class="col">
+            <div class="title-cell">
+                <label><?php echo __('User Name') ?><i class="error" id="username_merss"></i></label>
+            </div>
+            <div class="text-cell">
+                <input type="text" name="txt-username" id="txt-username" class="type-text"  
+                    value="<?php echo $data['user_name']; ?>"  />
+            </div>
+        </div>
+        <div class="col">
+            <div class="title-cell">
+                    <label><?php echo __('Password') ?><i class="error" id="pass_merss"></i></label>
+                </div>
+                <div class="text-cell">
+                    <input type="text" name="txt-password" id="txt-password" class="type-text"  
+                        value="<?php echo $data['password']; ?>"  />
+            </div>
+        </div>
     </div>
     <!-- order -->
     <div class="meta-row">
@@ -165,6 +188,18 @@ if ((getParams('action')=='edit')) {
             var serialVal = jQuery('#sel_industry_id').val();
             if (serialVal === '') {
                 jQuery('#industry_merss').text('<?php echo __('please input the industry'); ?>');
+                e.preventDefault();
+            }
+
+            var serialVal = jQuery('#txt-username').val();
+            if (serialVal === '') {
+                jQuery('#username_merss').text('<?php echo __('please input the user name'); ?>');
+                e.preventDefault();
+            }
+
+            var serialVal = jQuery('#txt-password').val();
+            if (serialVal === '') {
+                jQuery('#pass_merss').text('<?php echo __('please input the password'); ?>');
                 e.preventDefault();
             }
         });
