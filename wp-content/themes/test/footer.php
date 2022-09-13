@@ -43,7 +43,7 @@
 <script>
     jQuery(document).ready( function () {
         jQuery('.primary-menu').superfish();
-    })
+    });
     
 </script>
 

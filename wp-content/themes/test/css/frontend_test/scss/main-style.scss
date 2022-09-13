@@ -145,19 +145,47 @@ button:disabled,
   vertical-align: middle;
 }
 
-/* slider - image */
+/* slider - image - owl-carousel */
 .carousel{
   display: block;
   width: 100%;
+}
+.owl-carousel .owl-nav {
+  overflow: hidden;
+  height: 10px;
+}
+.owl-carousel .nav-button {
+  height: 50px;
+  width: 25px;
+  cursor: pointer;
+  position: absolute;
+  top: 110px !important;
+  color: #666666;
+}
+.owl-carousel .sli-left.disabled,
+.owl-carousel .sli-right.disabled {
+  pointer-events: none;
+  opacity: 0.25;
+}
+.owl-carousel {
+  .sli-left{left: -35px;}
+  .sli-left:hover{
+    background-position: 0px -53px;
+  }
+}
+.owl-carousel {
+  .sli-right{left: -35px;}
+  .sli-right:hover{
+    background-position: -24px -53px;
+  }
 }
 
 .img{
   @extend .img-type;
   height: 200px;
-  width: 90%;
+  width: 80%;
   border-radius: 0.2rem;
 }
-
 .img:hover{
   transform: scale(1.1,1.1);
   -webkit-transform: scale(1.1,1.1);
@@ -165,6 +193,7 @@ button:disabled,
   -o-transform: scale(1.1,1.1);
   -ms-transform: scale(1.1,1.1);
 }
+
 /* multi - slider */
 .multi-item{
   margin: 0.5rem 1rem 1rem 1rem;
@@ -182,6 +211,10 @@ button:disabled,
   padding-bottom: 1rem;
   text-align: center;
 }
+.slider-multi-content{
+  text-align: center;
+  font-size: 18px;
+}
 
 /* social link */
 .social-link{
@@ -198,5 +231,19 @@ button:disabled,
 .footer{
   background-color: #413b77;
   color: rgb(247, 241, 241);
+}
+
+.hr3{
+  margin-bottom: 10px;
+  content: "";
+  height: 5px;
+  width: 100%;
+  background: #0870b7;
+  background: -webkit-gradient(linear,left top,right top,color-stop(0%,transparent),color-stop(50%,#0870b7),color-stop(100%,#0870b7));
+  background: -webkit-linear-gradient(left,transparent 0%,#0870b7 50%,transparent 100%);
+  background: -moz-linear-gradient(left,transparent 0%,#0870b7 50%,transparent 100%);
+  background: -ms-linear-gradient(left,transparent 0%,#0870b7 50%,transparent 100%);
+  background: -o-linear-gradient(left,transparent 0%,#0870b7 50%,transparent 100%);
+  background: linear-gradient(left,transparent 0%,#0870b7 50%,transparent 100%);
 }
 
