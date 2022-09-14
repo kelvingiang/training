@@ -163,7 +163,7 @@ class Admin_Controller_News {
             'query_var' => true,
             'taxonomy' => 'category',
             'rewrite' => array(
-                'slug' => 'news-category',
+                'slug' => 'news_category',
                 'hierarchical' => true,
             )
         ));

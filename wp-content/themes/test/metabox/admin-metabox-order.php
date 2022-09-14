@@ -11,7 +11,7 @@ class Admin_Metabox_Order {
         $id = 'tw-metabox-order';
         $title = translate('Order');
         $callback = array($this, 'display');
-        $screen = array('news'); // CAC POST VA CUSTOMER POST CHO PHEP METABOX NAY HIEN THI
+        $screen = array('news','slider'); // CAC POST VA CUSTOMER POST CHO PHEP METABOX NAY HIEN THI
         add_meta_box($id, $title, $callback, $screen);
         // FUNCTION NAY DE O DAY, DE KHI NAO DUNG DE METABOX THI TA MOI GOI FILE CSS NAY VO 
         //  add_action('admin_enqueue_scripts', array($this, 'add_css_file'));

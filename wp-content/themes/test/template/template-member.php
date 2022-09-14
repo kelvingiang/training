@@ -1,6 +1,6 @@
 <div class="row">
     <ul class="list-group ">
-        <li class="list-group-item active" aria-current="true" style="font-size: 20px; color:white; text-align:center"><?php _e('Product') ?></li>
+        <li class="list-group-item active" aria-current="true" style="font-size: 20px; color:white; text-align:center"><?php _e('Member') ?></li>
         <?php  
             require_once(DIR_MODEL . 'admin-model-member-function.php');
             $model = new Admin_Model_Member_Function();

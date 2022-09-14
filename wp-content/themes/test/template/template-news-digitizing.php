@@ -4,24 +4,26 @@ $args = array(
     'post_type' => 'news',
     'posts_per_page' => -1,
     'post_status' => 'publish',
-    'news_category' => 'Health',
-    //'meta_query' => array(
-        //array(
-            //'key' => '_metabox_show_at_home',
-            //'value' => '1',
-            //'compare' => '='
-        //)
-    //)    
-
+    'news_category' => 'Digitizing',
+    // 'meta_query' => array(
+    //     array(
+    //         'key' => '_metabox_show_at_home',
+    //         'value' => '1',
+    //         'compare' => '='
+    //     )
+    // )    
+    
 );
 $wp_query = new WP_Query($args);
 ?>
 <div class="row">
+    
     <?php
         if ($wp_query->have_posts()):
             while ($wp_query->have_posts()):
                 $wp_query->the_post();
-                ?><div class="col-md-6">
+                ?>
+                <div class="col-md-6">
                     <div class="slider-multi-img">
                         <?php 
                             // [0]: url, [1]: width, [2]: height, [4]:is_intermediate
@@ -44,4 +46,3 @@ $wp_query = new WP_Query($args);
         wp_reset_query();
     ?>
 </div>
-
