@@ -31,7 +31,7 @@ $wp_query = new WP_Query($args);
                     <img src="<?php echo $url[0]; ?>" class="w-100 img" />
                 </div>
                 <div class="slider-multi-title">
-                    <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>
+                    <a href="<?php //the_permalink(); ?>"><?php //the_title() ?></a>
                 </div>
             </div>
             

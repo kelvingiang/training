@@ -1,4 +1,8 @@
 /*
+    This file color use admin
+    Create date( dd-mm-yy ) : 14/09/2022
+*/
+/*
   This file use admin
   Create date (dd-mm-yy): 10/08/2022
 */
@@ -56,13 +60,13 @@
 /* message*/
 .error {
   font-size: 15px;
-  color: red;
+  color: #ff1919;
   margin-left: 10px; }
 
 .error ::after {
   content: "!"; }
 
-/* product-category tbl*/
+/* member-category tbl*/
 .category_list {
   border: 1px solid;
   margin: 5px;
@@ -120,6 +124,11 @@
   width: 20px;
   height: 20px;
   border-radius: 20px;
-  background-color: #e97d7d; }
+  background-color: #ee8585; }
+
+/*
+    This file color use admin
+    Create date( dd-mm-yy ) : 14/09/2022
+*/
 
 /*# sourceMappingURL=admin-style.css.map */

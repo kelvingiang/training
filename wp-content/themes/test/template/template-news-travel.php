@@ -33,8 +33,11 @@ $wp_query = new WP_Query($args);
                     <div class="slider-multi-title">
                         <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>
                     </div>
-                    <div class="">
+                    <div class="slider-multi-content">
                         <span ><?php the_content() ?></span>
+                    </div>
+                    <div class="slider-multi-read-more">
+                        <a href="<?php echo get_the_permalink()?>"><?php esc_html_e('Đọc thêm', 'ntl-csw') ?></a>
                     </div>
                 </div>
                 

@@ -15,7 +15,7 @@ $args = array(
 );
 $wp_query = new WP_Query($args);
 ?>
-<div id="president-post" >
+<div id="president-post" class="temp-articles-bg">
     <div class="owl-carousel owl-theme">
     <?php
         if ($wp_query->have_posts()):
@@ -28,7 +28,7 @@ $wp_query = new WP_Query($args);
                             // [0]: url, [1]: width, [2]: height, [4]:is_intermediate
                             $url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full');
                         ?>
-                        <img src="<?php echo $url[0]; ?>" class="w-100 img" />
+                        <img src="<?php echo $url[0]; ?>" class="w-100 img" title="<?php the_title_attribute() ?>"/>
                     </div>
                     <div class="slider-multi-title">
                         <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>
@@ -36,6 +36,9 @@ $wp_query = new WP_Query($args);
                     <div class="slider-multi-content">
                         <span><?php the_content() ?></span>
                     </div>
+                    <div class="slider-multi-read-more">
+                        <a href="<?php echo get_the_permalink()?>"><?php esc_html_e('Đọc thêm', 'ntl-csw') ?></a>
+                    </div> 
                 </div>
                 
                 <?php
@@ -57,8 +60,8 @@ $wp_query = new WP_Query($args);
             dots: false,
             autoplayHoverPause: true,
             items: 2,
-            navText: ["<i class='fa fa-chevron-left sli-left'></i>",
-                "<i class='fa fa-chevron-right sli-right'></i>"
+            navText: ["<i class='fa fa-chevron-left art-left'></i>",
+                "<i class='fa fa-chevron-right art-right'></i>"
             ],
             // responsive:{
             //     0:{

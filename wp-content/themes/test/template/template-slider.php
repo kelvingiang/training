@@ -15,8 +15,7 @@ $args = array(
 );
 $wp_query = new WP_Query($args);
 ?>
-<div class="col-md-3"></div>
-<div class="skitter skitter-large with-dots col-md-6">
+<div class="skitter skitter-large with-dots skitters" style="max-width:initial;">
     <ul>
     <?php
         if ($wp_query->have_posts()):
@@ -24,12 +23,12 @@ $wp_query = new WP_Query($args);
                 $wp_query->the_post();
                 ?>
                 <li>
-                    <a href="#cut"></a>
+                    <a href="#cubeStop"></a>
                     <?php 
                     // [0]: url, [1]: width, [2]: height, [4]:is_intermediate
                     $url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full');
                         ?>
-                    <img src="<?php echo $url[0]; ?>" class="cut"/> 
+                    <img src="<?php echo $url[0]; ?>" class="cubeStop image-skitter"/> 
                 </li>
                 <?php
             endwhile;
@@ -42,6 +41,6 @@ $wp_query = new WP_Query($args);
 <script>
     jQuery(document).ready(function() {
         //skitter
-        jQuery('.skitter-large').skitter();
+        jQuery('.skitter-large').skitter({dots: false});
     })
 </script>

@@ -6,6 +6,8 @@
 /* login, logout, change-password */
 /* member */
 /* slider - owl-carousel */
+/* template */
+/* single */
 /* footer */
 /*
     This file use frontend
@@ -172,6 +174,11 @@ button:disabled,
 .owl-carousel .news-left:hover {
   background-position: 0px -53px; }
 
+.owl-carousel .art-left {
+  left: -35px; }
+.owl-carousel .art-left:hover {
+  background-position: 0px -53px; }
+
 .owl-carousel .sli-right {
   right: -35px; }
 .owl-carousel .sli-right:hover {
@@ -180,6 +187,11 @@ button:disabled,
 .owl-carousel .news-right {
   right: -35px; }
 .owl-carousel .news-right:hover {
+  background-position: -24px -53px; }
+
+.owl-carousel .art-right {
+  right: -35px; }
+.owl-carousel .art-right:hover {
   background-position: -24px -53px; }
 
 /* multi - slider */
@@ -197,11 +209,71 @@ button:disabled,
 
 .slider-multi-title {
   padding-bottom: 1rem;
-  text-align: center; }
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold; }
+  .slider-multi-title a:hover {
+    color: #eb6868;
+    text-decoration: none; }
 
 .slider-multi-content {
   text-align: center;
   font-size: 18px; }
+
+.slider-multi-read-more {
+  text-align: right; }
+  .slider-multi-read-more a {
+    text-decoration: none; }
+  .slider-multi-read-more a:hover {
+    color: #f5a237; }
+
+.container_skitter {
+  width: 1132px;
+  height: 357px; }
+
+.skitters .image {
+  width: 1132px;
+  height: 357px; }
+
+.image-skitter {
+  width: 1132px;
+  height: 357px; }
+
+/*
+  ========================================================  
+ -------------------------- SINGLE ------------------------
+ ======================================================== 
+*/
+.single-head {
+  text-align: right;
+  color: #c3c5c7;
+  font-size: 16px; }
+
+.single-title {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: #2da4f3; }
+
+.single-content {
+  font-size: 24px;
+  text-align: center;
+  padding: 14px;
+  margin: 14px; }
+  .single-content h2 {
+    font-size: 25px;
+    font-weight: bold; }
+  .single-content h3 {
+    font-size: 25px;
+    font-weight: bold; }
+
+/*
+  ========================================================  
+ -------------------------- TEMPLATE ------------------------
+ ======================================================== 
+*/
+.temp-articles-bg {
+  background-color: #faf8f8; }
 
 /*
   ========================================================  
@@ -242,6 +314,8 @@ button:disabled,
 /* login, logout, change-password */
 /* member */
 /* slider - owl-carousel */
+/* template */
+/* single */
 /* footer */
 
 /*# sourceMappingURL=main-style.css.map */

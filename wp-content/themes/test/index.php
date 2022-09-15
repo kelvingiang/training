@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div  style="margin-top: 80px">
-    <div class="">
+    <div >
         <h2 style="text-align: center; font-size:22px; color:#0870b7;">ARTICLES</h2>
         <div class="hr3"></div>
         <?php get_template_part('template/template', 'articles'); ?>

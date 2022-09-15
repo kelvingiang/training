@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> <?php blankslate_schema_type(); ?>>
+<html <?php language_attributes(); ?> <?php //blankslate_schema_type(); ?>>
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="//www.google-analytics.com" rel="dns-prefetch">
 
@@ -62,7 +62,7 @@
                           height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
         <div id="wrapper" class="hfeed">
-            <div class="header"><?php get_template_part('template/template', 'header'); ?></div>   
+            <div class="header"><?php get_template_part('template/template', 'header'); ?></div>
   
         <div id="container">
 
