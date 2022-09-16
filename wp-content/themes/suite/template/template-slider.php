@@ -15,8 +15,7 @@ $args = array(
 );
 $wp_query = new WP_Query($args);
 ?>
-<div class="col-md-3"></div>
-<div class="skitter skitter-large with-dots col-md-6">
+<div class="skitter skitter-large with-dots" style="max-width:initial;">
     <ul>
     <?php
         if ($wp_query->have_posts()):
@@ -42,6 +41,6 @@ $wp_query = new WP_Query($args);
 <script>
     jQuery(document).ready(function() {
         //skitter
-        jQuery('.skitter-large').skitter();
+        jQuery('.skitter-large').skitter({dots: false});
     })
 </script>

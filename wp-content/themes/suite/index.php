@@ -3,7 +3,7 @@
     <div>
         <h1 style="font-size: 30px; font-weight:bold; text-align:center; margin-bottom:20px;">Welcome to home page</h1>
     </div>
-    <div class="second-space col-lg-3 col-md-4 col-sm-12 ">
+    <div class="col-lg-3 col-md-4 col-sm-12">
         <ul class="list-group">
             <li class="list-group-item active" aria-current="true"> </li>
             <li  class="list-group-item">

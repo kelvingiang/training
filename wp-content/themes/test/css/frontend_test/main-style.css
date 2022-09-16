@@ -63,19 +63,22 @@
   background: #6ee47e;
   margin-left: 70%; }
   .btn-login a {
-    color: #f7f7f7; }
+    color: #f7f7f7;
+    text-decoration: none; }
 
 .btn-logout {
   background: #f1aa9d;
   margin-left: 90%; }
   .btn-logout a {
-    color: #f7f7f7; }
+    color: #f7f7f7;
+    text-decoration: none; }
 
 .btn-change-pass {
   background: #cdf19d;
   margin-left: 90%; }
   .btn-change-pass a {
-    color: #f7f7f7; }
+    color: #f7f7f7;
+    text-decoration: none; }
 
 .lbl-login {
   color: #337ab7;
@@ -101,7 +104,8 @@ button:disabled,
   background-color: #cccccc; }
   button:disabled a,
   .btn-disabled a {
-    color: #666666; }
+    color: #666666;
+    text-decoration: none; }
 
 /* member */
 .member-group {
@@ -111,7 +115,8 @@ button:disabled,
     color: #7d8aff;
     padding-left: 10px; }
   .member-group a:hover {
-    color: #eeb987; }
+    color: #eeb987;
+    text-decoration: none; }
 
 /*
  ========================================================  

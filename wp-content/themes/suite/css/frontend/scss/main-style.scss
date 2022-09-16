@@ -1,9 +1,8 @@
+@import './main-color.scss';
 /*
     This file use frontend
     Create date( dd-mm-yy ) : 10/08/2022
 */
-$color_label: rgb(247, 178, 160);
-
 
 /*
     use page, template,..
@@ -20,7 +19,7 @@ $color_label: rgb(247, 178, 160);
     label {
       font-size: 18px;
       font-weight: bold;
-      color: $color_label;
+      color: $f_lbl_color;
       padding: auto;
       text-align: left;
     }
@@ -33,7 +32,7 @@ $color_label: rgb(247, 178, 160);
     width: 50%;
     height: 40px;
     border-radius:2px;
-    box-shadow: 1px 2px #888888;
+    box-shadow: 1px 2px $f_box_shadow_color;
     border: 1px lavender solid;
   }
   .text-cell {
@@ -54,54 +53,57 @@ $color_label: rgb(247, 178, 160);
 /* message*/
 .error {
   font-size: 15px;
-  color: red;
+  color: $f_error_color;
   margin-left: 10px;
   ::after {
     content: "!";
   }
 }  
 
+/* member */
 .member-group {
   margin-top: 15px;
   a {
     font-size: 20px;
-    color: rgb(60, 78, 245);
+    color: $mem_color;
     padding-left: 10px;
   }
+  a:hover {
+    color: $mem_color_hover;
+  }
 }
-/* login form - change password */
-.btn-login{  
+/* login & logout form - change password */
+.btn-type {
   font-size: 18px;
-  background: #6ee47e;  
-  padding: 7px;  
-  margin-left: 70%; 
-  border-radius: 2px;
+  padding: 7px;
+  border-radius: 3px;
   border: #fff solid 1px;
+}
+.btn-login{  
+  @extend .btn-type;
+  background: $f_bg_login_color;   
+  margin-left: 70%;
   a{
-    color: #fff; 
+    color: $f_btn_color; 
+    text-decoration: none;
   }
 } 
 .btn-logout{
-  font-size: 18px;  
-  background: #f1aa9d;  
-  padding: 7px;  
+  @extend .btn-type; 
+  background: $f_bg_logout_color;  
   margin-left: 90%; 
-  border-radius: 3px;
-  border: #fff solid 1px;
   a{
-    color: #fff;
+    color: $f_btn_color;
+    text-decoration: none; 
   }
 }
 .btn-change-pass{
-  font-size: 18px;  
-  background: #cdf19d;  
-  padding: 7px;  
-  margin-left: 90%;
-  margin-bottom: 3px; 
-  border-radius: 3px;
-  border: #fff solid 3px;
+  @extend .btn-type; 
+  background: $f_bg_change_pass_color;   
+  margin-left: 90%; 
   a{
-    color: #fff;
+    color: $f_btn_color;
+    text-decoration: none;
   }
 }
 .lbl-login{
@@ -110,7 +112,7 @@ $color_label: rgb(247, 178, 160);
   text-align: center;
 } 
 .lbl-form{
-  color: $color_label;
+  color: $f_lbl_color;
   font-size: 20px;
 }
 
@@ -120,20 +122,24 @@ $color_label: rgb(247, 178, 160);
   margin: 30px auto;
   padding:10px;
   float: left;
-  box-shadow: 5px 10px #8888;
+  box-shadow: 5px 10px $f_box_shadow_color;
 }
 
 /* button disabled */
 button:disabled,
 .btn-disabled{
   border: 1px solid #999999;
-  background-color: #cccccc;
+  background-color: $f_bg_disabled_color;
   a {
-    color: #666666;
-  }
-  
+    color: $f_btn_dis_color;
+    text-decoration: none;
+  } 
 }
-
+/*
+ ========================================================  
+ -------------------- INDEX - HOME ---------------------
+ ======================================================== 
+*/
 /* img - type */
 .img-type{  
   image-rendering: pixelated;
@@ -181,8 +187,56 @@ button:disabled,
 .slider-multi-title{
   padding-bottom: 1rem;
   text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  a:hover{
+    color: $owl_sli_multi_title_color_hover;
+    text-decoration: none;
+  }
 }
 
+/* slider - image - owl-carousel */
+.carousel{
+  display: block;
+  width: 100%;
+}
+.owl-carousel .owl-nav {
+  overflow: hidden;
+  height: 10px;
+}
+.owl-carousel .nav-button {
+  height: 20px;
+  width: 20px;
+  padding: 1px;
+  cursor: pointer;
+  position: absolute;
+  top: 110px !important;
+  color: $owl_nav_btn_color;
+  background-color: $owl_nav_btn_bg_color;
+}
+.owl-carousel .owl-prev.disabled,
+.owl-carousel .owl-next.disabled {
+  pointer-events: none;
+  opacity: 0.25;
+}
+.owl-carousel {
+  .sli-left{left: -35px;}
+  .sli-left:hover{
+    background-position: 0px -53px;
+  }
+}
+.owl-carousel {
+  .sli-right{right: -35px;}
+  .sli-right:hover{
+    background-position: -24px -53px;
+  }
+}
+
+/*
+========================================================  
+ ----------------------- FOOTER ---------------------
+ ======================================================== 
+*/
 /* social link */
 .social-link{
   font-size: 18px;
@@ -190,13 +244,11 @@ button:disabled,
   padding: 4px;
 }
 .social-link:hover {
-  color: #f1aa9d;
+  color: $foo_social_link_color_hover;
 }
 
-
-/*footer*/
 .footer{
-  background-color: #413b77;
-  color: rgb(247, 241, 241);
+  background-color: $foo_bg_color;
+  color: $foo_color;
 }
 

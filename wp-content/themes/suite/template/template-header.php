@@ -1,4 +1,4 @@
-<div style="position: fixed; background-color: #fff; border-bottom: 2px #fff solid;  display: block; width: 100%;  z-index: 100; margin-bottom: 20px">
+<div style="position: fixed; margin-top:-32px; background-color: #fff; border-bottom: 2px #fff solid;  display: block; width: 100%;  z-index: 100; margin-bottom: 20px">
     <header id="header" role="banner">
         <section class="head-logo">
            <a href="<?php echo home_url(''); ?>"><img src="<?php echo get_image('logo.png') ?>" width="60px" /></a>
@@ -15,6 +15,6 @@
     </header>
     <?php get_template_part('template/template', 'menu'); ?>
 </div>
-<div class="row"><?php get_template_part('template/template', 'slider'); ?></div>
+<div><?php get_template_part('template/template', 'slider'); ?></div>
 
 

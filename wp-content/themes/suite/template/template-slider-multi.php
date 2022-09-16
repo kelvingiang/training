@@ -15,7 +15,7 @@ $args = array(
 );
 $wp_query = new WP_Query($args);
 ?>
-<div id="#president-slider" class="owl-carousel owl-theme">
+<div id="president-slider" class="owl-carousel owl-theme">
     <?php
         if ($wp_query->have_posts()):
             while ($wp_query->have_posts()):
@@ -52,20 +52,20 @@ $wp_query = new WP_Query($args);
             dots: false,
             autoplayHoverPause: true,
             items: 2,
-            navText: ["<i class='fa fa-chevron-left sli-left'></i>",
-                "<i class='fa fa-chevron-right sli-right'></i>"
+            navText: ["<i class='fas fa-chevron-left nav-button sli-left'></i>",
+                "<i class='fas fa-chevron-right nav-button sli-right'></i>"
             ],
-            responsive:{
-                0:{
-                    items:1
-                },
-                600:{
-                    items:3
-                },
-                1000:{
-                    items:5
-                }
-            }
+            // responsive:{
+            //     0:{
+            //         items:1
+            //     },
+            //     600:{
+            //         items:3
+            //     },
+            //     1000:{
+            //         items:5
+            //     }
+            // }
 
         });
     })

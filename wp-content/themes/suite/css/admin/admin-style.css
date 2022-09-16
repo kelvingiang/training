@@ -1,4 +1,8 @@
 /*
+    This file color use admin
+    Create date( dd-mm-yy ) : 16/09/2022
+*/
+/*
   This file use admin
   Create date (dd-mm-yy): 10/08/2022
 */
@@ -97,7 +101,7 @@
 /* message*/
 .error {
   font-size: 15px;
-  color: red;
+  color: #ff1919;
   margin-left: 10px; }
   .error ::after {
     content: "!"; }
@@ -138,5 +142,10 @@
   .category_list li div a {
     text-decoration: none;
     font-weight: bold; }
+
+/*
+    This file color use admin
+    Create date( dd-mm-yy ) : 16/09/2022
+*/
 
 /*# sourceMappingURL=admin-style.css.map */

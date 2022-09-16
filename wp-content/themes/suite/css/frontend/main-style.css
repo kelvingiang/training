@@ -1,4 +1,15 @@
 /*
+    This file color use frontend
+    Create date( dd-mm-yy ) : 16/09/2022
+*/
+/* header */
+/* login, logout, change-password */
+/* member */
+/* slider - owl-carousel */
+/* template */
+/* single */
+/* footer */
+/*
     This file use frontend
     Create date( dd-mm-yy ) : 10/08/2022
 */
@@ -33,49 +44,48 @@
 /* message*/
 .error {
   font-size: 15px;
-  color: red;
+  color: #fd1515;
   margin-left: 10px; }
   .error ::after {
     content: "!"; }
 
+/* member */
 .member-group {
   margin-top: 15px; }
   .member-group a {
     font-size: 20px;
-    color: #3c4ef5;
+    color: #7d8aff;
     padding-left: 10px; }
+  .member-group a:hover {
+    color: #eeb987; }
 
-/* login form - change password */
-.btn-login {
+/* login & logout form - change password */
+.btn-type, .btn-login, .btn-logout, .btn-change-pass {
   font-size: 18px;
-  background: #6ee47e;
   padding: 7px;
-  margin-left: 70%;
-  border-radius: 2px;
+  border-radius: 3px;
   border: #fff solid 1px; }
+
+.btn-login {
+  background: #6ee47e;
+  margin-left: 70%; }
   .btn-login a {
-    color: #fff; }
+    color: #f7f7f7;
+    text-decoration: none; }
 
 .btn-logout {
-  font-size: 18px;
   background: #f1aa9d;
-  padding: 7px;
-  margin-left: 90%;
-  border-radius: 3px;
-  border: #fff solid 1px; }
+  margin-left: 90%; }
   .btn-logout a {
-    color: #fff; }
+    color: #f7f7f7;
+    text-decoration: none; }
 
 .btn-change-pass {
-  font-size: 18px;
   background: #cdf19d;
-  padding: 7px;
-  margin-left: 90%;
-  margin-bottom: 3px;
-  border-radius: 3px;
-  border: #fff solid 3px; }
+  margin-left: 90%; }
   .btn-change-pass a {
-    color: #fff; }
+    color: #f7f7f7;
+    text-decoration: none; }
 
 .lbl-login {
   color: #337ab7;
@@ -92,7 +102,7 @@
   margin: 30px auto;
   padding: 10px;
   float: left;
-  box-shadow: 5px 10px #8888; }
+  box-shadow: 5px 10px #888888; }
 
 /* button disabled */
 button:disabled,
@@ -101,8 +111,14 @@ button:disabled,
   background-color: #cccccc; }
   button:disabled a,
   .btn-disabled a {
-    color: #666666; }
+    color: #666666;
+    text-decoration: none; }
 
+/*
+ ========================================================  
+ -------------------- INDEX - HOME ---------------------
+ ======================================================== 
+*/
 /* img - type */
 .img-type, .img {
   image-rendering: pixelated;
@@ -145,8 +161,52 @@ button:disabled,
 
 .slider-multi-title {
   padding-bottom: 1rem;
-  text-align: center; }
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold; }
+  .slider-multi-title a:hover {
+    color: #eb6868;
+    text-decoration: none; }
 
+/* slider - image - owl-carousel */
+.carousel {
+  display: block;
+  width: 100%; }
+
+.owl-carousel .owl-nav {
+  overflow: hidden;
+  height: 10px; }
+
+.owl-carousel .nav-button {
+  height: 20px;
+  width: 20px;
+  padding: 1px;
+  cursor: pointer;
+  position: absolute;
+  top: 110px !important;
+  color: #141414;
+  background-color: #cec5c5; }
+
+.owl-carousel .owl-prev.disabled,
+.owl-carousel .owl-next.disabled {
+  pointer-events: none;
+  opacity: 0.25; }
+
+.owl-carousel .sli-left {
+  left: -35px; }
+.owl-carousel .sli-left:hover {
+  background-position: 0px -53px; }
+
+.owl-carousel .sli-right {
+  right: -35px; }
+.owl-carousel .sli-right:hover {
+  background-position: -24px -53px; }
+
+/*
+========================================================  
+ ----------------------- FOOTER ---------------------
+ ======================================================== 
+*/
 /* social link */
 .social-link {
   font-size: 18px;
@@ -154,11 +214,22 @@ button:disabled,
   padding: 4px; }
 
 .social-link:hover {
-  color: #f1aa9d; }
+  color: #b6f59d; }
 
-/*footer*/
 .footer {
   background-color: #413b77;
   color: #f7f1f1; }
+
+/*
+    This file color use frontend
+    Create date( dd-mm-yy ) : 16/09/2022
+*/
+/* header */
+/* login, logout, change-password */
+/* member */
+/* slider - owl-carousel */
+/* template */
+/* single */
+/* footer */
 
 /*# sourceMappingURL=main-style.css.map */
