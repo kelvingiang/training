@@ -60,8 +60,8 @@ $wp_query = new WP_Query($args);
             dots: false,
             autoplayHoverPause: true,
             items: 2,
-            navText: ["<i class='fa fa-chevron-left art-left'></i>",
-                "<i class='fa fa-chevron-right art-right'></i>"
+            navText: ["<i class='fas fa-chevron-left nav-button art-left'></i>",
+                "<i class='fas fa-chevron-right nav-button art-right'></i>"
             ],
             // responsive:{
             //     0:{

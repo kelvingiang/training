@@ -76,6 +76,7 @@
   margin-left: 70%;
   a{
     color: $f_btn_color; 
+    text-decoration: none;
   }
 } 
 .btn-logout{
@@ -84,6 +85,7 @@
   margin-left: 90%; 
   a{
     color: $f_btn_color; 
+    text-decoration: none;
   }
 }
 .btn-change-pass{
@@ -92,6 +94,7 @@
   margin-left: 90%; 
   a{
     color: $f_btn_color;
+    text-decoration: none;
   }
 }
 .lbl-login{
@@ -120,6 +123,7 @@ button:disabled,
   background-color: $f_bg_disabled_color;
   a {
     color: $f_btn_dis_color;
+    text-decoration: none;
   }
 }
 /* member */
@@ -132,6 +136,7 @@ button:disabled,
   }
   a:hover {
     color: $mem_color_hover;
+    text-decoration: none;
   }
 }
 /*
@@ -334,6 +339,11 @@ button:disabled,
   color: $foo_color;
 }
 
+/*
+  ========================================================  
+ -------------------------- SPECIAL ------------------------
+ ======================================================== 
+*/
 .hr3{
   margin-bottom: 10px;
   content: "";
@@ -346,5 +356,12 @@ button:disabled,
   background: -ms-linear-gradient(left,transparent 0%,#0870b7 50%,transparent 100%);
   background: -o-linear-gradient(left,transparent 0%,#0870b7 50%,transparent 100%);
   background: linear-gradient(left,transparent 0%,#0870b7 50%,transparent 100%);
+}
+
+#load-more{
+  margin-top: 2rem;
+  cursor: pointer;
+  opacity: 0.7;
+  text-align: center;
 }
 

@@ -18,8 +18,8 @@ function style_header_scripts()
         // wp_register_style('superfish-css', get_template_directory_uri() . '/css/menu/superfish.css', array(), '1.0', 'all');
         // wp_enqueue_style('superfish-css');
 
-        wp_register_style('menu-style-css', get_template_directory_uri() . '/css/menu/superfish-custom.css', array(), '1.0', 'all');
-        wp_enqueue_style('menu-style-css');
+        // wp_register_style('menu-style-css', get_template_directory_uri() . '/css/menu/superfish-custom.css', array(), '1.0', 'all');
+        // wp_enqueue_style('menu-style-css');
 
         wp_register_style('my-style-css', get_template_directory_uri() . '/css/client/my-style.css', array(), '1.0', 'all');
         wp_enqueue_style('my-style-css');

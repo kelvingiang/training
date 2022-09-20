@@ -18,7 +18,50 @@ new Rewrite_Url();
 // HIEN THI Featured Image TRONG ADMIN
 add_theme_support('post-thumbnails');
 
-
+//Xu ly loadmore phia server
+add_action( 'wp_ajax_nopriv_loadmore', 'prefix_load_more' );
+add_action( 'wp_ajax_loadmore', 'prefix_load_more' );
+function prefix_load_more(){
+    $offset = !empty($_POST['offset']) ? intval( $_POST['offset'] ) : ''; //lay du lieu gui len client 
+    if($offset) {
+        $wp_query = new WP_Query(
+            $args = array(
+                'post_type' => 'news',
+                'posts_per_page' => 3,
+                'post_status' => 'publish',
+                'news_category' => 'Health',
+                'offset' => $offset,
+            )
+        );
+        if($wp_query->have_posts()) : 
+            while ($wp_query->have_posts()):
+                $wp_query->the_post();
+                ?><div>
+                    <div class="slider-multi-img">
+                        <?php 
+                            // [0]: url, [1]: width, [2]: height, [4]:is_intermediate
+                            $url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full');
+                        ?>
+                        <img src="<?php echo $url[0]; ?>" class="w-100 img" />
+                    </div>
+                    <div class="slider-multi-title">
+                        <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>
+                    </div>
+                    <div class="slider-multi-content">
+                        <span ><?php the_content() ?></span>
+                    </div>
+                    <div class="slider-multi-read-more">
+                        <a href="<?php echo get_the_permalink()?>"><?php esc_html_e('Đọc thêm', 'ntl-csw') ?></a>
+                    </div>
+                </div>
+                <?php
+            endwhile;
+            endif;
+        wp_reset_postdata();
+        wp_reset_query();    
+    }
+    die();
+}
 
 
 add_action( 'after_setup_theme', 'blankslate_setup' );
