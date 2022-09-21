@@ -16,8 +16,8 @@ $args = array(
 );
 $wp_query = new WP_Query($args);
 ?>
-<div class="row">
-    
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="slider-multi-head"><h1></h1></div>
     <?php
         if ($wp_query->have_posts()):
             while ($wp_query->have_posts()):

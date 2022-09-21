@@ -36,7 +36,7 @@ function prefix_load_more(){
         if($wp_query->have_posts()) : 
             while ($wp_query->have_posts()):
                 $wp_query->the_post();
-                ?><div>
+                ?><div class="slider-multi-item col-md-6">
                     <div class="slider-multi-img">
                         <?php 
                             // [0]: url, [1]: width, [2]: height, [4]:is_intermediate

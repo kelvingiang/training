@@ -16,14 +16,14 @@ $args = array(
 );
 $wp_query = new WP_Query($args);
 ?>
-<div class="row">
-    <div class="col-md-6">
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="slider-multi-head"><h1></h1></div>
     <?php
         if ($wp_query->have_posts()):
             while ($wp_query->have_posts()):
                 $wp_query->the_post();
                 ?>
-                <div class="multi-item">
+                <div class="slider-multi-item col-md-6">
                     <div class="slider-multi-img">
                         <?php 
                             // [0]: url, [1]: width, [2]: height, [4]:is_intermediate
@@ -48,5 +48,4 @@ $wp_query = new WP_Query($args);
         wp_reset_postdata();
         wp_reset_query();
     ?>
-    </div>
 </div>

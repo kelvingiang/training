@@ -20,10 +20,9 @@ $args = array(
     'order' => 'DESC',
 );
 
-$wp_query = new WP_Query($args);
 ?>
 <div class="container" style="margin-top: 80px;">
-    <span class="single-head"><?php the_date() ?> | by <?php the_author() ?></span>
+    <span class="single-head"><?php echo get_the_date(); ?> | by Admin</span>
     <div class="row">
         <div class="col-md-8">
             <h2 class="single-title"><?php the_title() ?></h2>
@@ -31,21 +30,51 @@ $wp_query = new WP_Query($args);
                 <?php the_content() ?>
             </div>
             <div style="margin-top: 30px;">
-                <h3>Bài viết liên quan</h3>
+                <h3 class="single-relate-title"><?php echo('Bài viết liên quan') ?></h3>
                 <div class="hr3"></div>
                 <?php 
+                $wp_query = new WP_Query($args);
                 if ( $wp_query->have_posts()) { 
                     echo  '<ul>' ; 
                     while ( $wp_query->have_posts()) {  
                         $wp_query->the_post()?> 
-                    <li> <a href = "<?php  the_permalink ();?> " > <?php the_title ( ); ?> </a> </li> <?php }
+                    <li class="single-relate-item"> 
+                        <a href = "<?php  the_permalink ();?> " > <?php the_title ( ); ?> </a> 
+                    </li> <?php }
                     echo '</ul>' ; } else {  }
                     wp_reset_postdata ();
                     wp_reset_query();
                 ?>
             </div>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="single-archive-list">
+                <div class="single-archive-title">
+                    <h2><?php echo('Bài viết lưu trữ') ?></h2>        
+                </div>
+                <div class="single-archive-title-child">
+                    <h5><?php echo('Theo tháng') ?></h5>
+                    <ul class="single-archive-item">
+                        <li><?php wp_get_archives('type=monthly') ?></li>
+                    </ul>
+                </div>
+                <div class="single-archive-title-child">
+                    <h5><?php echo('Theo cùng danh mục') ?></h5>
+                    <ul class="single-archive-item">
+                        <?php 
+                        $categories = get_categories( array(
+                            'taxonomy' => 'news_category',
+                            'orderby' => 'name',
+                            'order' => 'ASC',
+                        ));
+                        foreach($categories as $category) {
+                           echo '<li><i class="fas fa-caret-right"></i><a href="">' . $category->name . '</a></li>';
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
     </div>
 <?php get_footer(); ?>
