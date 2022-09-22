@@ -44,7 +44,7 @@ class Admin_Controller_News {
             'has_archive' => true,
             'hierarchical' => false,
             'menu_position' => 6,
-            'supports' => array('title','editor', 'thumbnail'),
+            'supports' => array('title', 'editor', 'thumbnail'),
         );
         register_post_type('news', $args);
     }
