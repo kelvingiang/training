@@ -81,9 +81,15 @@ $wp_query = new WP_Query($args);
                 },
                 success: function(res) {
                     jQuery('#news-slider').append(res);
-                    offset = offset + 3; //tăng bài viết hiển thị
+                    offset = offset + 3;  //tăng bài viết hiển thị
+                    var $target = jQuery('html,body');
+                    $target.animate({
+                        scrollTop: $target.height()
+                    }, 2000);
+
+                    //ẩn button khi không còn bài viết hiển thị 
                     if(offset >= <?php echo $counts ?> ){
-                        jQuery('#load-more').hide(); //ẩn button khi không còn bài viết hiển thị
+                        jQuery('#load-more').hide(); 
                     }
                 },
                 error: function (xhr) {
