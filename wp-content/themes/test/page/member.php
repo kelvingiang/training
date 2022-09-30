@@ -11,7 +11,7 @@
     wp_redirect(home_url('member-login')); //về login page
   }else{ //vào member page
 ?>
-<div class="row" style="margin-top: 100px">
+<div class="row">
     <div class="button-row btn-group">
       <!-- logout -->
       <button type="submit" name="btn-member-logout" id="btn-member-logout" 

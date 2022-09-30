@@ -6,7 +6,7 @@
 ?>
 <?php get_header(); ?>
 
-<div class="row" style="margin-top: 100px">
+<div class="row">
     <!-- gọi đến trang template-member-login.php -->
     <?php get_template_part('template/template', 'member-login'); ?>
 </div>

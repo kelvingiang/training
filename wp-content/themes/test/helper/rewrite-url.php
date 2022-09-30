@@ -23,9 +23,9 @@ class Rewrite_Url {
         $redirect2 = 'index.php?pagename=$matches[1]&category=$matches[2]';
         add_rewrite_rule($regex2, $redirect2, 'top');
 
-        $regex3 = '([^/]*)/page/([^/]*)/?';
-        $redirect3 = 'index.php?pagename=$matches[1]&page=$matches[2]';
-        add_rewrite_rule($regex3, $redirect3, 'top');
+        // $regex3 = '([^/]*)/page/([^/]*)/?';
+        // $redirect3 = 'index.php?pagename=$matches[1]&page=$matches[2]';
+        // add_rewrite_rule($regex3, $redirect3, 'top');
 //            
 //               $regex3 = '([^/]*)/?/c/([^/]*)/?';
 //            $redirect3 = 'index.php?pagename=$matches[1]&cate=$matches[3]';

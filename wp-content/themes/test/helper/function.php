@@ -44,6 +44,36 @@ function goback($num = 1)
     wp_redirect($url);
 }
 
+//function phan trang bang numeric
+function numeric_pagination($paged = 1)
+{
+    global $wp_query;
+    $big = 999999999; //dãy là giá trị số trang lớn nhất ta cho 1 số bất kỳ
+    $base = str_replace($big, '%#%', esc_url(get_pagenum_link($big))); // tạo link phân trang
+    $format = '?page=%#%'; // kiểu lấy url mặc định, không nên đổi
+    $current = max(1, $paged);
+    $total = $wp_query->max_num_pages;
+    if($total > 1) echo '<div id="paginate" class="slider-multi-paginate">';
+    echo paginate_links( array(
+        'base' => $base,
+        'format' => $format,
+        'total' => $total,
+        'current' => $current,
+        'show_all' => FALSE,
+        'end_size' => 1, // số trang đầu và cuối
+        'mid_size' => 2, // Số trang hiện tại
+        'prev_next' => true,
+        // 'prev_text' => __('« Previous'),
+        // 'next_text' => __('Next »'),
+        'type' => 'plain', // Các kiểu hiện thị HTML ; plain = <a> ; list = <li>; array = trả về kiểu array.
+        'add_args' => false, // Add thêm giá trị trên url URL VD : array ('test' => 'abc')
+        'add_fragment' => '', // Add thêm fragment vào URL VD : &test = abc
+        'before_page_number' => '', // Thêm giá trị trước item phân trang
+        'after_page_number' => ''  // Thêm giá trị sau item phân trang
+    )); 
+    if($total > 1) echo '</div>';
+}
+
 //=============================== MENU ==============================
 register_nav_menu('main-menu', __('Main Menu'));  
 

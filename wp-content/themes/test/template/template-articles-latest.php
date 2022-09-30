@@ -1,24 +1,38 @@
 <?php
 global $post;
-$args = array(
-    'post_type' => 'post',
-    'posts_per_page' => -1,
-    'post_status' => 'publish',
-    'category_name' => 'Latest',
-    // 'meta_query' => array(
-    //     array(
-    //         'key' => '_metabox_show_at_home',
-    //         'value' => '1',
-    //         'compare' => '='
-    //     )
-    // )    
-    
-);
-$wp_query = new WP_Query($args);
 ?>
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="slider-multi-head"><h1></h1></div>
     <?php
+        global $wp_query;
+        if (get_query_var('paged')) {
+            $paged = get_query_var('paged');
+        } elseif (get_query_var('page')) { //'page' is used instead of 'paged' on Static Front Page
+            $paged = get_query_var('page');
+        } else {
+            $paged = 1;
+        }
+        $showNum = 2;
+        $offset = ($paged - 1) * $showNum;
+        $_SESSION['offset'] = $offset;
+        $post_latest = array(
+            'post_type' => 'post',
+            'posts_per_page' => $showNum,
+            'post_status' => 'publish',
+            'category_name' => 'Latest',
+            // 'meta_query' => array(
+            //     array(
+            //         'key' => '_metabox_show_at_home',
+            //         'value' => '1',
+            //         'compare' => '='
+            //     )
+            // )   
+            'orderby' => 'ID',
+            'order' => 'DESC',
+            'offset' => $offset,
+            'paged' => $paged, 
+        );
+        $wp_query = new WP_Query($post_latest);
         if ($wp_query->have_posts()):
             while ($wp_query->have_posts()):
                 $wp_query->the_post();
@@ -41,10 +55,10 @@ $wp_query = new WP_Query($args);
                         <a href="<?php echo get_the_permalink()?>"><?php esc_html_e('Đọc thêm', 'ntl-csw') ?></a>
                     </div>
                 </div>
-                
                 <?php
             endwhile;
         endif;
+        numeric_pagination($paged);
         wp_reset_postdata();
         wp_reset_query();
     ?>

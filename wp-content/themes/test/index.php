@@ -6,7 +6,7 @@
         <?php get_template_part('template/template', 'articles'); ?>
     </div>
     <div>
-        <h2 style="text-align: center; font-size:22px; color:#0870b7;">NEWS</h2>
+        <h2 style="text-align: center; font-size:22px; color:#0870b7; margin-top: 15px">NEWS</h2>
         <div class="hr3"></div>
         <?php get_template_part('template/template', 'news'); ?>
     </div>
