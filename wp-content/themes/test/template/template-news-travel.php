@@ -58,14 +58,14 @@ $wp_query = new WP_Query($args);
     var page = 2;
     jQuery(document).ready(function() {
         //biến dùng kiểm tra xem page đã scroll chưa
-        var alreadyScroll = false;
+        var alreadyScroll = true;
         jQuery(window).scroll(function() {
             //lấy id cuối cùng của danh sách
             var lastID = jQuery('.slider-multi-item-travel:last').attr('data_id');
             var docHeight = jQuery(document).height();
             var winHeight = jQuery(window).height();
             //nếu màn hình đang ở dưới cuối thẻ thực hiển tải thêm dữ liệu
-            if(jQuery(window).scrollTop() == docHeight - winHeight && alreadyScroll === false){
+            if(jQuery(window).scrollTop() > (docHeight - winHeight) && alreadyScroll == true){
                 jQuery.ajax({
                     //url: '<?php //echo get_template_directory_uri() . '/ajax/load_news.php' ?>',
                     url: '<?php echo admin_url('admin-ajax.php'); ?>',

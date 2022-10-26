@@ -254,18 +254,39 @@ button:disabled,
     .slider-multi-paginate span a {
       color: #5dbfec; }
 
-.container_skitter {
-  width: 1132px;
-  height: 357px; }
+@media only screen and (max-device-width: 1920px) {
+  .border_box {
+    background-color: #fff;
+    height: 560px; }
 
-.skitters .image {
-  width: 1132px;
-  height: 357px; }
+  .skitter {
+    max-width: 100% !important;
+    height: 550px !important; }
 
-.image-skitter {
-  width: 1132px;
-  height: 357px; }
+  .container_skitter .image_main {
+    height: 550px !important; } }
+@media only screen and (max-device-width: 1366px) {
+  .border_box {
+    background-color: #fff;
+    height: 410px; }
 
+  .skitter {
+    max-width: 100% !important;
+    height: 400px !important; }
+
+  .container_skitter .image_main {
+    height: 400px !important; } }
+@media only screen and (max-device-width: 1280px) {
+  .border_box {
+    background-color: #fff;
+    height: 360px; }
+
+  .skitter {
+    max-width: 100% !important;
+    height: 350px !important; }
+
+  .container_skitter .image_main {
+    height: 350px !important; } }
 /*
   ========================================================  
  -------------------------- SINGLE ------------------------
