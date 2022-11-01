@@ -21,11 +21,12 @@ $wp_query = new WP_Query($args);
     <div class="slider-multi-head"><h1></h1></div>
     <div class="slider-multi-list" id="news-slider">
     <?php
+        $itemCount = 1;
         $counts = $wp_query->found_posts; //đếm sô bài viết vừa gọi
         if ($wp_query->have_posts()):
             while ($wp_query->have_posts()):
                 $wp_query->the_post();
-                ?><div class="slider-multi-item col-md-6">
+                ?><div class="slider-multi-item col-md-6"  data_id = "<?php echo $itemCount++; ?>">
                     <div class="slider-multi-img">
                         <?php 
                             // [0]: url, [1]: width, [2]: height, [4]:is_intermediate
@@ -70,7 +71,8 @@ $wp_query = new WP_Query($args);
 <script type="text/javascript">
     jQuery(document).ready(function(){
         jQuery('#load-more').click(function(){
-            var offset = 3; //số lượng bài viết ban đầu
+            var lastID = jQuery('.slider-multi-item:last').attr('data_id');
+            var offset = lastID; //số lượng bài viết ban đầu
             jQuery.ajax({
                 type: 'post',
                 url: '<?php echo admin_url('admin-ajax.php') ?>',
@@ -81,7 +83,7 @@ $wp_query = new WP_Query($args);
                 },
                 success: function(res) {
                     jQuery('#news-slider').append(res);
-                    offset = offset + 3;  //tăng bài viết hiển thị
+                    //offset = offset + 3;  //tăng bài viết hiển thị
                     var $target = jQuery('html,body');
                     $target.animate({
                         scrollTop: $target.height()
