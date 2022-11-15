@@ -1,37 +1,12 @@
 <?php get_header(); ?>
-<?php
-global $post;
-$term = ''; 
-$terms = get_the_terms( get_the_ID() , 'news_category' );
-foreach ( $terms as $term ) {
-  $term = $term->slug;
-}
-$args = array(
-    'post_type' => 'news',
-    'posts_per_page'=> 5,
-    'post_status' => 'publish',
-    'tax_query' => array(
-        'taxonomy' => 'news_category',
-        'field' => 'id',
-        'terms' => $term,
-    ),
-    'post__not_in'  => array ($post->ID), 
-    'orderby' => 'ID',
-    'order' => 'DESC',
-);
-
-?>
-<div class="container" style="margin-top: 100px;">
-    <span class="single-head"><?php echo get_the_date(); ?> | by Admin</span>
+<div>
+    <span class="single-head"><?php echo get_the_date(); ?> | by <?php echo get_the_author()?></span>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-xl-8 col-lg-8 col-md-12">
             <h2 class="single-title"><?php the_title() ?></h2>
-            <div class="sing-content ">
-                <?php the_content() ?>
-            </div>
-            <?php get_template_part('template/template', 'single-news-latest')?>
+            <div class="sing-content "><?php the_content() ?></div>
         </div>
-        <div class="col-md-4">
+        <div class="col-xl-4 col-lg-4 col-md-12">
             <!-- archive -->
             <div class="single-archive-list">
                 <div class="single-archive-title">
@@ -64,7 +39,12 @@ $args = array(
                 <h3 class="single-relate-title"><?php echo('Bài viết liên quan') ?></h3>
                 <div class="hr3"></div>
                 <?php 
-                $wp_query = new WP_Query($args);
+                $cate_id = array();
+                $current_category = get_the_terms(get_the_ID() , 'news_category' );
+                foreach($current_category as $cc){
+                    $cate_id[] = $cc->term_id;
+                }
+                $wp_query = new WP_Query(getRelatePostNews('news', 5, $cate_id));
                 if ( $wp_query->have_posts()) { 
                     echo  '<ul>' ; 
                     while ( $wp_query->have_posts()) {  
@@ -79,5 +59,6 @@ $args = array(
             </div>
         </div>
     </div>
+    <?php get_template_part('template/template', 'single-news-latest')?>
     </div>
 <?php get_footer(); ?>

@@ -1,6 +1,3 @@
-<?php
-global $post;
-?>
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="slider-multi-head"><h1></h1></div>
     <?php
@@ -12,32 +9,15 @@ global $post;
         } else {
             $paged = 1;
         }
-        $showNum = 2;
+        $showNum = 3;
         $offset = ($paged - 1) * $showNum;
         $_SESSION['offset'] = $offset;
-        $post_latest = array(
-            'post_type' => 'post',
-            'posts_per_page' => $showNum,
-            'post_status' => 'publish',
-            'category_name' => 'Latest',
-            // 'meta_query' => array(
-            //     array(
-            //         'key' => '_metabox_show_at_home',
-            //         'value' => '1',
-            //         'compare' => '='
-            //     )
-            // )   
-            'orderby' => 'ID',
-            'order' => 'DESC',
-            'offset' => $offset,
-            'paged' => $paged, 
-        );
-        $wp_query = new WP_Query($post_latest);
+        $wp_query = new WP_Query(getPostType('post', $showNum, 14, $offset, $paged));
         if ($wp_query->have_posts()):
             while ($wp_query->have_posts()):
                 $wp_query->the_post();
                 ?>
-                <div class="slider-multi-item col-md-6">
+                <div class="slider-multi-item col-md-4">
                     <div class="slider-multi-img">
                         <?php 
                             // [0]: url, [1]: width, [2]: height, [4]:is_intermediate

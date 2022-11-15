@@ -37,6 +37,7 @@ $wp_query = new WP_Query($args);
                             <a href="<?php echo get_the_permalink()?>"><?php esc_html_e('Đọc thêm', 'ntl-csw') ?></a>
                         </div>
                     </div>
+                    <hr class="hr2">
                 </div>
                 <?php
             endwhile;

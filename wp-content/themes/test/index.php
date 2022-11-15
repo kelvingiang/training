@@ -1,15 +1,15 @@
 <?php get_header(); ?>
-<div  style="margin-top: 80px">
-    <div >
-        <h2 style="text-align: center; font-size:22px; color:#0870b7;">ARTICLES</h2>
+<div>
+    <div>
+        <h2 class="home-title">ARTICLES</h2>
         <div class="hr3"></div>
         <?php get_template_part('template/template', 'articles'); ?>
     </div>
     <div>
-        <h2 style="text-align: center; font-size:22px; color:#0870b7; margin-top: 15px">NEWS</h2>
+        <h2 class="home-tit;e">NEWS</h2>
         <div class="hr3"></div>
         <?php get_template_part('template/template', 'news'); ?>
     </div>
-    <div ><?php get_template_part('template/template', 'slider-multi'); ?></div>
+    <div><?php get_template_part('template/template', 'slider-multi'); ?></div>
 </div>
 <?php get_footer();

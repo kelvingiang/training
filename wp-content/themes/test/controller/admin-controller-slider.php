@@ -54,15 +54,16 @@ class Admin_Controller_Slider
     //==== QUAN LY COT HIEN THI TRON BANG   
     public function manage_columns($columns)
     {
-        $date_label = __('Create Date', 'suite');
+        //$date_label = __('Create Date', 'suite');
         unset($columns['date']); // an cot ngay mac dinh
         unset($columns['modified']); // an cot ngay mac dinh
         unset($columns['postdate']); // an cot ngay mac dinh
+        unset($columns['home']);
+        unset($columns['author']);
         //==== THEM COT VA BAN
         $columns['img'] = __('Image', 'suite');
-        $columns['setorder'] = __('Show Order', 'suite');
         $columns['category'] = __('Category');
-        $columns['date'] = $date_label;
+        //$columns['date'] = $date_label;
         return $columns;
     }
 
@@ -78,10 +79,6 @@ class Admin_Controller_Slider
                 echo '<img width="300" height="314" style="width: 80px; height: 50px" class="attachment-post-thumbnail wp-post-image" src="' . get_image('no-image.jpg') . '">';
             }
             echo '</a>';
-        }
-
-        if ($columns == 'setorder') {
-            echo get_post_meta($post->ID, '_metabox_order', true);
         }
 
         if ($columns == 'category') {

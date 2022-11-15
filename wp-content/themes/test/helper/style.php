@@ -78,6 +78,9 @@ function style_header_scripts()
     wp_register_script('check-input', get_template_directory_uri() . '/js/check-input.js', array('jquery'), '1.0.0'); // Custom scripts
     wp_enqueue_script('check-input');
 
+    wp_register_script('loadmore', get_template_directory_uri() . '/js/loadmore.js', array('jquery'), '1.0.0'); // Custom scripts
+    wp_enqueue_script('loadmore');
+
     wp_register_script('jquery-ui-js', get_template_directory_uri() . '/js/jquery-ui.min.js', array('jquery'), '1.0.0'); // Custom scripts
     wp_enqueue_script('jquery-ui-js');
 

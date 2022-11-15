@@ -55,14 +55,12 @@ class Admin_Controller_News {
         unset($columns['date']); // an cot ngay mac dinh
         unset($columns['modified']); // an cot ngay mac dinh
         unset($columns['postdate']); // an cot ngay mac dinh
+        unset($columns['author']); // an cot mac dinh
         //==== THEM COT VA BAN
         $columns['img'] = __('Image', 'suite');
         $columns['content'] = __('Content', 'suite');
         $columns['category'] = __('Category');
-        $columns['create_by'] = __('Create By');
         $columns['email'] = __('Email');
-        $columns['setorder'] = __('Show Order', 'suite');
-        $columns['show_at_home'] = __('Show at Home'); // checkbox
         return $columns;
     }
 
@@ -83,10 +81,6 @@ class Admin_Controller_News {
             echo '</a>';
         }
 
-        if ($columns == 'setorder') {
-            echo get_post_meta($post->ID, '_metabox_order', true);
-        }
-
         if ($columns == 'category') {
             global $post;
             $terms = wp_get_post_terms($post->ID, 'news_category');
@@ -98,18 +92,8 @@ class Admin_Controller_News {
             }
         }
 
-        if ($columns == 'create_by') {
-            echo get_post_meta($post->ID, '_metabox_news_create_by', true);
-        }
-
         if ($columns == 'email') {
             echo get_post_meta($post->ID, '_metabox_news_email', true);
-        }
-
-        if ($columns == 'show_at_home') {
-            if (get_post_meta($post->ID, '_metabox_show_at_home', true) == 1) {
-                echo '<div class="show-home"></div>';
-            }
         }
 
     }

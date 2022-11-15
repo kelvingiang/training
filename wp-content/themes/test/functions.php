@@ -11,6 +11,7 @@ define('DIR_HELPER', THEME_URL . DS . 'helper' . DS);
 require_once(DIR_HELPER . 'define.php');
 require_once(DIR_HELPER . 'style.php');
 require_once(DIR_HELPER . 'function.php');
+require_once(DIR_HELPER . 'function-frontend.php');
 require_once(DIR_HELPER . 'require.php');
 require_once(DIR_HELPER . 'rewrite-url.php');
 new Rewrite_Url();
@@ -18,31 +19,98 @@ new Rewrite_Url();
 // HIEN THI Featured Image TRONG ADMIN
 add_theme_support('post-thumbnails');
 
+//================= COT MAC DINH CUA POST ====================
+// thay doi cac cot mac dinh cua post, cac cot home,language,setorder se duoc dung chung
+// nen ta khong can khai bao chung trong cac slider, news,... dung metabox
+add_filter('manage_posts_columns', 'set_custom_edit_columns');
+function set_custom_edit_columns($columns)
+{
+    $date_label = _x('創建日期', 'suite');
+    //unset($columns['author']);
+    //unset($columns['categories']);
+    unset($columns['tags']);
+    unset($columns['comments']);
+    unset($columns['date']);
+    //$columns['content'] = __('內容');
+    $columns['author'] = __('Author');
+   // $columns['category'] = __('Category');
+    $columns['home'] = __('Home');
+    //$columns['language'] = __('Language');
+    $columns['setorder'] = __('Show Order');
+    //$columns['date'] = __('日期');
+    //$columns['publisher'] = __('Publisher', 'your_text_domain');
+
+
+    $columns['date'] = $date_label;
+    return $columns;
+}
+add_action('manage_posts_custom_column', 'Custom_Post_RenderCols');
+function Custom_post_RenderCols($columns)
+{
+    global $post;
+    switch ($columns) {
+
+        case 'home':
+            if ((get_post_meta($post->ID, '_metabox_show_at_home', true)) == 1) {
+                echo "<div class='show-home'></div>";
+            }
+            break;
+        // case 'category':
+        //     $terms = wp_get_post_terms($post->ID, 'solutions_category');
+        //     if (count($terms) > 0) {
+        //         foreach ($terms as $key => $term) {
+        //             echo '<a href=' . custom_redirect($term->slug) . '&' . $term->taxonomy . '=' . $term->slug . '>' . $term->name . '</a></br>';
+        //         }
+        //     }
+        //     break;
+        // case 'language':
+        //     _e(get_post_meta($post->ID, '_meta_box_language', true));
+        //     break;
+
+        case 'setorder':
+            echo get_post_meta($post->ID, '_metabox_order', true);
+            break;
+        default:
+            break;
+    }
+}
+
 //Xu ly loadmore theo button phia server
 add_action( 'wp_ajax_nopriv_loadmore', 'prefix_load_more' );
 add_action( 'wp_ajax_loadmore', 'prefix_load_more' );
 function prefix_load_more(){
     $offset = !empty($_POST['offset']) ? intval( $_POST['offset'] ) : ''; //lay du lieu gui len client 
+    $showNum = 3;
+    $cateID = $_POST['cateID'];
     if($offset) {
         $wp_query = new WP_Query(
             $args = array(
                 'post_type' => 'news',
-                'posts_per_page' => 3,
+                'posts_per_page' => $showNum,
                 'post_status' => 'publish',
-                'news_category' => 'Health',
                 'offset' => $offset,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'news_category',
+                        'field' => 'term_id',
+                        'terms'    => $cateID
+                    ),
+                ),
             )
         );
         if($wp_query->have_posts()) : 
             while ($wp_query->have_posts()):
                 $wp_query->the_post();
-                ?><div class="slider-multi-item col-md-6">
+                ?><div class="slider-multi-item col-md-4">
                     <div class="slider-multi-img">
                         <?php 
                             // [0]: url, [1]: width, [2]: height, [4]:is_intermediate
                             $url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full');
-                        ?>
-                        <img src="<?php echo $url[0]; ?>" class="w-100 img" />
+                            if($url != '') {?>
+                                <img src="<?php echo $url[0]; ?>" class="w-100 img" />
+                            <?php } else{ ?>
+                                <img src="<?php echo PART_IMAGES . 'no-image.jpg'; ?>" class="w-100 img" />
+                        <?php } ?> 
                     </div>
                     <div class="slider-multi-title">
                         <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>
@@ -69,13 +137,20 @@ add_action( 'wp_ajax_scrolling_loadmore', 'prefix_scrolling_load_more' );
 function prefix_scrolling_load_more(){
     $paged = $_POST['page'];
     $offset = $_POST['id'];
+    $cateID = $_POST['cateID'];
+    $showNum = 2;
     $wp_query = new WP_Query(
         $args = array(
             'post_type' => 'news',
-            'posts_per_page' => 2,
+            'posts_per_page' => $showNum,
             'post_status' => 'publish',
-            'news_category' => 'Travel',
-            'paged' => $paged,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'news_category',
+                    'field' => 'term_id',
+                    'terms'    => $cateID
+                ),
+            ),
         )
     );
     if($paged){
@@ -83,13 +158,16 @@ function prefix_scrolling_load_more(){
             while ($wp_query->have_posts()):
                 $wp_query->the_post();
                 ?>
-                <div class="multi-item col-md-6" data_id = "<?php echo ++$offset; ?>">
+                <div class="slider-multi-item col-md-6" data_id = "<?php echo ++$offset; ?>">
                     <div class="slider-multi-img">
                         <?php 
                             // [0]: url, [1]: width, [2]: height, [4]:is_intermediate
                             $url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full');
-                        ?>
-                        <img src="<?php echo $url[0]; ?>" class="w-100 img" />
+                            if($url != '') {?>
+                                <img src="<?php echo $url[0]; ?>" class="w-100 img" />
+                            <?php } else{ ?>
+                                <img src="<?php echo PART_IMAGES . 'no-image.jpg'; ?>" class="w-100 img" />
+                        <?php } ?> 
                     </div>
                     <div class="slider-multi-title">
                         <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>

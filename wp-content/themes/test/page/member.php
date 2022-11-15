@@ -12,22 +12,22 @@
   }else{ //vào member page
 ?>
 <div class="row">
-    <div class="button-row btn-group">
-      <!-- logout -->
-      <button type="submit" name="btn-member-logout" id="btn-member-logout" 
-        class="button button-primary button-large btn-logout">
-        <a href="<?php echo home_url('member-logout') ?>"><?php echo __('Sign Out') ?></a>
-      </button>
-      <!-- change-pass -->
-      <button type="submit" name="btn-member-change-pass" id="btn-member-change-pass" 
-        class="button button-primary button-large btn-change-pass">
-        <a href="<?php echo home_url('member-change-password') ?>"><?php echo __('Change Password') ?></a>
-      </button>
-    </div>
-    <!-- gọi đến trang template-member.php -->
-    <div class=" member col-lg-7"><?php get_template_part('template/template', 'member'); ?></div>
-    <!-- gọi đến trang template-member-category.php --> 
-    <div class=" member col-lg-5"><?php get_template_part('template/template', 'member-category'); ?></div> 
+  <div class="button-row btn-group">
+    <!-- logout -->
+    <button type="submit" name="btn-member-logout" id="btn-member-logout" 
+      class="button button-primary button-large btn-logout">
+      <a href="<?php echo home_url('member-logout') ?>"><?php echo __('Sign Out') ?></a>
+    </button>
+    <!-- change-pass -->
+    <button type="submit" name="btn-member-change-pass" id="btn-member-change-pass" 
+      class="button button-primary button-large btn-change-pass">
+      <a href="<?php echo home_url('member-change-password') ?>"><?php echo __('Change Password') ?></a>
+    </button>
   </div>
+  <!-- gọi đến trang template-member.php -->
+  <div class="col-lg-8 col-md-12"><?php get_template_part('template/template', 'member'); ?></div>
+  <!-- gọi đến trang template-member-category.php --> 
+  <div class="col-lg-4 col-md-12"><?php get_template_part('template/template', 'member-category'); ?></div> 
+</div>
 <?php } ?>
 <?php get_footer();

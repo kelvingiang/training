@@ -1,6 +1,3 @@
-<?php
-global $post;
-?>
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="slider-multi-head"><h1></h1></div>
     <?php
@@ -15,24 +12,7 @@ global $post;
         $showNum = 2;
         $offset = ($paged - 1) * $showNum;
         $_SESSION['offset'] = $offset;  
-        $args = array(
-            'post_type' => 'news',
-            'posts_per_page' => $showNum,
-            'post_status' => 'publish',
-            'news_category' => 'Digitizing',
-            // 'meta_query' => array(
-            //     array(
-            //         'key' => '_metabox_show_at_home',
-            //         'value' => '1',
-            //         'compare' => '='
-            //     )
-            // )    
-            'orderby' => 'ID',
-            'order' => 'DESC',
-            'offset' => $offset,
-            'paged' => $paged, 
-        );
-        $wp_query = new WP_Query($args);
+        $wp_query = new WP_Query(getPostTypeNews('news', $showNum, 10, $offset, $paged));
         if ($wp_query->have_posts()):
             while ($wp_query->have_posts()):
                 $wp_query->the_post();

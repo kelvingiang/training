@@ -4,6 +4,7 @@
 */
 
 /* header */
+$head_bg_color: rgb(255, 255, 255);
 
 /* login, logout, change-password */
 $f_lbl_color: rgb(247, 178, 160);
@@ -19,6 +20,8 @@ $f_bg_disabled_color: #cccccc;
 /* member */
 $mem_color: rgb(125, 138, 255);
 $mem_color_hover: #eeb987;
+$mem_even_color: rgb(226, 229, 231);
+$mem_title_color: rgb(146, 38, 43);
 
 /* slider - owl-carousel */
 $owl_nav_btn_color: #141414;
@@ -44,3 +47,5 @@ $sing_latest_title_color: rgb(248, 125, 146);
 $foo_social_link_color_hover: #b6f59d;
 $foo_color: rgb(247, 241, 241);
 $foo_bg_color: #413b77;
+
+$home_title_color: rgb(175,170,170);

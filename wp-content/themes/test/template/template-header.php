@@ -1,22 +1,17 @@
-<div style="position: fixed; margin-top:-32px; background-color: #fff; border-bottom: 2px #fff solid;  display: block; width: 100%;  z-index: 100; margin-bottom: 20px">
-    <header id="header" role="banner">
-        <section class="head-logo">
-           <a href="<?php echo home_url(''); ?>"><img src="<?php echo get_image('logo.png') ?>" width="60px" /></a>
-        </section>
-        <section class="head-title">
-            <h4 title="Digiwin đào tạo" style=" font-weight: bold; letter-spacing: 5px; margin-top:5px; font-size:20px">
-                <?php _e('Digiwin Training'); ?> 
-            </h4>
-            <h6 style="margin-top: 10px; color:blueviolet">Tầng 12A Golden King, Nguyễn Lương Bằng Q7</h6>
-        </section>   
-        <section class="head-search">
-            <?php get_search_form(); ?>
-        </section>
-    </header>
-    <div id="menu">
-        <?php get_template_part('template/template', 'menu'); ?>
+<div class="header">
+    <div class="header-logo">
+        <a href="<?php echo home_url(''); ?>"><img src="<?php echo get_image('logo.png') ?>" width="75px" /></a>
+        <div class="header-title">
+            <label title="Digiwin đào tạo"><?php _e('Digiwin Training'); ?></label>
+            <br>
+            <label>Tầng 12A Golden King, Nguyễn Lương Bằng Q7</label>
+        </div>   
+    </div>
+    <div class="header-search">
+        <?php get_search_form(); ?>
     </div>
 </div>
+<div class="menu-computer"><?php get_template_part('template/template', 'menu'); ?></div>
 <?php if( !is_single()) {?>
     <div><?php get_template_part('template/template', 'slider'); ?></div>
 <?php } ?>
