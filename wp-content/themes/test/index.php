@@ -6,7 +6,7 @@
         <?php get_template_part('template/template', 'articles'); ?>
     </div>
     <div>
-        <h2 class="home-tit;e">NEWS</h2>
+        <h2 class="home-title">NEWS</h2>
         <div class="hr3"></div>
         <?php get_template_part('template/template', 'news'); ?>
     </div>
