@@ -1,0 +1,5 @@
+2015/10/23 下午 05:40:51: C:\Program Files (x86)\Poedit\GettextTools\bin\xgettext.exe: Non-ASCII string at js/admin/jquery-1.7.1.min.js:2.
+2015/10/23 下午 05:40:51:                                                              Please specify the source encoding through --from-code
+2015/10/23 下午 05:40:51:                                                              
+2015/10/23 下午 05:40:51: 編目檔裡的條目可能有不正確。
+2015/10/23 下午 05:40:51: 編目檔更新失敗。請按下 [Details >>] 查看詳細資訊。

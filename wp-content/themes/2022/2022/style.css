@@ -1,0 +1,337 @@
+/*
+Theme Name: suite 2022
+Theme URI: ctcvn.vn
+Author: kelvin
+Author URI: https://ctcvn.vn/
+Description: them dau tien cua minh
+Version: 2022
+
+Tags: black, blue, gray, pink, purple, white, yellow, dark, light, two-columns, left-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+Text Domain:  suite
+Languages Folder : /langauges
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/*
+truoc khi lam voi css ta rat quan trong nen reset lai css ve mac dinh
+*/
+/*---:[GLOBAL CSS]:---*/
+/*html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 100%;
+    font-family: Helvetica Neue, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+a {
+    color: #F6591C;
+    text-decoration: none;
+}
+a:hover, a:visited, a:active {
+    color: #FF3F00;
+    text-decoration: underline;
+}
+input,input[type="submit"],button {
+    border: 1px solid #C8C8C8 !important;
+    padding: 5px 10px;
+}
+h1 {
+    font-size: 2.2em;
+}
+h2 {
+    font-size: 2em;
+}
+h3 {
+    font-size: 1.8em;
+}
+h4 {
+    font-size: 1.55em;
+}
+h5 {
+    font-size: 1.3em;
+}
+table, table tr, table td {
+    border: 1px solid #e7e7e7;
+    padding: 8px;
+}
+*/
+
+/*---:[WEBSITE COLUMNS]:---*/
+/*
+#container {
+    width: 1024px;
+    margin: 0 auto;
+    background :#ffffff;
+    border: 1px solid #D1D1D1;
+    padding: 10px 15px;
+}
+.content {
+    overflow: hidden;
+}
+
+#main-content {
+    width: 620px;
+    float: left;
+    margin-right: 10px;
+}
+
+#sidebar {
+    width: 320px;
+    float: right;
+    margin-left: 20px;
+    padding-left: 20px;
+    /*ackground-color: #E5E5E5;*/
+/*}
+
+/*---:[LOGO]---*/
+/*.logo {
+    margin-bottom: 30px;
+    line-height: 2;
+}
+.logo .site-name {}
+.logo .site-name h1 {
+    margin: 0;
+    font-size: 0;
+}
+.logo .site-name a {
+    color: rgb(0, 100, 212);
+    font-size: 32px;
+    font-weight: bold;
+}
+.logo .site-description {
+    margin-top: -1em;
+    color: rgb(111, 111, 111);
+    font-family: Time New Roman,serif;
+    font-size: 1.04em;
+    font-style: italic;
+}*/
+
+/*phan post*/
+/*.post {
+    overflow: hidden;
+    border-top: 1px solid #e7e7e7;
+}
+.post .entry-thumbnail {
+    width: 150px;
+    float: left;
+    margin: 2.2em 2em 1em 0;
+}
+.post .post-thumbnail {
+    margin: 0;
+}
+.post .entry-content,
+.post .entry-header {
+    padding-left: 180px;
+}
+.post .entry-content {
+    text-align: justify;
+}
+
+.post a.read-more {
+    display: table;
+    -moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
+    box-shadow:inset 0px 1px 0px 0px #cf866c;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
+    background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+    background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+    background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+    background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+    background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
+    background-color:#d0451b;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    border:1px solid #942911;
+    cursor:pointer;
+    color:#ffffff;
+    font-size:13px;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #854629;
+    margin-top: 10px;
+}
+.post a.read-more:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
+    background:-moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background:-webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background:-o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background:-ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b',GradientType=0);
+    background-color:#bc3315;
+}
+.post a.read-more:active {
+    position:relative;
+    top:1px;
+}
+
+.single .post .entry-content,
+.single .post .entry-header {
+    padding-left: 0;
+}
+
+.entry-meta {
+    font-family: Time New Roman,serif;
+    font-size: 16px;
+    color: #6F6F6F;
+}
+.entry-meta a {
+    color: #6F6F6F;
+}
+.entry-tag {
+    font-weight: bold;
+}
+
+.author-box {
+    overflow: hidden;
+    background: #f3f3f3;
+    padding: 10px 25px;
+    margin: 15px 0;
+    border: 1px solid #e1e1e1;
+}
+.author-avatar {
+    float: left;
+    margin: 17px 25px 0 0;
+}
+.author-avatar img {
+    -webkit-border-radius: 65px;
+    -moz-border-radius: 65px;
+    border-radius: 65px;
+}
+
+/*---:[POST FORMAT]---*/
+/* .format-image .entry-content,
+.format-image .entry-header,
+.format-video .entry-content,
+.format-video .entry-header
+.format-link .entry-content,
+.format-link .entry-header
+{
+    padding-left: 0;
+}
+.format-link .entry-content a {
+    color: #333333;
+}
+.format-link .entry-content a:hover {
+    text-decoration: none;
+}
+*/
+/* == WordPress WYSIWYG Editor Styles == */
+
+/*.entry-content img {
+    margin: 0 0 1.5em 0;
+}
+.alignleft, img.alignleft {
+    margin-right: 1.5em;
+    display: inline;
+    float: left;
+}
+.alignright, img.alignright {
+    margin-left: 1.5em;
+    display: inline;
+    float: right;
+}
+.aligncenter, img.aligncenter {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    clear: both;
+}
+.alignnone, img.alignnone { */
+/* not sure about this one */
+/*}
+.wp-caption {
+    margin-bottom: 1.5em;
+    text-align: center;
+    padding-top: 5px;
+    max-width: 100%;
+}
+.wp-caption img {
+    border: 0 none;
+    padding: 0;
+    margin: 0;
+}
+.wp-caption p.wp-caption-text {
+    line-height: 1.5;
+    font-size: 10px;
+    margin: 0;
+}
+.wp-smiley {
+    margin: 0 !important;
+    max-height: 1em;
+}
+blockquote.left {
+    margin-right: 20px;
+    text-align: right;
+    margin-left: 0;
+    width: 33%;
+    float: left;
+}
+blockquote.right {
+    margin-left: 20px;
+    text-align: left;
+    margin-right: 0;
+    width: 33%;
+    float: right;
+}
+.gallery dl {}
+.gallery dt {}
+.gallery dd {}
+.gallery dl a {}
+.gallery dl img {}
+.gallery-caption {}
+
+.size-full {}
+.size-large {}
+.size-medium {}
+.size-thumbnail {}
+*/
+/*---:[SIDEBAR]:---*/
+/*#sidebar {
+        font-size: 0.9em;
+}*/
+
+ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+/* CSS chung cho toàn bộ widget */
+
+/* STYLE CHO POPUP*/
+
+/*.copy-right{
+    width: 100%;
+    height: 20px;
+    text-align: right;
+}*/
+/*AN PHAN CAP NHAT PHIEM BAN MOI*/
+.update-nag {
+  display: none !important;
+}
+
+/* #show_menu {
+  cursor: pointer;
+  height: 30px;
+  background-color: red;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  line-height: 30px;
+} */

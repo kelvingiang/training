@@ -1,0 +1,173 @@
+@keyframes show-start {
+    from {
+        margin-top: -10px;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+
+#header {
+    @include Respond(md) {
+        display: none;
+        visibility: hidden;
+    }
+
+    #header-logo {
+        background-color: rgb(253, 253, 253);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        @include Respond(md) {
+            visibility: hidden;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            @include Respond(md) {
+                margin-left: 0.5rem;
+                width: 50px;
+                height: 50px;
+            }
+        }
+        label {
+            color: #286090;
+        }
+
+        .company-name-cn {
+            font : {
+                size: 1.3rem;
+                weight: bold;
+                family: "DFKai-SB", Microsoft YaHei, Arial, sans-serif;
+            }
+            letter-spacing: 1rem;
+            @include Respond(md) {
+                display: none;
+            }
+        }
+
+        .company-name-en {
+            font-size: 0.7rem;
+            letter-spacing: 0rem;
+            font-family: times new roman, Arial, sans-serif;
+            @include Respond(md) {
+                display: none;
+            }
+        }
+    }
+
+    .language-space {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        div {
+            color: rgba(121, 119, 119, 0.5);
+            margin: 0.5rem;
+            font-size: 0.7rem;
+            font-weight: bold;
+            cursor: pointer;
+            &:hover {
+                color: rgba(121, 119, 119, 1);
+            }
+        }
+    }
+
+    .show-on-scroll {
+        display: none;
+    }
+
+    .start {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: rgba(255, 255, 255, 0.95);
+        margin-top: 0;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+
+        animation-name: show-start;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+}
+
+#mobile-header {
+    background-color: rgb(250, 250, 250);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    transition: top 0.3s;
+    z-index: 100;
+
+    @include Respond(lg) {
+        display: none;
+    }
+    @include Respond(xl) {
+        display: none;
+    }
+    @include Respond(md) {
+        display: block;
+    }
+
+    #header-logo-mobile {
+        width: 50%;
+        float: left;
+        display: flex;
+        flex-direction: row;
+        img {
+            margin-left: 0.5rem;
+            width: 50px;
+            height: 50px;
+        }
+        label {
+            color: #286090;
+            margin-left: 0.5rem;
+        }
+
+        .company-name-cn {
+            margin-top: 0.5rem;
+            display: block;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 0.7rem;
+            @include Respond(sm) {
+                display: none;
+            }
+        }
+
+        .company-name-en {
+            display: block;
+            font-size: 0.5rem;
+            font-weight: bold;
+            @include Respond(sm) {
+                display: none;
+            }
+        }
+    }
+
+    .language-space {
+        width: 49%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        div {
+            color: rgba(121, 119, 119, 0.5);
+            margin: 0rem 0.3rem;
+            font-size: 0.7rem;
+            font-weight: bold;
+            cursor: pointer;
+            &:hover {
+                color: rgba(121, 119, 119, 1);
+            }
+        }
+    }
+}

@@ -1,0 +1,245 @@
+$textColor: rgba(53, 52, 52, 0.6);
+$textSubColor: rgba(53, 52, 52, 0.8);
+$textHoverColor: rgba(53, 52, 52, 1);
+
+#menu-computer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    @include Respond(md) {
+        display: none;
+        //display: visibility;
+    }
+
+    .menu-computer-additional {
+        i {
+            margin-top: 1rem;
+            margin-left: 0.4rem;
+            margin-right: 1rem;
+            font-size: 1.1rem;
+            color: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            &:hover {
+                color: #000;
+            }
+        }
+        .login-success {
+            position: relative;
+            z-index: 20;
+            cursor: pointer;
+
+            &:hover {
+                .login-success-content {
+                    display: block;
+                }
+                label {
+                    color: #000;
+                }
+            }
+            label {
+                margin: 0rem 1rem 1rem;
+                cursor: pointer;
+                color: rgba(0, 0, 0, 0.5);
+            }
+
+            .login-success-content {
+                display: none;
+                position: absolute;
+                margin-left: -1rem;
+                box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+                div {
+                    width: 200%;
+                    background-color: rgb(252, 251, 251);
+                    border-bottom: 0.01rem solid rgb(231, 231, 231);
+                    padding: 0.7rem 1rem;
+                    &:hover {
+                        a {
+                            color: #000;
+                        }
+                    }
+                    a {
+                        text-decoration: none;
+                        color: rgba(0, 0, 0, 0.5);
+                        font: {
+                            size: 1rem;
+                            weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    nav {
+        &:after {
+            display: table;
+            content: " ";
+            clear: both;
+        }
+        .sf-menu {
+            background-color: transparent;
+            .menu-item {
+                background-color: transparent;
+                .sf-with-ul {
+                    &:after {
+                        border-top-color: $textColor;
+                    }
+                }
+                a {
+                    color: $textColor;
+                    font-size: 1rem;
+                    font-weight: bold;
+                }
+                &:hover {
+                    .sf-with-ul {
+                        &:after {
+                            border-top-color: $textHoverColor;
+                        }
+                    }
+                    a {
+                        color: $textHoverColor;
+                    }
+                }
+            }
+
+            .sub-menu {
+                background-color: #ffffff;
+                .menu-item {
+                    border-bottom: 1px #dad7d7 dotted;
+                    a {
+                        color: $textColor;
+                    }
+                    &:hover {
+                        background-color: #fcfcfc;
+                        a {
+                            color: $textHoverColor;
+                        }
+                    }
+                }
+            }
+
+            @include Respond(xl) {
+                display: block;
+            }
+            @include Respond(md) {
+                display: none;
+            }
+        }
+    }
+}
+
+@keyframes show_nav_animation {
+    0% {
+        right: -100%;
+    }
+    100% {
+        right: 0%;
+    }
+}
+
+@keyframes close_nav_animation {
+    0% {
+        right: 0%;
+    }
+    100% {
+        right: -100%;
+    }
+}
+
+#menu-mobile {
+    display: block;
+    transition: top 0.3s;
+    z-index: 100;
+
+    @include Respond(xl) {
+        display: none;
+    }
+    @include Respond(md) {
+        display: block;
+    }
+
+    /*---E MENU CHINH:[PRIMARY MENU]:---*/
+
+    #mobile-menu-icon {
+        cursor: pointer;
+        text-align: right;
+        color: rgb(82, 82, 82);
+        font-size: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    /*MENU CHO RESPORST*/
+    #mobile-menu-content {
+        position: absolute;
+        z-index: 1000;
+        right: -100%;
+        width: 80%;
+        background-color: #b1b1b1;
+        display: flex;
+        flex-direction: column;
+
+        border-radius: 0.5rem 0 0 0.5rem;
+
+        #nav-mobile-menu {
+            .sf-mobile-menu {
+                display: flex;
+                flex-direction: column;
+
+                li.menu-item-has-children > a::after {
+                    font-family: FontAwesome;
+                    content: "\f0d7";
+                    padding-left: 1rem;
+                }
+
+                li {
+                    background-color: rgb(177, 177, 177);
+                    border-bottom: 1px #ccc solid;
+                    margin-left: -2rem;
+                    // padding: 1rem 2rem;
+                    a {
+                        color: #ffffff;
+                        text-decoration: none;
+                        font-weight: bold;
+                        text-align: left;
+                        display: block;
+                        padding: 1rem;
+                    }
+                    &:hover {
+                        background-color: rgba(239, 243, 243, 1);
+                        a {
+                            color: rgba(27, 27, 27, 1);
+                        }
+                    }
+                    .sub-menu {
+                        display: none;
+                        width: 100%;
+                        li {
+                            background-color: rgb(168, 168, 168);
+                        }
+                    }
+                }
+            }
+        }
+
+        .ex-mobile-menu {
+            padding: 1rem 2rem;
+            border-bottom: #ffffff 1px solid;
+            a {
+                color: #ffffff;
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .show-nav {
+        animation-name: show_nav_animation;
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+    }
+
+    .close-nav {
+        right: 10%;
+        animation-name: close_nav_animation;
+        animation-duration: 0.5s;
+    }
+}

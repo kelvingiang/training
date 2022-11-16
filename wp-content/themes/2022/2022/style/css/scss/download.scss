@@ -1,0 +1,51 @@
+.download-space {
+    display: flex;
+    flex-wrap: wrap;
+
+    .download-item {
+        border: 1px #f8f6f6de solid;
+        border-radius: 0.3rem;
+        margin: 3rem 1rem;
+        width: 23%;
+        opacity: 0.8;
+        transition: all 1s;
+        display: flex;
+        position: relative;
+
+        &:hover {
+            opacity: 1;
+            box-shadow: 1px 10px 8px #888888;
+            transform: scale(1.05);
+        }
+        &-img {
+            padding-bottom: 2rem;
+            padding-top: 1rem;
+            height: 100%;
+
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+            img {
+                border-radius: 0.2rem;
+                width: 80%;
+                margin: auto;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        &-title {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            text-align: center;
+
+            label {
+                font-size: 1rem;
+                padding-bottom: 0.5rem;
+                color: #7c7c7c;
+                font-weight: bold;
+            }
+        }
+    }
+}

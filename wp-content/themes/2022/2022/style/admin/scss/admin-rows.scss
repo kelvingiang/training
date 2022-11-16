@@ -1,0 +1,73 @@
+.row-one-column {
+    margin: 1rem 1rem 0.8rem;
+}
+
+.row-two-column {
+    height: 2rem;
+    margin: 1rem 1rem 2rem;
+    .col {
+        float: left;
+        width: 47.5%;
+    }
+}
+
+.row-three-column {
+    height: 2rem;
+    margin: 1rem 1rem 2rem;
+    .col {
+        float: left;
+        width: 31.1%;
+    }
+}
+
+.row-four-column {
+    height: 2rem;
+    margin: 1rem 1rem 2rem;
+    .col {
+        float: left;
+        width: 23.1%;
+    }
+}
+
+.row-five-column {
+    height: 2rem;
+    margin: 1rem 1rem 2rem;
+    .col {
+        float: left;
+        width: 18%;
+    }
+}
+
+.cell-title {
+    width: 100%;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+}
+
+.cell-text {
+    .my-input {
+        height: 1.5rem;
+        width: 90%;
+        border-radius: 0.3rem;
+    }
+}
+
+.btn-add-space {
+    clear: both;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10%;
+    margin-top: 5rem;
+}
+
+.radio-space {
+    display: flex;
+    div {
+        margin: 1rem;
+        width: 5rem;
+        label {
+            font-weight: bold;
+        }
+    }
+}

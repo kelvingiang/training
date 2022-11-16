@@ -1,0 +1,119 @@
+// .supervisor-incumbent {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+
+//     &-item {
+//         display: flex;
+//         flex-direction: column;
+//         border: 1px solid rgba(199, 198, 198, 0.342);
+//         border-radius: 0.5rem;
+//         padding: 0rem;
+//         margin: 0 1.5rem;
+//         align-items: center;
+//         // background-color: rgb(243, 241, 241);
+//         width: 20%;
+
+//         // animation-name: supervisor-show;
+//         // animation-duration: 1s;
+//         // animation-delay: 0s;
+//         // animation-iteration-count: 1;
+
+//         h3 {
+//             color: $titleColor;
+//             padding: 1rem;
+//             font : {
+//                 size: 1rem;
+//                 weight: bold;
+//             }
+//         }
+//         img {
+//             width: 95%;
+//             border-radius: 0.2rem;
+//         }
+
+//         label {
+//             padding: 0.5rem;
+//             font-size: 1rem;
+//             font-weight: bold;
+//             color: $labelColor;
+//         }
+//     }
+// }
+
+.past-presidents {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    &-item {
+        width: 23%;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgb(199, 198, 198);
+        border-radius: 0.5rem;
+        align-items: center;
+        background-color: rgb(243, 241, 241);
+        margin-bottom: 2rem;
+
+        h3 {
+            color: $titleColor;
+            padding: 1rem 0rem;
+            font : {
+                size: 1.1rem;
+                weight: bold;
+            }
+        }
+        img {
+            width: 90%;
+            border-radius: 0.5rem;
+        }
+
+        label {
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: $labelColor;
+        }
+    }
+}
+
+.president-list {
+    border: {
+        radius: 0.5rem;
+    }
+
+    margin-bottom: 1rem;
+    border: #b0b1b1 1px solid;
+    padding: -2px;
+    overflow: hidden;
+
+    h4.branch-name {
+        margin: 0;
+        padding: 1rem;
+        background-color: #01415e;
+        color: #f8f3f3dc;
+        cursor: pointer;
+
+        font: {
+            size: 1.3rem;
+            weight: bold;
+            family: "DFKai-SB", 宋体b8b体, Microsoft YaHei, Arial, sans-serif;
+        }
+        &:hover {
+            background-color: #01415ee5;
+            color: #fcfcfc;
+        }
+    }
+
+    &-item {
+        display: none;
+        .my_list {
+            color: #515151;
+            font-size: 0.8rem;
+            border-bottom: 1px #969696 solid;
+            width: 100%;
+            padding-top: 8px;
+        }
+    }
+}

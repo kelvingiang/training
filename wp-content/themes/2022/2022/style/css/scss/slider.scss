@@ -1,0 +1,51 @@
+.border_box {
+    @include Respond(xl) {
+        height: 500px !important;
+    }
+
+    @include Respond(lg) {
+        height: 300px !important;
+    }
+
+    @include Respond(md) {
+        display: none;
+    }
+    /*PHAN CUA SLIDER*/
+    .box_skitter_large {
+        @include Respond(xl) {
+            height: 500px !important;
+        }
+
+        @include Respond(lg) {
+            height: 300px !important;
+        }
+    }
+
+    .container_skitter {
+        @include Respond(xl) {
+            height: 500px !important;
+        }
+
+        @include Respond(lg) {
+            height: 300px !important;
+        }
+    }
+    box_skitter {
+        @include Respond(xl) {
+            height: 500px !important;
+        }
+
+        @include Respond(lg) {
+            height: 300px !important;
+        }
+    }
+    .label_skitter {
+        background-color: rgba(255, 255, 255, 0.3) !important;
+        color: rgb(249, 251, 253) !important;
+        h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+}

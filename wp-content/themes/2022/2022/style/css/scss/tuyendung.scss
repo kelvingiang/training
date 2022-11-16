@@ -1,0 +1,29 @@
+.recruit-space {
+    padding-left: 1rem;
+    div {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        label {
+            font : {
+                size: 1rem;
+                weight: bold;
+            }
+            padding-left: 0.5rem;
+            color: #666;
+        }
+    }
+    .two-row {
+        display: flex;
+        flex-direction: row;
+        div {
+            flex: 1;
+            input[type="text"] {
+                width: 80% !important;
+            }
+            select {
+                width: 80% !important;
+            }
+        }
+    }
+}

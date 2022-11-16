@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<listcustomer>
+    <customer id='1'>
+        <name> face book </name>
+        <age> 25 </age>
+        <phone>284302108391845</phone>
+    </customer>
+     <customer id='2'>
+        <name> Dat </name>
+        <age> 26 </age>
+        <phone>1122525</phone>
+    </customer>
+     <customer id='3'>
+        <name> Luong </name>
+        <age> 29 </age>
+        <phone>332566</phone>
+    </customer>
+     <customer id='4'>
+        <name> Khanh </name>
+        <age> 28 </age>
+        <phone>425444444</phone>
+    </customer>
+     <customer id='5'>
+        <name> Long </name>
+        <age> 30 </age>
+        <phone>55555555</phone>
+    </customer>
+</listcustomer>

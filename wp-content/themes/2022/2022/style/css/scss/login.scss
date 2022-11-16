@@ -1,0 +1,47 @@
+.login-space {
+    width: 50%;
+    margin: 2rem auto 2rem;
+    padding: 5rem 1rem;
+    .login-from {
+        div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+    }
+
+    @include Respond(md) {
+        width: 80%;
+    }
+    @include Respond(sm) {
+        width: 100%;
+        padding: 2rem 1rem;
+    }
+}
+
+.btn-space {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+.btn-my {
+    border-radius: 5px;
+    background-color: #035c8be7;
+    border: 1px solid rgb(255, 255, 255);
+    color: #ebebeb;
+    letter-spacing: 0.3rem;
+    margin: 1rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    @include Respond(md) {
+        padding: 0.5rem 1rem;
+    }
+    &:hover {
+        color: #ffffff;
+        border: 1px solid #999;
+        background-color: #035e8f;
+        text-decoration: none;
+    }
+}

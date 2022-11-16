@@ -1,0 +1,208 @@
+@mixin group-title-text() {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem 1rem;
+    color: #fc7304;
+}
+
+.brown-group {
+    border: #dbdbdb 1px solid;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 5px 8px 10px 2px #888888;
+    word-break: break-all;
+    word-wrap: break-word;
+    .brown-title {
+        background-color: #9f3b02;
+        min-height: 40px;
+        margin-top: 1px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        label {
+            @include group-title-text;
+        }
+    }
+}
+
+.orange-group {
+    margin-left: 20px;
+    .orange-title {
+        background-color: #ff8003;
+        overflow: hidden;
+        label {
+            @include group-title-text;
+        }
+    }
+}
+
+.blue-group {
+    // border: #dbdbdb 1px solid;
+
+    background-color: #fff;
+
+    h3 {
+        //background: url(../images/title-bg.png);
+        overflow: hidden;
+        @include group-title-text;
+    }
+}
+
+.gray-group {
+    border-bottom: #dbdbdb 1px solid;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: $fontColor;
+    .gray-title {
+        overflow: hidden;
+        padding-left: 1.5rem;
+    }
+    .gray-content {
+        text-indent: 2rem;
+        padding-left: 1rem;
+        .has-img {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+
+            img {
+                margin: 0.5rem 1rem 1rem 0.5rem;
+                border-radius: 0.3rem;
+            }
+            .more-read {
+                position: absolute;
+                bottom: 1px;
+                right: 1px;
+                a {
+                    color: #ccc;
+                    font-size: 0.8rem;
+                    font-weight: bold;
+                    text-decoration: none;
+                    &:hover {
+                        color: #999;
+                    }
+                }
+            }
+        }
+        .more-read {
+            text-align: end;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+            a {
+                color: #ccc;
+                font-size: 0.8rem;
+                font-weight: bold;
+                text-decoration: none;
+                &:hover {
+                    color: #999;
+                }
+            }
+        }
+    }
+}
+
+.head-title-cn {
+    margin: 2rem 0 1rem;
+    text-align: center;
+    width: 100%;
+    @include Respond(md) {
+        margin: 4rem 0 1rem;
+    }
+
+    h2 {
+        //letter-spacing: 0.2rem;
+        font: {
+            size: 3rem;
+            weight: bold;
+            family: "DFKai-SB", 宋体b8b体, Microsoft YaHei, Arial, sans-serif;
+        }
+        color: $titleColor;
+        padding: 0.5rem;
+    }
+}
+.head-title-vn,
+.head-title-en {
+    margin: 2rem 0 1rem;
+    text-align: center;
+    width: 100%;
+    @include Respond(md) {
+        margin: 4rem 0 1rem;
+    }
+
+    h2 {
+        //letter-spacing: 0.2rem;
+        font: {
+            size: 3rem;
+            weight: bold;
+            family: Arial, Time New Roman, Microsoft YaHei, sans-serif;
+        }
+        color: $titleColor;
+        padding: 0.5rem;
+    }
+}
+
+.single-space {
+    padding-top: 2rem;
+    &-title {
+        color: $titleColor;
+        padding-left: 2rem;
+        font: {
+            size: 1.8rem;
+            weight: bold;
+            family: "DFKai-SB", 宋体b8b体, Microsoft YaHei, Arial, sans-serif;
+        }
+    }
+    &-content {
+        padding: 1.5rem 2rem;
+        color: $fontColor;
+        text-indent: 2rem;
+
+        font: {
+            size: 1rem;
+        }
+
+        h1 {
+            font: {
+                size: 1.3rem;
+                weight: bold;
+            }
+        }
+
+        h2 {
+            font: {
+                size: 1.2rem;
+                weight: bold;
+            }
+        }
+
+        h3 {
+            font: {
+                size: 1.1rem;
+                weight: bold;
+            }
+        }
+
+        img {
+            margin: 1rem;
+        }
+
+        .aligncenter {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .alignnone {
+            clear: both;
+        }
+
+        .alignright {
+            float: right;
+        }
+
+        .alignleft {
+            float: left;
+        }
+    }
+}

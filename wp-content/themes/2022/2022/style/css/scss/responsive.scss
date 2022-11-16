@@ -1,0 +1,78 @@
+@mixin Respond($breakpoint) {
+    @if $breakpoint == xs {
+        @media (max-width: 540px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == sm {
+        @media (max-width: 720px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == md {
+        @media (max-width: 992px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == lg {
+        @media (max-width: 1200x) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == xl {
+        @media (min-width: 1320px) {
+            @content;
+        }
+    }
+}
+
+//====== index page ===============================================
+.index-friend-space {
+    @include Respond(xl) {
+        display: block;
+    }
+    @include Respond(lg) {
+        display: none;
+    }
+}
+
+.index-friend-space-sidebar {
+    @include Respond(xl) {
+        display: none;
+    }
+    @include Respond(lg) {
+        display: block;
+    }
+}
+
+.index-slider-index {
+    @include Respond(xl) {
+        display: block;
+    }
+
+    @include Respond(lg) {
+        display: block;
+    }
+}
+
+.index-advertising-space {
+    @include Respond(lg) {
+        display: block;
+    }
+    @include Respond(md) {
+        display: block;
+    }
+}
+
+.index-advertising-space-sidebar {
+    @include Respond(lg) {
+        display: none;
+    }
+    @include Respond(md) {
+        display: block;
+    }
+}

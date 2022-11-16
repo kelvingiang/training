@@ -1,0 +1,287 @@
+@keyframes example {
+    0% {
+        color: rgb(3, 46, 95);
+    }
+    50% {
+        color: rgb(4, 99, 143);
+    }
+    100% {
+        color: rgb(201, 201, 201);
+    }
+}
+
+@keyframes img_show {
+    0% {
+        transform: scale(0, 0);
+        transform-origin: center center;
+        opacity: 0;
+    }
+    90% {
+        transform: scale(1.1, 1.1);
+        transform-origin: center center;
+    }
+    95% {
+        transform: scale(0.9, 0.9);
+        transform-origin: center center;
+    }
+    100% {
+        transform: scale(1, 1);
+        transform-origin: center center;
+    }
+}
+
+@keyframes img_close {
+    0% {
+        transform: scale(1, 1);
+        transform-origin: center center;
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0, 0);
+        transform-origin: center center;
+        opacity: 0;
+    }
+}
+
+@keyframes zoomScaleIn {
+    0% {
+        transform: scale(0, 0);
+        transform-origin: bottom right;
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1, 1);
+        transform-origin: bottom right;
+        opacity: 1;
+    }
+}
+
+@keyframes zoomScaleOut {
+    0% {
+        transform: scale(1.1, 1.1);
+        transform-origin: bottom right;
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0, 0);
+        transform-origin: bottom right;
+        opacity: 0;
+    }
+}
+
+@keyframes zoomScaleIn2 {
+    0% {
+        transform: scale(0, 0);
+        transform-origin: bottom left;
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1, 1);
+        transform-origin: bottom left;
+        opacity: 1;
+    }
+}
+
+@keyframes zoomScaleOut2 {
+    0% {
+        transform: scale(1, 1);
+        transform-origin: bottom left;
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.5, 0.5);
+        transform-origin: bottom left;
+        opacity: 0;
+    }
+}
+
+@mixin branch($imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay) {
+    position: absolute;
+    top: $imgTop;
+    left: $imgLeft;
+
+    @include Respond(xs) {
+        top: $respondTop;
+        left: $respondLeft;
+    }
+
+    .branch-link {
+        position: absolute;
+        top: $linkTop;
+        left: $linkLeft;
+        display: block;
+        padding: 0rem 2rem;
+
+        font-size: 1rem;
+        font-weight: bold;
+        white-space: nowrap;
+        text-decoration: none;
+
+        animation-name: example;
+        animation-duration: 2s;
+        animation-delay: $textDelay;
+        animation-iteration-count: infinite;
+
+        &:hover {
+            color: red;
+            transition-duration: 1s;
+            animation-name: on-animation;
+            font-weight: bold;
+
+            // & + .branch-img {
+            //     position: relative;
+            //     z-index: 10;
+            //     // opacity: 1;
+            //     // transition: transform 1s;
+            //     // // transform: scale(1, 1);
+            //     animation-name: zoomScaleIn;
+            // }
+        }
+    }
+
+    .branch-img {
+        opacity: 0;
+        //transform: scale(0.4, 0.4);
+        @include Respond(xs) {
+            width: 77%;
+        }
+    }
+
+    .branch-content {
+        opacity: 0;
+        position: absolute;
+        left: -180px;
+        top: -120px;
+        background-color: rgba(204, 204, 204, 0.6);
+        width: 200px;
+        height: 150px;
+        border-radius: 5px;
+        border: 1px #999 solid;
+        z-index: 50;
+    }
+
+    .branch-content-left {
+        left: 0px;
+        top: -120px;
+    }
+
+    .show {
+        animation-name: img_show;
+        animation-duration: 0.7s;
+        opacity: 1 !important;
+    }
+
+    .close {
+        animation-name: img_close;
+        animation-duration: 0.5s;
+    }
+
+    .showRight {
+        animation-name: zoomScaleIn2;
+        animation-duration: 0.7s;
+    }
+
+    .closeRight {
+        animation-name: zoomScaleOut2;
+        animation-duration: 0.5s;
+    }
+}
+
+#map-space {
+    display: flex;
+    justify-content: center;
+    .map {
+        @include Respond(xs) {
+            height: 700px;
+            width: 500px;
+        }
+
+        .branch {
+            transition: transform 0.5s;
+            transform-origin: center center;
+        }
+
+        .bac-ninh {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(10%, 34%, 29%, 160%, 18.2%, 40.5%, 2.5s);
+        }
+
+        .ha-noi {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(11%, 31%, 52%, 155%, 11.6%, 30%, 1s);
+        }
+
+        .hai-phong {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(12.8%, 39%, 65%, 75%, 11.6%, 30%, 1.5s);
+        }
+
+        .thai-binh {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(15%, 36.5%, 72%, 70%, 18.2%, 40.5%, 2s);
+        }
+
+        .ha-tinh {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(30%, 30%, 25.2%, 71%, 18.2%, 40.5%, 2.5s);
+        }
+
+        .da-nang {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(45.5%, 53%, 34%, 76%, 18.2%, 40.5%, 3s);
+        }
+
+        .lam-dong {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(72%, 55%, 50%, 92%, 13%, 40.5%, 3.5s);
+        }
+
+        .dong-nai {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(76.5%, 45%, 28%, 135%, 18.2%, 40.5%, 4s);
+        }
+
+        .binh-duong {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(76%, 40%, 39%, -213%, 18.2%, 40.5%, 4.5s);
+        }
+        .binh-duong-vn {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(75%, 39%, 39%, -180%, 18.2%, 40.5%, 4.5s);
+        }
+
+        .tay-ninh {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(75%, 35%, 17%, -160%, 18.2%, 40.5%, 5s);
+        }
+
+        .tay-ninh-vn {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(71.5%, 32.5%, 33%, -120%, 18.2%, 40.5%, 5s);
+        }
+
+        .ho-chi-minh {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(79%, 40%, 32%, 138%, 18.2%, 40.5%, 5.5s);
+        }
+
+        .tan-thuan {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(79%, 40.5%, 61%, 100%, 18.2%, 40.5%, 7s);
+        }
+
+        .vung-tau {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(80%, 45%, 80.2%, 40.2%, 60%, 40.5%, 6s);
+        }
+
+        .long-an {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(80.5%, 34%, 18%, -181%, 60%, 40.5%, 6.5s);
+        }
+        .long-an-vn {
+            //branch parameter $imgTop, $imgLeft, $linkTop, $linkLeft, $respondTop, $respondLeft, $textDelay
+            @include branch(79.5%, 30%, 18%, -100%, 60%, 40.5%, 6.5s);
+        }
+    }
+}

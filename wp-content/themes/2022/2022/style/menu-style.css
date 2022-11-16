@@ -1,0 +1,104 @@
+/* phan superfish menu */
+
+/*---B MENU CHINH:[PRIMARY MENU]:---*/
+.primary-menu{
+    background: linear-gradient(#286090 0%, #143149 100%);;
+}
+
+.sf-menu{
+    margin-bottom: 0 !important;
+}
+
+.primary-menu:after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+
+.primary-menu ul{
+    /*border: 1px solid #fff;*/
+    -moz-box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2);
+    -webkit-box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2);
+    background: #565656;
+    background: -moz-linear-gradient(#565656 0%, #323232 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #565656), color-stop(100%, #323232));
+    background: -webkit-linear-gradient(#565656 0%, #323232 100%);
+    background: linear-gradient(#565656 0%, #323232 100%);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    max-width: 100%;
+}
+
+.primary-menu ul li,
+.primary-menu ul li ul li {
+    -moz-box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2);
+    -webkit-box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.2);
+    /*    background: blue;*/ 
+    background: -moz-linear-gradient(#286090 0%, #143149 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #286090), color-stop(100%, #143149));
+    background: -webkit-linear-gradient(#286090 0%, #143149 100%);
+    background: linear-gradient(#286090 0%, #143149 100%);
+}
+
+
+
+.primary-menu ul li a {
+    color: #D8D8D8;
+    border-top: none;
+    border-left: none;
+    font-weight:  bold;
+    padding: 10px 15px;
+}
+.primary-menu ul li a:hover,
+
+.primary-menu ul li.sfHover  {
+    color: #FFFFFF;
+    background: -moz-linear-gradient(#244968 0%, #286090 70%, #143149 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #244968), color-stop(70%, #286090), color-stop(100%, #143149));
+    background: -webkit-linear-gradient(#244968 0%, #286090 70%, #143149 100%);
+    background: linear-gradient(#244968 0%, #286090 70%, #143149 100%);
+    text-decoration: none;
+}
+
+.primary-menu ul li ul {
+    width: auto;
+}
+/*---E MENU CHINH:[PRIMARY MENU]:---*/
+
+
+/*MENU CHO RESPORST*/
+.mobile-menu{
+    margin-bottom: 20px !important;
+}
+
+.mobile-menu ul li {
+    height: 30px;
+    background-color: #040B96;
+    width: 50%;
+    float: left;
+}
+
+/*.mobile-menu ul li:first-child{
+    width: 100%;
+    text-align: center;
+}*/
+
+.mobile-menu ul li :hover{
+    background-color: #E8E8EA;
+}
+
+.mobile-menu ul li a{
+    color: white;
+    text-decoration:  none;
+    font-weight: bold;
+    padding: 6px 25px; 
+    text-align: center;
+}
+
+.mobile-menu ul li a:hover{
+    color: blue;
+}
+

@@ -1,0 +1,502 @@
+@keyframes animation-local {
+    0% {
+        transform: scale(1.8);
+        transform-origin: bottom center;
+
+        // background-color: aquamarine;
+    }
+
+    100% {
+        transform: scale(2.5);
+        transform-origin: bottom center;
+
+        // background-color: black;
+    }
+}
+
+@keyframes animation-branch-show {
+    0% {
+        opacity: 0;
+        font-size: 10rem;
+    }
+    100% {
+        opacity: 1;
+        font-size: 1rem;
+    }
+}
+
+@keyframes animation-branch-close {
+    0% {
+        opacity: 1;
+        font-size: 1rem;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        font-size: 5rem;
+        visibility: hidden;
+    }
+}
+
+.map-small {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    &-map {
+        background-color: #fbfbfb;
+        @include Respond(md) {
+            transform: translateX(0%);
+        }
+        transform: translateX(-100%);
+        display: flex;
+        flex-direction: row;
+
+        .map {
+            .map-img {
+                padding-left: 2rem;
+                //width: 100%;
+            }
+
+            .branch-local {
+                visibility: hidden;
+                position: absolute;
+
+                i {
+                    animation-name: animation-local;
+                    animation-duration: 0.7s;
+                    animation-direction: alternate;
+                    animation-timing-function: linear;
+                    animation-iteration-count: infinite;
+
+                    color: red;
+                }
+            }
+
+            .branch-show {
+                visibility: visible;
+                animation-name: animation-branch-show;
+                animation-duration: 0.7s;
+            }
+
+            .branch-close {
+                animation-name: animation-branch-close;
+                animation-duration: 0.2s;
+            }
+
+            .branch-bacninh {
+                // @include Respond(xl) {
+                //     left: 367px;
+                // }
+                // @include Respond(lg) {
+                // }
+                left: 183px;
+                top: 75px;
+            }
+
+            .branch-hanoi {
+                // @include Respond(xl) {
+                //     left: 360px;
+                // }
+                // @include Respond(lg) {
+                //     left: 132px;
+                // }
+                left: 175px;
+
+                top: 68px;
+            }
+
+            .branch-haiphong {
+                // @include Respond(xl) {
+                //     left: 390px;
+                // }
+                // @include Respond(lg) {
+                //     left: 163px;
+                // }
+                left: 205px;
+                top: 84px;
+            }
+
+            .branch-thaibinh {
+                // @include Respond(xl) {
+                //     left: 384px;
+                // }
+                // @include Respond(lg) {
+                //     left: 156px;
+                // }
+
+                left: 200px;
+                top: 94px;
+            }
+
+            .branch-hatinh {
+                // @include Respond(xl) {
+                //     left: 364px;
+                // }
+                // @include Respond(lg) {
+                //     left: 136px;
+                // }
+
+                left: 181px;
+                top: 162px;
+            }
+
+            .branch-danang {
+                // @include Respond(xl) {
+                //     left: 431px;
+                // }
+                // @include Respond(lg) {
+                //     left: 206px;
+                // }
+
+                left: 247px;
+                top: 230px;
+            }
+
+            .branch-lamdong {
+                // @include Respond(xl) {
+                //     left: 435px;
+                // }
+                // @include Respond(lg) {
+                //     left: 206px;
+                // }
+
+                left: 250px;
+                top: 364px;
+            }
+
+            .branch-dongnai {
+                // @include Respond(xl) {
+                //     left: 408px;
+                // }
+                // @include Respond(lg) {
+                //     left: 179px;
+                // }
+
+                left: 224px;
+                top: 380px;
+            }
+
+            .branch-hcm {
+                // @include Respond(xl) {
+                //     left: 390px;
+                // }
+                // @include Respond(lg) {
+                //     left: 163px;
+                // }
+
+                left: 206px;
+                top: 388px;
+            }
+
+            .branch-vungtau {
+                // @include Respond(xl) {
+                //     left: 409px;
+                // }
+                // @include Respond(lg) {
+                //     left: 182px;
+                // }
+
+                left: 225px;
+                top: 395px;
+            }
+
+            .branch-binhduong {
+                // @include Respond(xl) {
+                //     left: 391px;
+                // }
+                // @include Respond(lg) {
+                //     left: 163px;
+                // }
+
+                left: 207px;
+                top: 376px;
+            }
+
+            .branch-tayninh {
+                // @include Respond(xl) {
+                //     left: 375px;
+                // }
+                // @include Respond(lg) {
+                //     left: 149px;
+                // }
+
+                left: 192px;
+                top: 370px;
+            }
+
+            .branch-longan {
+                // @include Respond(xl) {
+                //     left: 378px;
+                // }
+                // @include Respond(lg) {
+                //     left: 152px;
+                // }
+
+                left: 195px;
+                top: 392px;
+            }
+        }
+
+        .lienket {
+            position: absolute;
+            right: 2rem;
+            padding-left: 0rem;
+            padding-top: 2rem;
+            li {
+                margin: 0.5rem 0.5rem;
+                a {
+                    font-weight: bold;
+                    color: $linkNormal;
+                    &:hover {
+                        color: $linkHover;
+                    }
+                }
+            }
+        }
+    }
+
+    &-branch {
+        padding: 0 !important;
+        transform: translateX(320%);
+        background-color: transparent;
+    }
+
+    .start {
+        transform: translateX(0);
+        transition-delay: 0.8s;
+        transition-duration: 1s;
+    }
+}
+
+.map-small-mobile {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    &-map {
+        background-color: #fbfbfb;
+        transform: translateY(10%);
+        display: flex;
+        flex-direction: row;
+
+        .map {
+            .map-img {
+                padding-left: 2rem;
+                //width: 100%;
+            }
+
+            .branch-local {
+                visibility: hidden;
+                position: absolute;
+
+                i {
+                    animation-name: animation-local;
+                    animation-duration: 0.7s;
+                    animation-direction: alternate;
+                    animation-timing-function: linear;
+                    animation-iteration-count: infinite;
+
+                    color: red;
+                }
+            }
+
+            .branch-show {
+                visibility: visible;
+                animation-name: animation-branch-show;
+                animation-duration: 0.7s;
+            }
+
+            .branch-close {
+                animation-name: animation-branch-close;
+                animation-duration: 0.2s;
+            }
+
+            .branch-bacninh {
+                // @include Respond(xl) {
+                //     left: 367px;
+                // }
+                // @include Respond(lg) {
+                // }
+                left: 183px;
+                top: 75px;
+            }
+
+            .branch-hanoi {
+                // @include Respond(xl) {
+                //     left: 360px;
+                // }
+                // @include Respond(lg) {
+                //     left: 132px;
+                // }
+                left: 175px;
+
+                top: 68px;
+            }
+
+            .branch-haiphong {
+                // @include Respond(xl) {
+                //     left: 390px;
+                // }
+                // @include Respond(lg) {
+                //     left: 163px;
+                // }
+                left: 205px;
+                top: 84px;
+            }
+
+            .branch-thaibinh {
+                // @include Respond(xl) {
+                //     left: 384px;
+                // }
+                // @include Respond(lg) {
+                //     left: 156px;
+                // }
+
+                left: 200px;
+                top: 94px;
+            }
+
+            .branch-hatinh {
+                // @include Respond(xl) {
+                //     left: 364px;
+                // }
+                // @include Respond(lg) {
+                //     left: 136px;
+                // }
+
+                left: 181px;
+                top: 162px;
+            }
+
+            .branch-danang {
+                // @include Respond(xl) {
+                //     left: 431px;
+                // }
+                // @include Respond(lg) {
+                //     left: 206px;
+                // }
+
+                left: 247px;
+                top: 230px;
+            }
+
+            .branch-lamdong {
+                // @include Respond(xl) {
+                //     left: 435px;
+                // }
+                // @include Respond(lg) {
+                //     left: 206px;
+                // }
+
+                left: 250px;
+                top: 364px;
+            }
+
+            .branch-dongnai {
+                // @include Respond(xl) {
+                //     left: 408px;
+                // }
+                // @include Respond(lg) {
+                //     left: 179px;
+                // }
+
+                left: 224px;
+                top: 380px;
+            }
+
+            .branch-hcm {
+                // @include Respond(xl) {
+                //     left: 390px;
+                // }
+                // @include Respond(lg) {
+                //     left: 163px;
+                // }
+
+                left: 206px;
+                top: 388px;
+            }
+
+            .branch-vungtau {
+                // @include Respond(xl) {
+                //     left: 409px;
+                // }
+                // @include Respond(lg) {
+                //     left: 182px;
+                // }
+
+                left: 225px;
+                top: 395px;
+            }
+
+            .branch-binhduong {
+                // @include Respond(xl) {
+                //     left: 391px;
+                // }
+                // @include Respond(lg) {
+                //     left: 163px;
+                // }
+
+                left: 207px;
+                top: 376px;
+            }
+
+            .branch-tayninh {
+                // @include Respond(xl) {
+                //     left: 375px;
+                // }
+                // @include Respond(lg) {
+                //     left: 149px;
+                // }
+
+                left: 192px;
+                top: 370px;
+            }
+
+            .branch-longan {
+                // @include Respond(xl) {
+                //     left: 378px;
+                // }
+                // @include Respond(lg) {
+                //     left: 152px;
+                // }
+
+                left: 195px;
+                top: 392px;
+            }
+        }
+
+        .lienket {
+            position: absolute;
+            right: 2rem;
+            padding-left: 0rem;
+            padding-top: 2rem;
+            li {
+                margin: 0.5rem 0.5rem;
+                a {
+                    font-weight: bold;
+                    color: $linkNormal;
+                    &:hover {
+                        color: $linkHover;
+                    }
+                }
+            }
+        }
+    }
+
+    &-branch {
+        padding: 0 !important;
+        transform: translateY(0%);
+        background-color: transparent;
+    }
+
+    .start {
+        transform: translateY(0);
+        transition-delay: 0.8s;
+        transition-duration: 1s;
+    }
+}

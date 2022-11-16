@@ -1,0 +1,115 @@
+#event-slider {
+    background-color: rgba(247, 247, 247, 0.897);
+    padding: 2rem 1rem 1rem;
+    .event-slider-list {
+        text-align: center;
+        .event-slider-item {
+            padding: 0 0 1rem;
+            img {
+                margin-bottom: 0rem;
+            }
+            .link-style {
+                margin-top: 1rem;
+            }
+        }
+        .owl-nav {
+            button {
+                background-color: transparent;
+                &:hover {
+                    .fa {
+                        color: rgba(153, 153, 153, 1);
+                    }
+                }
+                .fa {
+                    font-size: 1rem;
+                    color: rgba(153, 153, 153, 0.5);
+                }
+            }
+        }
+    }
+}
+
+#branch-slider {
+    .branch-slider-list {
+        .branch-slider-item {
+            img {
+                width: 100%;
+            }
+        }
+        .owl-nav {
+            position: absolute;
+            top: 45%;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 2rem;
+            padding: 0 2rem;
+
+            button {
+                opacity: 0.5;
+                color: #fff;
+                &:hover {
+                    opacity: 1;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+#supervisor-slider {
+    .supervisor-slider-list {
+        padding: 0 10rem;
+        @include Respond(md) {
+            padding: 2rem 2rem 1rem;
+        }
+        .supervisor-slider-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                opacity: 1;
+                border-radius: 0.2rem;
+                width: 98%;
+                justify-items: center;
+            }
+            label {
+                padding: 0.5rem;
+                font-size: calc(1rem + 0.2vw);
+                font-weight: bold;
+                color: $labelColor;
+            }
+        }
+        .active {
+            margin: 0.2rem !important;
+        }
+
+        .owl-nav {
+            position: absolute;
+            left: 0;
+            top: 45%;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 2rem;
+            padding: 0 2rem;
+            @include Respond(md) {
+                padding: 0rem;
+            }
+
+            button {
+                opacity: 0.5;
+                color: rgb(102, 101, 101);
+                &:hover {
+                    opacity: 0.8;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+.behind-space {
+    visibility: hidden;
+}
