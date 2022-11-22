@@ -61,6 +61,13 @@
                 return false;
             });
         });
+
+        // Khoi tao chay slider
+        jQuery('.skitter-large').skitter({
+            dots: false,
+            interval: 5000, //thoi gian chuyen ma hinh
+            label: true,
+        });
     });
     
 </script>

@@ -12,6 +12,3 @@
     </div>
 </div>
 <div class="menu-computer"><?php get_template_part('template/template', 'menu'); ?></div>
-<?php if( !is_single()) {?>
-    <div><?php get_template_part('template/template', 'slider'); ?></div>
-<?php } ?>

@@ -1,11 +1,12 @@
 <?php get_header(); ?>
+<div><?php mySlider(3); ?></div>
 <div>
-    <div>
+    <div class="container-fluid">
         <h2 class="home-title">ARTICLES</h2>
         <div class="hr3"></div>
         <?php get_template_part('template/template', 'articles'); ?>
     </div>
-    <div>
+    <div class="container-fluid">
         <h2 class="home-title">NEWS</h2>
         <div class="hr3"></div>
         <?php get_template_part('template/template', 'news'); ?>

@@ -64,5 +64,5 @@
         <div id="wrapper" class="hfeed">
             <?php get_template_part('template/template', 'header'); ?>
   
-        <div class="container-lg">
+        <div>
 
