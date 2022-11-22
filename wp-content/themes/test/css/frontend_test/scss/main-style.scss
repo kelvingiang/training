@@ -68,17 +68,34 @@
     margin-bottom: 10px;
   }
   &-content{
-    font-size: 24px;
-    text-align: center;
-    padding: 14px;
-    margin: 14px;
-    h2 {
-      font-size: 25px;
+    font-size: 18px;
+    padding: 1.5rem 2rem;
+    text-indent: 2rem;
+    h1{
+      font-size: 26px;
+      font-weight: bold;
+    }
+    h2{
+      font-size: 24px;
       font-weight: bold;
     }
     h3{
-      font-size: 25px;
+      font-size: 22px;
       font-weight: bold;
+    }
+    .aligncenter{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .alignnone{
+        clear: both;
+    }
+    .alignright{
+        float: right;
+    }
+    .alignleft{
+        float: left;
     }
   }
   /* relate */
@@ -100,12 +117,28 @@
   /* latest */
   &-latest-image-col{
     float: left;
-    width: 30%;
+    @include Respond(xl){
+      width: 33%;
+    }
+    @include Respond(md){
+      width: 100%;
+    }
   }
   &-latest-article-col{
     float: right;
     width: 67%;
-    padding: 0;
+    @include Respond(xl){
+      width: 67%;
+    }
+    @include Respond(md){
+      width: 100%;
+    }
+    img{
+      margin: 0 1rem 1rem 1rem;
+      @include Respond(md){
+        margin: 1rem;
+      }
+    }
   }
   &-latest-title{
     font-size: 20px;
@@ -118,9 +151,14 @@
   }
   &-latest-image{
     @extend .img-type;
-    height: 100px;
+    height: 160px;
     width: 100%;
     border-radius: 0.2rem;
+    @include Respond(md){
+      height: 200px;
+      width: 100%;
+      border-radius: 0.2rem;
+    }
     &:hover{
       transform: scale3d(1,1,1);
       -webkit-transform: scale3d(1, 1, 1);

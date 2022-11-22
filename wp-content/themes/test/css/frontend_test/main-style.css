@@ -71,16 +71,28 @@
     color: #2da4f3;
     margin-bottom: 10px; }
   .single-content {
-    font-size: 24px;
-    text-align: center;
-    padding: 14px;
-    margin: 14px; }
+    font-size: 18px;
+    padding: 1.5rem 2rem;
+    text-indent: 2rem; }
+    .single-content h1 {
+      font-size: 26px;
+      font-weight: bold; }
     .single-content h2 {
-      font-size: 25px;
+      font-size: 24px;
       font-weight: bold; }
     .single-content h3 {
-      font-size: 25px;
+      font-size: 22px;
       font-weight: bold; }
+    .single-content .aligncenter {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; }
+    .single-content .alignnone {
+      clear: both; }
+    .single-content .alignright {
+      float: right; }
+    .single-content .alignleft {
+      float: left; }
   .single-relate-title {
     font-size: 20px;
     font-weight: bold;
@@ -93,12 +105,27 @@
     .single-relate-item a:hover {
       color: #f39def; }
   .single-latest-image-col {
-    float: left;
-    width: 30%; }
+    float: left; }
+    @media (min-width: 1320px) {
+      .single-latest-image-col {
+        width: 33%; } }
+    @media (max-width: 992px) {
+      .single-latest-image-col {
+        width: 100%; } }
   .single-latest-article-col {
     float: right;
-    width: 67%;
-    padding: 0; }
+    width: 67%; }
+    @media (min-width: 1320px) {
+      .single-latest-article-col {
+        width: 67%; } }
+    @media (max-width: 992px) {
+      .single-latest-article-col {
+        width: 100%; } }
+    .single-latest-article-col img {
+      margin: 0 1rem 1rem 1rem; }
+      @media (max-width: 992px) {
+        .single-latest-article-col img {
+          margin: 1rem; } }
   .single-latest-title {
     font-size: 20px;
     font-weight: bold; }
@@ -106,9 +133,14 @@
       text-decoration: none;
       color: #f87d92; }
   .single-latest-image {
-    height: 100px;
+    height: 160px;
     width: 100%;
     border-radius: 0.2rem; }
+    @media (max-width: 992px) {
+      .single-latest-image {
+        height: 200px;
+        width: 100%;
+        border-radius: 0.2rem; } }
     .single-latest-image:hover {
       transform: scale3d(1, 1, 1);
       -webkit-transform: scale3d(1, 1, 1);

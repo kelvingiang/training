@@ -81,18 +81,21 @@ function getRelatePostNews($postType, $showNum, $cateID)
     // foreach ( $terms as $term ) {
     // $term = $term->slug;
     // }
+    global $post;
     $args = array(
         'post_type' => $postType,
         'posts_per_page'=> $showNum,
         'post_status' => 'publish',
-        'tax_query' => array(
-            'taxonomy' => 'news_category',
-            'field' => 'id',
-            'terms' => $$cateID,
-        ),
-        'post__not_in'  => array (get_the_ID()), 
-        'orderby' => 'ID',
+        'orderby' => '_metabox_order',
         'order' => 'DESC',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'news_category',
+                'field' => 'id',
+                'terms' => $cateID,
+            )
+        ),
+        'post__not_in'  => array($post->ID),
     );
     return $args;
 }

@@ -11,7 +11,7 @@ $args = array(
 );
 $wp_query = new WP_Query($args);
 ?>
-<div style="margin-top: 15px;">
+<div class="col-xl-12 col-lg-12 col-md-12">
     <h2 class="single-relate-title">Bài viết mới nhất</h2>
     <div class="hr3"></div>
     <?php
@@ -21,10 +21,13 @@ $wp_query = new WP_Query($args);
                 <div class="row" style="margin-bottom:5px">
                     <div class="single-latest-image-col">
                         <?php 
-                            // [0]: url, [1]: width, [2]: height, [4]:is_intermediate
-                            $url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full');
-                        ?>
-                        <img src="<?php echo $url[0]; ?>" class="single-latest-image" />
+                        // [0]: url, [1]: width, [2]: height, [4]:is_intermediate
+                        $url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full');
+                        if($url != '') {?>
+                            <img src="<?php echo $url[0]; ?>" class="single-latest-image" title="<?php the_title() ?>"/>
+                        <?php } else{ ?>
+                            <img src="<?php echo PART_IMAGES . 'no-image.jpg'; ?>" class="single-latest-image" title="<?php the_title() ?>" />
+                        <?php } ?> 
                     </div>
                     <div class="single-latest-article-col">
                         <div class="single-latest-title">
@@ -37,7 +40,7 @@ $wp_query = new WP_Query($args);
                             <a href="<?php echo get_the_permalink()?>"><?php esc_html_e('Đọc thêm', 'ntl-csw') ?></a>
                         </div>
                     </div>
-                    <hr class="hr2">
+                    <div class="hr2"></div>
                 </div>
                 <?php
             endwhile;
