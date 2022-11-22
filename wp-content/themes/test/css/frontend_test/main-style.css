@@ -27,7 +27,11 @@
   color: #afaaaa;
   padding-top: 2rem; }
 
-/* img - type */
+/*
+ ========================================================  
+ ------------------------ IMAGE ------------------------
+ ======================================================== 
+*/
 .img-type, .img, .single-latest-image {
   image-rendering: pixelated;
   filter: drop-shadow(0 0 5px #e1e1ee);
@@ -170,6 +174,9 @@
   background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.3) 50%, rgba(156, 156, 156, 0.568) 95%);
   border-radius: 0.3rem;
   font-size: 2.5rem; }
+  @media (max-width: 992px) {
+    .slider-multi-head {
+      margin-top: 4.5rem; } }
   .slider-multi-head h1 {
     font-size: 1.5rem;
     letter-spacing: 0.5rem;

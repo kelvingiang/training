@@ -1,4 +1,4 @@
-<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 2rem;">
     <div class="slider-multi-head"><h1></h1></div>
     <?php
         global $wp_query;
