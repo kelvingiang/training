@@ -1,0 +1,47 @@
+/*
+  ========================================================  
+ -------------------------- FOOTER ------------------------
+ ======================================================== 
+*/
+/* social link */
+.social-link{
+    font-size: 18px;
+    font-weight: bold;
+    padding: 4px;
+    &:hover{
+      color: $foo_social_link_color_hover;
+    }
+}
+  
+.footer{
+    width: 100%;
+    background-color: $foo_bg_color;
+    color: $foo_color;
+    background-position: center;
+    background-size: 100% 200%;
+    background-repeat: no-repeat;
+    padding: 2rem 1rem 0rem;
+  
+    .info{
+      label{
+        font-size: 15px;
+        font-weight: 300;
+      }
+      h3{
+        font-size: 18px;
+        font-weight: bold;
+      }
+      a{
+        font-size: 15px;
+        text-decoration: none;
+      }
+    }
+    .copyright{
+      text-align: center;
+      margin-right: 5px;
+      font-size: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px;
+    }
+}

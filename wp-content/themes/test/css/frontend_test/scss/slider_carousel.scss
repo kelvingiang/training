@@ -1,0 +1,59 @@
+.carousel{
+    display: block;
+    width: 100%;
+}
+.owl-carousel .owl-nav {
+    overflow: hidden;
+    height: 10px;
+}
+.owl-carousel .nav-button {
+    height: 20px;
+    width: 20px;
+    padding: 1px;
+    cursor: pointer;
+    position: absolute;
+    top: 110px !important;
+    color: $owl_nav_btn_color;
+    background-color: $owl_nav_btn_bg_color;
+}
+.owl-carousel .owl-prev.disabled,
+.owl-carousel .owl-next.disabled {
+    pointer-events: none;
+    opacity: 0.25;
+}
+
+/*owl slider*/
+.owl-carousel {
+    .sli-left{left: -5px;}
+    .sli-left:hover{
+      background-position: 0px 53px;
+    }
+    .sli-right{right: -5px;}
+    .sli-right:hover{
+      background-position: 24px 53px;
+    }
+}
+
+/*owl news*/
+.owl-carousel {
+    .news-left{left: -5px;}
+    .news-left:hover{
+      background-position: 0px 53px;
+    }
+    .news-right{right: -5px;}
+    .news-right:hover{
+      background-position: 24px 53px;
+    }
+}
+
+/*owl articles*/
+.owl-carousel {
+    .art-left{left: -5px;}
+    .art-left:hover{
+      background-position: 0px 53px;
+    }
+    .art-right{right: -5px;}
+    .art-right:hover{
+      background-position: 24px 53px;
+    }
+}

@@ -1,0 +1,144 @@
+/*
+ ========================================================  
+ ----------------------- FORM ---------------------
+ ======================================================== 
+ */
+.title {
+    &-row{
+      padding-top: 15px;
+      h2{
+          font-size: 30px;
+          font-weight: bold;
+      }
+    }
+    &-cell{
+      padding-top: 15px;
+      label {
+        font-size: 18px;
+        font-weight: bold;
+        color: $f_lbl_color;
+        padding: auto;
+        text-align: left;
+      }
+      span{
+          font-size: 20px;
+          color: gray;
+      }
+    }  
+}
+  
+.type{
+    width: 50%;
+    height: 40px;
+    border-radius:2px;
+    box-shadow: 1px 2px $f_box_shadow_color;
+    border: 1px lavender solid;
+}
+.text-cell {
+    .type-text { @extend .type;}
+}
+.text-cell {
+    .type-number { @extend .type; }
+}
+.text-cell {
+    .type-phone { @extend .type; }
+}
+.text-cell {
+    .type-email { @extend .type; }
+}
+.text-cell {
+    .type-number-dot { @extend .type; }
+}
+/* message*/
+.error {
+    font-size: 15px;
+    color: $f_error_color;
+    margin-left: 10px;
+    ::after {
+      content: "!";
+    }
+}  
+  
+/* login form - change password */
+.btn {
+    &-type {
+    font-size: 18px;
+    padding: 7px;
+    border-radius: 3px;
+    border: #fff solid 1px;
+    }
+    &-login{
+      @extend .btn-type;
+      background: $f_bg_login_color;   
+      margin-left: 70%;
+      a{
+        color: $f_btn_color; 
+        text-decoration: none;
+      }
+    }
+    &-logout{
+      @extend .btn-type; 
+      background: $f_bg_logout_color; 
+      a{
+        color: $f_btn_color; 
+        text-decoration: none;
+      }
+    }
+    &-change-pass{
+      @extend .btn-type; 
+      background: $f_bg_change_pass_color;  
+      a{
+        color: $f_btn_color;
+        text-decoration: none;
+      }
+    }
+}
+  
+.lbl{
+    &-login{
+      color: #337ab7;
+      font-size: 30px;
+      text-align: center;
+    }
+    &-form{
+      color: $f_lbl_color;
+      font-size: 20px;
+    }
+} 
+  
+.login-form{
+    border: rgba(158, 151, 151, 0.89) solid 2px;
+    border-radius: 2px;
+    margin: 30px auto;
+    padding:10px;
+    float: center;
+    box-shadow: 5px 10px $f_box_shadow_color;
+    @include Respond(xl){
+        width: 40%;
+        min-height: 400px;
+    }
+    @include Respond(md){
+        width: 90%;
+        min-height: 400px;
+        margin-top: 10rem;
+    }
+
+    span{
+        margin-bottom:10px; 
+        font-size: 15px; 
+        font-weight:bold; 
+        color:red; 
+        text-align:center;
+    }
+}
+  
+/* button disabled */
+button:disabled,
+.btn-disabled{
+    border: 1px solid #999999;
+    background-color: $f_bg_disabled_color;
+    a {
+      color: $f_btn_dis_color;
+      text-decoration: none;
+    }
+}

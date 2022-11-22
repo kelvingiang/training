@@ -1,139 +1,9 @@
-@import './scss/color-style.scss';
+
 /*
     This file use frontend
     Create date( dd-mm-yy ) : 12/09/2022
     page, template,..
 */
-
-/*
- ========================================================  
- ----------------------- FORM ---------------------
- ======================================================== 
- */
-.title {
-  &-row{
-    padding-top: 15px;
-    h2{
-        font-size: 30px;
-        font-weight: bold;
-    }
-  }
-  &-cell{
-    padding-top: 15px;
-    label {
-      font-size: 18px;
-      font-weight: bold;
-      color: $f_lbl_color;
-      padding: auto;
-      text-align: left;
-    }
-    span{
-        font-size: 20px;
-        color: gray;
-    }
-  }  
-}
-
-.type{
-    width: 50%;
-    height: 40px;
-    border-radius:2px;
-    box-shadow: 1px 2px $f_box_shadow_color;
-    border: 1px lavender solid;
-  }
-  .text-cell {
-    .type-text { @extend .type;}
-  }
-  .text-cell {
-    .type-number { @extend .type; }
-  }
-  .text-cell {
-    .type-phone { @extend .type; }
-  }
-  .text-cell {
-    .type-email { @extend .type; }
-  }
-  .text-cell {
-    .type-number-dot { @extend .type; }
-  }
-/* message*/
-.error {
-  font-size: 15px;
-  color: $f_error_color;
-  margin-left: 10px;
-  ::after {
-    content: "!";
-  }
-}  
-
-/* login form - change password */
-.btn {
-  &-type {
-  font-size: 18px;
-  padding: 7px;
-  border-radius: 3px;
-  border: #fff solid 1px;
-  }
-  &-login{
-    @extend .btn-type;
-    background: $f_bg_login_color;   
-    margin-left: 70%;
-    a{
-      color: $f_btn_color; 
-      text-decoration: none;
-    }
-  }
-  &-logout{
-    @extend .btn-type; 
-    background: $f_bg_logout_color;  
-    margin-left: 90%; 
-    a{
-      color: $f_btn_color; 
-      text-decoration: none;
-    }
-  }
-  &-change-pass{
-    @extend .btn-type; 
-    background: $f_bg_change_pass_color;   
-    margin-left: 90%; 
-    a{
-      color: $f_btn_color;
-      text-decoration: none;
-    }
-  }
-}
-
-.lbl{
-  &-login{
-    color: #337ab7;
-    font-size: 30px;
-    text-align: center;
-  }
-  &-form{
-    color: $f_lbl_color;
-    font-size: 20px;
-  }
-} 
-
-.login-form{
-  border: rgba(158, 151, 151, 0.89) solid 2px;
-  border-radius: 2px;
-  margin: 30px auto;
-  padding:10px;
-  float: left;
-  box-shadow: 5px 10px $f_box_shadow_color;
-}
-
-/* button disabled */
-button:disabled,
-.btn-disabled{
-  border: 1px solid #999999;
-  background-color: $f_bg_disabled_color;
-  a {
-    color: $f_btn_dis_color;
-    text-decoration: none;
-  }
-}
 
 /*
  ========================================================  
@@ -173,107 +43,6 @@ button:disabled,
   }
 }
 
-/* slider - image - owl-carousel */
-.carousel{
-  display: block;
-  width: 100%;
-}
-.owl-carousel .owl-nav {
-  overflow: hidden;
-  height: 10px;
-}
-.owl-carousel .nav-button {
-  height: 20px;
-  width: 20px;
-  padding: 1px;
-  cursor: pointer;
-  position: absolute;
-  top: 110px !important;
-  color: $owl_nav_btn_color;
-  background-color: $owl_nav_btn_bg_color;
-}
-.owl-carousel .owl-prev.disabled,
-.owl-carousel .owl-next.disabled {
-  pointer-events: none;
-  opacity: 0.25;
-}
-/*owl slider*/
-.owl-carousel {
-  .sli-left{left: -35px;}
-  .sli-left:hover{
-    background-position: 0px -53px;
-  }
-  .sli-right{right: -35px;}
-  .sli-right:hover{
-    background-position: -24px -53px;
-  }
-}
-/*owl news*/
-.owl-carousel {
-  .news-left{left: -35px;}
-  .news-left:hover{
-    background-position: 0px -53px;
-  }
-  .news-right{right: -35px;}
-  .news-right:hover{
-    background-position: -24px -53px;
-  }
-}
-/*owl articles*/
-.owl-carousel {
-  .art-left{left: -35px;}
-  .art-left:hover{
-    background-position: 0px -53px;
-  }
-  .art-right{right: -35px;}
-  .art-right:hover{
-    background-position: -24px -53px;
-  }
-}
-
-@media only screen and (max-device-width : 1920px) {
-  .border_box {
-      background-color:  #fff;
-      height: 560px;
-  }
-  .skitter {
-      max-width: 100% !important;
-      height: 550px !important;
-
-  }
-  .container_skitter .image_main{
-      height: 550px !important;
-  }
-}
-
-@media only screen and (max-device-width : 1366px)  {
-  .border_box {
-      background-color:  #fff;
-      height: 410px;
-  }
-  .skitter {
-      max-width: 100% !important;
-      height: 400px !important;
-
-  }
-  .container_skitter .image_main{
-      height: 400px !important;
-  }
-}
-@media only screen and (max-device-width : 1280px)  {
-  .border_box {
-      background-color: #fff;
-      height: 360px;
-  }
-  .skitter {
-      max-width: 100% !important;
-      height: 350px !important;
-
-  }
-  .container_skitter .image_main{
-      height: 350px !important;
-  }
-}
 /*
   ========================================================  
  -------------------------- SINGLE ------------------------
@@ -497,7 +266,7 @@ button:disabled,
   }
 }
 
-/* member */
+/* group table */
 .group{
   &-border{
       display: block;
@@ -538,6 +307,7 @@ button:disabled,
   }   
 }
 
+/* member */
 .member{
   &-head{
     width: 100%;
@@ -612,92 +382,10 @@ button:disabled,
   } 
 }
 
-/*
-  ========================================================  
- -------------------------- HEADER ------------------------
- ======================================================== 
-*/
-.header{
-  padding-top: 1rem;
-  padding-left: 1rem;
-  display: flex;
-  justify-content: space-between;
-  background-color: $head_bg_color;
-
-  &-logo{
-    display: flex;
-    margin-bottom: 10px;
-    div{
-      padding-top: 1rem;
-      font-size: 1.5rem;
-      color: #2E3094;
-      font-weight: bold;
-      text-shadow: 0.6rem 0.6rem 0.37rem #999;
-    }
-    label{
-      display: inline-block;
-      margin-bottom: 0.5rem;
-    }
-  }
-  &-search{
-    float: right;
-    margin: 18px;
-  }
-}
-
 .menu-computer{
   z-index: 10000;
   display: flex;
   flex-direction: row;
-}
-
-
-/*
-  ========================================================  
- -------------------------- FOOTER ------------------------
- ======================================================== 
-*/
-/* social link */
-.social-link{
-  font-size: 18px;
-  font-weight: bold;
-  padding: 4px;
-  &:hover{
-    color: $foo_social_link_color_hover;
-  }
-}
-
-.footer{
-  width: 100%;
-  background-color: $foo_bg_color;
-  color: $foo_color;
-  background-position: center;
-  background-size: 100% 200%;
-  background-repeat: no-repeat;
-  padding: 2rem 1rem 0rem;
-
-  .info{
-    label{
-      font-size: 15px;
-      font-weight: 300;
-    }
-    h3{
-      font-size: 18px;
-      font-weight: bold;
-    }
-    a{
-      font-size: 15px;
-      text-decoration: none;
-    }
-  }
-  .copyright{
-    text-align: center;
-    margin-right: 5px;
-    font-size: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-  }
 }
 
 /*
