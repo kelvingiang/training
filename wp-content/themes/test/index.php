@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<!-- hien thi slider trang home -->
 <div><?php mySlider(3); ?></div>
 <div>
     <div class="container-fluid">

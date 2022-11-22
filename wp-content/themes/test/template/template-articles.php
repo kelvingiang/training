@@ -51,7 +51,20 @@ $wp_query = new WP_Query($args);
 </div>
 <script>
     jQuery(document).ready(function() {
-         jQuery('#president-post .owl-carousel').owlCarousel({
+        //so luong item hien thi thong qua responsive
+        var count = 0;
+        bodyContainerWidth = jQuery("body").width();
+        if(bodyContainerWidth <= 500) {
+            var count = 1;
+        }else if(bodyContainerWidth <= 950) {
+            var count = 2;
+        }else if(bodyContainerWidth <= 1170) {
+            var count = 4;
+        }else {
+            var count = 4;
+        }
+
+        jQuery('#president-post .owl-carousel').owlCarousel({
             loop: true,
             margin: 10,
             nav: true,
@@ -59,22 +72,10 @@ $wp_query = new WP_Query($args);
             auotplayTimeout: 5000,
             dots: false,
             autoplayHoverPause: true,
-            items: 2,
+            items: count,
             navText: ["<i class='fas fa-chevron-left nav-button art-left'></i>",
                 "<i class='fas fa-chevron-right nav-button art-right'></i>"
             ],
-            // responsive:{
-            //     0:{
-            //         items:1
-            //     },
-            //     600:{
-            //         items:3
-            //     },
-            //     1000:{
-            //         items:5
-            //     }
-            // }
-
         });
     })
 </script>
