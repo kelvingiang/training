@@ -12,10 +12,266 @@
 /*
     This file use frontend
     Create date( dd-mm-yy ) : 10/08/2022
-*/
-/*
+    Last update( dd-mm-yy ) : 23/11/2022
     use page, template,..
 */
+/*
+ ========================================================  
+ ----------------------- IMAGE -------------------------
+ ======================================================== 
+*/
+/* img - type */
+.img-type, .img {
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 5px #e1e1ee);
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  vertical-align: middle; }
+
+.img {
+  height: 200px;
+  width: 90%;
+  border-radius: 0.2rem; }
+  .img:hover {
+    transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+    -moz-transform: scale(1.1, 1.1);
+    -o-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1); }
+
+/*
+ ========================================================  
+ -------------------- INDEX - HOME ---------------------
+ ======================================================== 
+*/
+.home-title {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px; }
+.home-item a {
+  text-decoration: none;
+  font-size: 20px; }
+
+/* multi - slider */
+.multi-item {
+  margin: 0.5rem 1rem 1rem 1rem;
+  opacity: 0.7;
+  transition-duration: 0.8s;
+  border-radius: 0.5rem; }
+
+.slider-multi-img {
+  padding: 0.3rem 1rem 0.5rem;
+  overflow: hidden; }
+.slider-multi-title {
+  padding-bottom: 1rem;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold; }
+  .slider-multi-title a:hover {
+    color: #eb6868;
+    text-decoration: none; }
+
+/* member */
+.member-title {
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center; }
+.member-title-category {
+  font-size: 22px;
+  font-weight: bold;
+  color: #dc143c; }
+.member-group {
+  margin-top: 15px; }
+  .member-group a {
+    font-size: 20px;
+    color: #7d8aff;
+    padding-left: 10px;
+    text-decoration: none; }
+  .member-group a:hover {
+    color: #eeb987; }
+
+/*
+========================================================  
+ ----------------------- SINGLE ---------------------
+ ======================================================== 
+*/
+.single-title {
+  font-size: 30px;
+  font-weight: bold; }
+.single-item {
+  width: 50%;
+  padding: 1rem; }
+
+/*
+  ========================================================  
+ -------------------------- SPECIAL ------------------------
+ ======================================================== 
+*/
+/* Back to Top */
+#back-top-wrapper {
+  width: 100%;
+  position: absolute;
+  overflow: hidden; }
+
+#back-top {
+  position: fixed;
+  bottom: 180px;
+  right: 1%;
+  /*margin-left:580px;*/
+  display: block;
+  cursor: pointer;
+  font-size: 30px;
+  color: #9c9898;
+  opacity: 0.2;
+  /* transition */
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s; }
+
+#back-top:hover {
+  color: #bebbbb;
+  opacity: 1; }
+
+/*
+  ========================================================  
+ -------------------------- MENU ------------------------
+ ======================================================== 
+*/
+#menu-computer {
+  z-index: 10000;
+  display: flex;
+  flex-direction: row; }
+  @media (max-width: 992px) {
+    #menu-computer {
+      display: none; } }
+
+/*
+  ========================================================  
+ -------------------------- SLIDER ------------------------
+ ======================================================== 
+*/
+@media only screen and (max-device-width: 1920px) {
+  .border_box {
+    background-color: #fff;
+    height: 560px; }
+
+  .skitter {
+    max-width: 100% !important;
+    height: 550px !important; }
+
+  .container_skitter .image_main {
+    height: 550px !important; } }
+@media only screen and (max-device-width: 1366px) {
+  .border_box {
+    background-color: #fff;
+    height: 410px; }
+
+  .skitter {
+    max-width: 100% !important;
+    height: 400px !important; }
+
+  .container_skitter .image_main {
+    height: 400px !important; } }
+@media only screen and (max-device-width: 1280px) {
+  .border_box {
+    background-color: #fff;
+    height: 360px; }
+
+  .skitter {
+    max-width: 100% !important;
+    height: 350px !important; }
+
+  .container_skitter .image_main {
+    height: 350px !important; } }
+.label_skitter {
+  color: #101010 !important;
+  background: rgba(244, 230, 230, 0.3) !important; }
+  .label_skitter h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center; }
+
+/*
+ ========================================================  
+ -------------------- SLIDER - CAROUSEL ------------------
+ ======================================================== 
+ */
+.carousel {
+  display: block;
+  width: 100%; }
+
+.owl-carousel .owl-nav {
+  overflow: hidden;
+  height: 10px; }
+
+.owl-carousel .nav-button {
+  height: 20px;
+  width: 20px;
+  padding: 1px;
+  cursor: pointer;
+  position: absolute;
+  top: 110px !important;
+  color: #141414;
+  background-color: #cec5c5; }
+
+.owl-carousel .owl-prev.disabled,
+.owl-carousel .owl-next.disabled {
+  pointer-events: none;
+  opacity: 0.25; }
+
+.owl-carousel .sli-left {
+  left: -5px; }
+.owl-carousel .sli-left:hover {
+  background-position: 0px 53px; }
+
+.owl-carousel .sli-right {
+  right: -5px; }
+.owl-carousel .sli-right:hover {
+  background-position: 24px 53px; }
+
+/*
+  ========================================================  
+ -------------------------- HEADER ------------------------
+ ======================================================== 
+*/
+#headers {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: white; }
+  @media (max-width: 992px) {
+    #headers {
+      display: none; } }
+  #headers-logo {
+    display: flex;
+    margin-bottom: 10px; }
+    #headers-logo div {
+      padding-top: 1rem;
+      font-size: 1.5rem;
+      color: #2E3094;
+      font-weight: bold;
+      text-shadow: 0.6rem 0.6rem 0.37rem #999; }
+    #headers-logo label {
+      display: inline-block;
+      margin-bottom: 0.5rem; }
+  #headers .header-search {
+    float: right;
+    margin: 2rem; }
+    @media (max-width: 992px) {
+      #headers .header-search {
+        float: right;
+        margin: 1.5rem;
+        width: 50%; } }
+
+/*
+ ========================================================  
+ ----------------------- FORM ---------------------
+ ======================================================== 
+ */
 .title-row {
   padding-top: 15px; }
   .title-row h2 {
@@ -48,16 +304,10 @@
   margin-left: 10px; }
   .error ::after {
     content: "!"; }
-
-/* member */
-.member-group {
-  margin-top: 15px; }
-  .member-group a {
-    font-size: 20px;
-    color: #7d8aff;
-    padding-left: 10px; }
-  .member-group a:hover {
-    color: #eeb987; }
+  @media (max-width: 992px) {
+    .error {
+      font-size: 14px;
+      margin-left: 1rem; } }
 
 /* login & logout form - change password */
 .btn-type, .btn-login, .btn-logout, .btn-change-pass {
@@ -65,24 +315,23 @@
   padding: 7px;
   border-radius: 3px;
   border: #fff solid 1px; }
-
 .btn-login {
   background: #6ee47e;
-  margin-left: 70%; }
+  margin-left: 80%;
+  width: 20%; }
+  @media (max-width: 992px) {
+    .btn-login {
+      margin-left: 80%; } }
   .btn-login a {
     color: #f7f7f7;
     text-decoration: none; }
-
 .btn-logout {
-  background: #f1aa9d;
-  margin-left: 90%; }
+  background: #f1aa9d; }
   .btn-logout a {
     color: #f7f7f7;
     text-decoration: none; }
-
 .btn-change-pass {
-  background: #cdf19d;
-  margin-left: 90%; }
+  background: #cdf19d; }
   .btn-change-pass a {
     color: #f7f7f7;
     text-decoration: none; }
@@ -91,7 +340,6 @@
   color: #337ab7;
   font-size: 30px;
   text-align: center; }
-
 .lbl-form {
   color: #f7b2a0;
   font-size: 20px; }
@@ -103,6 +351,21 @@
   padding: 10px;
   float: left;
   box-shadow: 5px 10px #888888; }
+  @media (min-width: 1320px) {
+    .login-form {
+      width: 40%;
+      min-height: 400px; } }
+  @media (max-width: 992px) {
+    .login-form {
+      width: 90%;
+      min-height: 400px;
+      margin-top: 10rem; } }
+  .login-form span {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: red;
+    text-align: center; }
 
 /* button disabled */
 button:disabled,
@@ -115,94 +378,6 @@ button:disabled,
     text-decoration: none; }
 
 /*
- ========================================================  
- -------------------- INDEX - HOME ---------------------
- ======================================================== 
-*/
-/* img - type */
-.img-type, .img {
-  image-rendering: pixelated;
-  filter: drop-shadow(0 0 5px #e1e1ee);
-  transition: all 1s ease;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  vertical-align: middle; }
-
-/* slider - image */
-.carousel {
-  display: block;
-  width: 100%; }
-
-.img {
-  height: 200px;
-  width: 90%;
-  border-radius: 0.2rem; }
-
-.img:hover {
-  transform: scale(1.1, 1.1);
-  -webkit-transform: scale(1.1, 1.1);
-  -moz-transform: scale(1.1, 1.1);
-  -o-transform: scale(1.1, 1.1);
-  -ms-transform: scale(1.1, 1.1); }
-
-/* multi - slider */
-.multi-item {
-  margin: 0.5rem 1rem 1rem 1rem;
-  opacity: 0.7;
-  transition-duration: 0.8s;
-  border-radius: 0.5rem; }
-
-.multi-item::after, ::before {
-  box-sizing: border-box; }
-
-.slider-multi-img {
-  padding: 0.3rem 1rem 0.5rem; }
-
-.slider-multi-title {
-  padding-bottom: 1rem;
-  text-align: center;
-  font-size: 32px;
-  font-weight: bold; }
-  .slider-multi-title a:hover {
-    color: #eb6868;
-    text-decoration: none; }
-
-/* slider - image - owl-carousel */
-.carousel {
-  display: block;
-  width: 100%; }
-
-.owl-carousel .owl-nav {
-  overflow: hidden;
-  height: 10px; }
-
-.owl-carousel .nav-button {
-  height: 20px;
-  width: 20px;
-  padding: 1px;
-  cursor: pointer;
-  position: absolute;
-  top: 110px !important;
-  color: #141414;
-  background-color: #cec5c5; }
-
-.owl-carousel .owl-prev.disabled,
-.owl-carousel .owl-next.disabled {
-  pointer-events: none;
-  opacity: 0.25; }
-
-.owl-carousel .sli-left {
-  left: -35px; }
-.owl-carousel .sli-left:hover {
-  background-position: 0px -53px; }
-
-.owl-carousel .sli-right {
-  right: -35px; }
-.owl-carousel .sli-right:hover {
-  background-position: -24px -53px; }
-
-/*
 ========================================================  
  ----------------------- FOOTER ---------------------
  ======================================================== 
@@ -212,24 +387,32 @@ button:disabled,
   font-size: 18px;
   font-weight: bold;
   padding: 4px; }
-
-.social-link:hover {
-  color: #b6f59d; }
+  .social-link:hover {
+    color: #b6f59d; }
 
 .footer {
   background-color: #413b77;
-  color: #f7f1f1; }
-
-/*
-    This file color use frontend
-    Create date( dd-mm-yy ) : 16/09/2022
-*/
-/* header */
-/* login, logout, change-password */
-/* member */
-/* slider - owl-carousel */
-/* template */
-/* single */
-/* footer */
+  color: #f7f1f1;
+  background-size: 100% 200%;
+  background-repeat: no-repeat;
+  padding: 2rem 1rem 0rem;
+  width: 100%; }
+  .footer .info {
+    opacity: 0.5; }
+    .footer .info label {
+      font-size: 15px;
+      font-weight: 300; }
+    .footer .info h3 {
+      font-size: 18px;
+      font-weight: bold; }
+    .footer .info a {
+      font-size: 15px;
+      text-decoration: none; }
+  .footer .copyright {
+    text-align: center;
+    margin-right: 5px;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: bold; }
 
 /*# sourceMappingURL=main-style.css.map */

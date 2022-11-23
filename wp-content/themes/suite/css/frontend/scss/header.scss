@@ -1,0 +1,41 @@
+/*
+  ========================================================  
+ -------------------------- HEADER ------------------------
+ ======================================================== 
+*/
+#headers{
+    @include Respond(md){
+        display: none;
+    }
+    padding-top: 1rem;
+    padding-left: 1rem;
+    display: flex;
+    justify-content: space-between;
+    background-color:  $head_bg_color;
+
+    &-logo{
+        display: flex;
+        margin-bottom: 10px;
+        div{
+          padding-top: 1rem;
+          font-size: 1.5rem;
+          color: #2E3094;
+          font-weight: bold;
+          text-shadow: 0.6rem 0.6rem 0.37rem #999;
+        }
+        label{
+          display: inline-block;
+          margin-bottom: 0.5rem;
+        }
+    }
+
+    .header-search{
+        float: right;
+        margin: 2rem;
+        @include Respond(md){
+          float: right;
+          margin: 1.5rem;
+          width: 50%;
+        }
+    }
+}

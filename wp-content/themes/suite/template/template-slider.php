@@ -15,7 +15,7 @@ $args = array(
 );
 $wp_query = new WP_Query($args);
 ?>
-<div class="skitter skitter-large with-dots" style="max-width:initial;">
+<div class="skitter skitter-large with-dots">
     <ul>
     <?php
         if ($wp_query->have_posts()):

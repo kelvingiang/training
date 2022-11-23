@@ -63,7 +63,7 @@
                           height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
         <div id="wrapper" class="hfeed">
-            <div class="header"><?php get_template_part('template/template', 'header'); ?></div>   
+            <div><?php get_template_part('template/template', 'header'); ?></div>   
   
         <div id="container">
 

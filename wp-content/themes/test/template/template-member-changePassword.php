@@ -28,6 +28,7 @@
                 <label for="confirm_pass" class="lbl-form"><?php echo __('Confirm Password') ?> <i class="error" id="confirm_pass_merss"></i></label>
                 <input type="password" class="form-control " name="txt-confirmPass" id="txt-confirmPass"
                     placeholder="Enter the confirm password"/>   
+                <i class="error" id="check_confirm_pass_merss"></i>     
             </div> 
             <span><?php echo $check; ?></span>
             <div style="clear: both"></div>

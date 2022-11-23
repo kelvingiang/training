@@ -66,10 +66,10 @@
 /* login form - change password */
 .btn {
     &-type {
-    font-size: 18px;
-    padding: 7px;
-    border-radius: 0.3rem;
-    border: #fff solid 1px;
+      font-size: 18px;
+      padding: 7px;
+      border-radius: 0.3rem;
+      border: #fff solid 1px;
     }
     &-login{
       @extend .btn-type;

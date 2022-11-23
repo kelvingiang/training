@@ -1,12 +1,11 @@
 <?php get_header(); ?>
 
-<div class="row " style="margin-top: 100px;"> 
+<div class="row"> 
     <!-- lay ra ten category -->
     <?php $member_group = get_query_var('member-member_group');?>       
     <div class="group-border" style="width:40%;" >
-        <div class="group-title">
-            <label><?php  echo $member_group; ?> </label>
-        <div>
+        <div class="group-title"><label><?php echo $member_group; ?></label><div>
+        <div>    
             <ul class="article-list" >
                 <?php
                 $member_team = array(

@@ -65,7 +65,7 @@ class Member_Metabox {
                 <select class="type-text" name="metabox-member_district" id="metabox-member_district" maxlength="50">
                     <option value="">Choose District</option>
                     <?php foreach( $select_district as $var => $district) : ?>
-                    <option value ="<?php echo $var ?>"<?php if( $var == ['metabox-member_district'] ): ?> 
+                    <option value ="<?php echo $var ?>"<?php if( $var == $_POST['metabox-member_district'] ): ?> 
                         selected="selected"<?php endif; ?>><?php echo $district ?></option>
                     <?php endforeach; ?>
                 </select></div>

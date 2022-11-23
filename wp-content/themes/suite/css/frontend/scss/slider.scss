@@ -1,0 +1,59 @@
+/*
+  ========================================================  
+ -------------------------- SLIDER ------------------------
+ ======================================================== 
+*/
+@media only screen and (max-device-width : 1920px) {
+    .border_box {
+        background-color:  #fff;
+        height: 560px;
+    }
+    .skitter {
+        max-width: 100% !important;
+        height: 550px !important;
+  
+    }
+    .container_skitter .image_main{
+        height: 550px !important;
+    }
+}
+  
+@media only screen and (max-device-width : 1366px)  {
+    .border_box {
+        background-color:  #fff;
+        height: 410px;
+    }
+    .skitter {
+        max-width: 100% !important;
+        height: 400px !important;
+  
+    }
+    .container_skitter .image_main{
+        height: 400px !important;
+    }
+}
+
+@media only screen and (max-device-width : 1280px)  {
+    .border_box {
+        background-color: #fff;
+        height: 360px;
+    }
+    .skitter {
+        max-width: 100% !important;
+        height: 350px !important;
+  
+    }
+    .container_skitter .image_main{
+        height: 350px !important;
+    }
+}
+
+.label_skitter{
+    color: #101010 !important;
+    background: rgba(244, 230, 230, 0.3) !important;
+    h2{
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+    }
+}

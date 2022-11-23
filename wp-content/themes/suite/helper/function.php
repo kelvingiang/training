@@ -55,8 +55,8 @@ function getCategoryName()
 }
 
 //=============================== MENU ==============================
-register_nav_menu('computer-menu', __('Computer Menu')); 
-register_nav_menu('mobile-menu', __('Mobile Menu')); 
+register_nav_menu('computer-menu', __('Computer Menu (suite)')); 
+register_nav_menu('mobile-menu', __('Mobile Menu (suite)')); 
 
 //function khai bao trong template-menu.php
 function suite_menu($slug)
@@ -71,3 +71,15 @@ function suite_menu($slug)
     wp_nav_menu($menu);
 }
 
+//function khai bao trong template-header-menu-mobile.php
+function mobile_menu($slug)
+{
+    $menu = array(
+        'theme_location' => $slug, // chon menu dc thiet lap truoc
+        'container' => 'nav', // tap html chua menu nay
+        'container_class' => $slug, // class cua mennu
+        'container_id' => 'nav-mobile-menu', // class cua mennu
+        'items_wrap' => '<ul id="%1$s" class="%2$s sf-mobile-menu">%3$s</ul>'
+    );
+    wp_nav_menu($menu);
+}

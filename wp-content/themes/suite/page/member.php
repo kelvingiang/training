@@ -4,5 +4,5 @@
  */
 ?>
 <?php get_header(); ?>
-<div  style="margin-top: 100px"><?php get_template_part('template/template', 'member'); ?></div>
+  <div><?php get_template_part('template/template', 'member'); ?></div>
 <?php get_footer();
