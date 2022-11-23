@@ -1,1 +1,0 @@
-<?php suite_menu('main-menu') ?>

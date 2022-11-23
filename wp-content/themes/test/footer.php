@@ -1,6 +1,5 @@
 <div class="clear"></div>
 </div></div>
-<?php  if(! is_category())  { ?>
 <footer role="contentinfo" class="footer">
     <div class="row info">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
@@ -34,12 +33,29 @@
         ?>
     </div>
 </footer>
-<?php }?>
 <!-- <div id="face-space"><a href="https://www.facebook.com/groups/910977865600074/" target="blank"><i class="fab fa-facebook-square"></i></a></div>  -->
 
 <div id="back-top-wrapper" >
     <a id="back-top" ><i class="fas fa-chevron-circle-up"></i>
 </div>
+
+<script>
+    //Hien thi menu mobile
+    jQuery('#menu-mobile-icon').on('click', function(e) {
+        var show = jQuery('#menu-mobile-content').hasClass('show-nav');
+        if(!show){
+            jQuery('#menu-mobile-content').addClass('show-nav');
+            jQuery('#menu-mobile-content').removeClass('close-nav');
+        }else{
+            jQuery('#menu-mobile-content').addClass('close-nav');
+            jQuery('#menu-mobile-content').removeClass('show-nav');
+        }
+    })
+
+    jQuery('.menu-item-has-children a').on('click', function(e) {
+        jQuery(this).siblings('.sub-menu').slideToggle('slow');
+    })
+</script>
 <script>
     jQuery(document).ready( function () {
         jQuery('.primary-menu').superfish();
@@ -68,6 +84,19 @@
             interval: 5000, //thoi gian chuyen ma hinh
             label: true,
         });
+
+        // Phan an hien menu
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+            // Phan an hien header trong mobile
+            var currentScrollPos = window.pageYOffset;
+            if(prevScrollpos > currentScrollPos) {
+                document.getElementById("header-mobile").style.top = "0";
+            } else {
+                document.getElementById("header-mobile").style.top = "-320px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
     });
     
 </script>

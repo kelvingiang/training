@@ -1,0 +1,113 @@
+/*
+  ========================================================  
+ -------------------------- MENU ------------------------
+ ======================================================== 
+*/
+#menu-computer{
+    z-index: 10000;
+    display: flex;
+    flex-direction: row;
+    @include Respond(md){
+        display: none;
+    }
+}
+
+@keyframes show_nav_animation {
+    0% {
+        right: -100%;
+    }
+    100% {
+        right: 0%;
+    }
+}
+  
+@keyframes close_nav_animation {
+    0% {
+        right: 0%;
+    }
+    100% {
+        right: -100%;
+    }
+}
+
+#menu-mobile{
+    display: block;
+    transition: top 0.3s;
+    z-index: 100;
+    @include Respond(xl){
+        display: none;
+    }
+    @include Respond(md){
+        display: block;
+    }
+    &-icon{
+        cursor: pointer;
+        text-align: right;
+        color: #9aaedb;
+        margin-right: 1.5rem;
+        font-size: 1.5rem;
+    }
+    &-content{
+        position: absolute;
+        z-index: 1000;
+        right: -100%;
+        width: 80%;
+        background-color: #b1b1b1;
+        display: flex;
+        flex-direction: column;
+        border-radius: 0.5rem 0 0 0.5rem;
+
+        #nav-mobile-menu {
+            .sf-mobile-menu {
+                display: flex;
+                flex-direction: column;
+      
+                li.menu-item-has-children > a::after {
+                    font-family: FontAwesome;
+                    content: "\f0d7";
+                    padding-left: 1rem;
+                }
+      
+                li {
+                    background-color: #9aaedb;
+                    border-bottom: 1px rgb(165, 193, 233) solid;
+                    margin-left: -2rem;
+                    list-style: none;
+                    //padding: 1rem 2rem;
+                    a {
+                        text-decoration: none;
+                        color: #ffffff;
+                        font-weight: bold;
+                        text-align: left;
+                        display: block;
+                        padding: 1rem;
+                    }
+                    &:hover {
+                        background-color: rgba(239, 243, 243, 1);
+                        a {
+                            color: rgba(27, 27, 27, 1);
+                        }
+                    }
+                    .sub-menu {
+                        display: none;
+                        width: 100%;
+                        li {
+                            background-color: #9aaedb;
+                        }
+                    }
+                }
+            }
+        }
+    }    
+
+    .show-nav{
+        animation-name: show_nav_animation;
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+    }
+    .close-nav{
+        //right: -10%;
+        animation-name: close_nav_animation;
+        animation-duration: 0.5s;
+    }
+}
