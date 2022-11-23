@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="container-fluid">
+<div class="container-fluid single">
     <span class="single-head"><?php echo get_the_date(); ?> | by <?php echo get_the_author()?></span>
     <div class="row">
         <div class="col-lg-8 col-md-12">
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <!-- relate -->
-            <div style="margin-top: 30px;">
+            <div>
                 <h3 class="single-relate-title"><?php echo('Bài viết liên quan') ?></h3>
                 <div class="hr3"></div>
                 <?php 

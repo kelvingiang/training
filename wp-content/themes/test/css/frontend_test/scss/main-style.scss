@@ -55,6 +55,12 @@
  ======================================================== 
 */
 .single{
+  @include Respond(xl){
+    margin-top: 2rem;
+  }
+  @include Respond(md){
+    margin-top: 8rem;
+  }
   &-head{
     text-align: right;
     color: $sing_head_color;
@@ -103,6 +109,10 @@
     font-size: 20px;
     font-weight: bold;
     color: $sing_relate_title_color;
+    margin-top: 2rem;
+    @include Respond(md){
+      margin-top: 2rem;
+    }
   }
   &-relate-item{
     font-size: 18px;
@@ -143,9 +153,13 @@
   &-latest-title{
     font-size: 20px;
     font-weight: bold;
+    margin-top: 2rem;
     a{
       text-decoration: none;
       color: $sing_latest_title_color;
+    }
+    @include Respond(md){
+      margin-top: 2rem;
     }
     
   }
@@ -178,6 +192,10 @@
     border-radius: 0.3rem;
     box-shadow: rgba(61, 59, 59, 0.35) 0px 5px 5px;
     margin-bottom: 2rem;
+    @include Respond(md){
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
   }
   &-title{
     padding: 10px;
@@ -272,9 +290,11 @@
     padding-right: 10px;
     font-size: 24px;
     font-weight: bold;
+    a{
+      text-decoration: none;
+    }
     a:hover{
       color: $owl_sli_multi_title_color_hover;
-      text-decoration: none;
     }
   }
   &-content{

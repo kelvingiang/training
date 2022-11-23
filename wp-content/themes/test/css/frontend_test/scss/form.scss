@@ -57,6 +57,10 @@
     ::after {
       content: "!";
     }
+    @include Respond(md){
+      font-size: 14px;
+      margin-left: 1rem;
+    }
 }  
   
 /* login form - change password */
@@ -64,13 +68,17 @@
     &-type {
     font-size: 18px;
     padding: 7px;
-    border-radius: 3px;
+    border-radius: 0.3rem;
     border: #fff solid 1px;
     }
     &-login{
       @extend .btn-type;
       background: $f_bg_login_color;   
-      margin-left: 70%;
+      margin-left: 80%;
+      width: 20%;
+      @include Respond(md){
+        margin-left: 80%;
+      }
       a{
         color: $f_btn_color; 
         text-decoration: none;
@@ -102,7 +110,8 @@
     }
     &-form{
       color: $f_lbl_color;
-      font-size: 20px;
+      font-size: 18px;
+      padding-top: 1.1rem;
     }
 } 
   
@@ -119,8 +128,8 @@
     }
     @include Respond(md){
         width: 90%;
-        min-height: 600px;
-        margin-top: 10rem;
+        min-height: 580px;
+        margin-top: 5rem;
     }
 
     span{

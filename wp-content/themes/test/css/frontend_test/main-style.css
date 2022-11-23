@@ -60,6 +60,12 @@
 .single {
   /* relate */
   /* latest */ }
+  @media (min-width: 1320px) {
+    .single {
+      margin-top: 2rem; } }
+  @media (max-width: 992px) {
+    .single {
+      margin-top: 8rem; } }
   .single-head {
     text-align: right;
     color: #c3c5c7;
@@ -96,7 +102,11 @@
   .single-relate-title {
     font-size: 20px;
     font-weight: bold;
-    color: #f3762d; }
+    color: #f3762d;
+    margin-top: 2rem; }
+    @media (max-width: 992px) {
+      .single-relate-title {
+        margin-top: 2rem; } }
   .single-relate-item {
     font-size: 18px; }
     .single-relate-item a {
@@ -128,10 +138,14 @@
           margin: 1rem; } }
   .single-latest-title {
     font-size: 20px;
-    font-weight: bold; }
+    font-weight: bold;
+    margin-top: 2rem; }
     .single-latest-title a {
       text-decoration: none;
       color: #f87d92; }
+    @media (max-width: 992px) {
+      .single-latest-title {
+        margin-top: 2rem; } }
   .single-latest-image {
     height: 160px;
     width: 100%;
@@ -155,6 +169,10 @@
   border-radius: 0.3rem;
   box-shadow: rgba(61, 59, 59, 0.35) 0px 5px 5px;
   margin-bottom: 2rem; }
+  @media (max-width: 992px) {
+    .single-archive-list {
+      margin-top: 2rem;
+      margin-bottom: 1rem; } }
 .single-archive-title {
   padding: 10px;
   border-radius: 0.3rem 0.3rem 0 0;
@@ -231,9 +249,10 @@
   padding-right: 10px;
   font-size: 24px;
   font-weight: bold; }
-  .slider-multi-title a:hover {
-    color: #eb6868;
+  .slider-multi-title a {
     text-decoration: none; }
+  .slider-multi-title a:hover {
+    color: #eb6868; }
 .slider-multi-content {
   text-align: left;
   font-size: 16px;
@@ -689,16 +708,24 @@
   margin-left: 10px; }
   .error ::after {
     content: "!"; }
+  @media (max-width: 992px) {
+    .error {
+      font-size: 14px;
+      margin-left: 1rem; } }
 
 /* login form - change password */
 .btn-type, .btn-login, .btn-logout, .btn-change-pass {
   font-size: 18px;
   padding: 7px;
-  border-radius: 3px;
+  border-radius: 0.3rem;
   border: #fff solid 1px; }
 .btn-login {
   background: #6ee47e;
-  margin-left: 70%; }
+  margin-left: 80%;
+  width: 20%; }
+  @media (max-width: 992px) {
+    .btn-login {
+      margin-left: 80%; } }
   .btn-login a {
     color: #f7f7f7;
     text-decoration: none; }
@@ -719,7 +746,8 @@
   text-align: center; }
 .lbl-form {
   color: #f7b2a0;
-  font-size: 20px; }
+  font-size: 18px;
+  padding-top: 1.1rem; }
 
 .login-form {
   border: rgba(158, 151, 151, 0.89) solid 2px;
@@ -735,8 +763,8 @@
   @media (max-width: 992px) {
     .login-form {
       width: 90%;
-      min-height: 600px;
-      margin-top: 10rem; } }
+      min-height: 580px;
+      margin-top: 5rem; } }
   .login-form span {
     margin-bottom: 10px;
     font-size: 15px;
