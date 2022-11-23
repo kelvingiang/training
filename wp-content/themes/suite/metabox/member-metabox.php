@@ -25,9 +25,9 @@ class Member_Metabox {
         wp_nonce_field($action, $name);
 
         $select_district = array(
-            'District 1' => 'District 1',
-            'District 2' => 'District 2',
-            'District 3' => 'District 3',
+            '1' => 'District 1',
+            '2' => 'District 2',
+            '3' => 'District 3',
         );
         
         // TAO TEXTBOX TITLE
@@ -66,7 +66,8 @@ class Member_Metabox {
                     <option value="">Choose District</option>
                     <?php foreach( $select_district as $var => $district) : ?>
                     <option value ="<?php echo $var ?>"<?php if( $var == $_POST['metabox-member_district'] ): ?> 
-                        selected="selected"<?php endif; ?>><?php echo $district ?></option>
+                        selected="selected"<?php endif; ?>><?php echo $district ?>
+                    </option>
                     <?php endforeach; ?>
                 </select></div>
             </div>
