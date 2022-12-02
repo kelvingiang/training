@@ -177,6 +177,7 @@ function prefix_scrolling_load_more(){
                     'terms'    => $cateID
                 ),
             ),
+            'paged' => $paged,
         )
     );
     if($paged){

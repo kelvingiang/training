@@ -20,10 +20,13 @@
                 <div class="slider-multi-item col-md-6">
                     <div class="slider-multi-img">
                         <?php 
-                            // [0]: url, [1]: width, [2]: height, [4]:is_intermediate
-                            $url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full');
-                        ?>
-                        <img src="<?php echo $url[0]; ?>" class="w-100 img" />
+                        // [0]: url, [1]: width, [2]: height, [4]:is_intermediate
+                        $url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()),'full');
+                        if($url != '') {?>
+                            <img src="<?php echo $url[0]; ?>" class="w-100 img" title="<?php the_title() ?>"/>
+                        <?php } else{ ?>
+                            <img src="<?php echo PART_IMAGES . 'no-image.jpg'; ?>" class="w-100 img" title="<?php the_title() ?>" />
+                        <?php } ?>
                     </div>
                     <div class="slider-multi-title">
                         <a href="<?php the_permalink(); ?>"><?php the_title() ?></a>

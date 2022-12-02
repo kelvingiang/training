@@ -238,10 +238,13 @@
   flex-wrap: wrap;
   padding: 10px; }
 .slider-multi-item {
-  float: right; }
+  margin-top: 10px; }
 .slider-multi-img {
-  padding: 0.3rem 1rem 0.5rem;
-  overflow: hidden; }
+  margin: 3px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #f7f7f7;
+  border-radius: 2px; }
 .slider-multi-title {
   padding-bottom: 1rem;
   text-align: center;
