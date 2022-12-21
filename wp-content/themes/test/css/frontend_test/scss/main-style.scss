@@ -184,7 +184,20 @@
     font-size: 15px;
     font-style: italic;
   }
-  
+  .fixed-sidebar {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    position: sticky;
+    height: 450px;
+    top: 120px;
+    bottom: auto;
+    @include Respond(md){
+      position: relative;
+      top: auto;
+    }
+  }
 }
 .single-archive{
   &-list{

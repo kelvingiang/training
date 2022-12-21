@@ -164,6 +164,19 @@
   .single-latest-content {
     font-size: 15px;
     font-style: italic; }
+  .single .fixed-sidebar {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    position: sticky;
+    height: 450px;
+    top: 120px;
+    bottom: auto; }
+    @media (max-width: 992px) {
+      .single .fixed-sidebar {
+        position: relative;
+        top: auto; } }
 
 .single-archive-list {
   border-radius: 0.3rem;
