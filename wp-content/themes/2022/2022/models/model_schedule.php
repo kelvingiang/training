@@ -325,7 +325,13 @@ class Admin_Model_Schedule extends WP_List_Table
         // CAC DOI TUONG date THANH CAC PHAN NHO 
         $date = $arrData['txt-date'];
         $arrDate = explode('/', $date);
-
+        
+        //KIEM TRA STATUS - THEM 17/0102023
+        if(isset($arrData['cb-status'])){
+            $status = $arrData['cb-status'];
+        } else{
+            $status = '1';
+        }
 
         // kIEM ADD NEW OR UPDATE
         $table = $wpdb->prefix . 'schedule';
@@ -343,6 +349,7 @@ class Admin_Model_Schedule extends WP_List_Table
             // cac muc save gia tri co su ly
             'date' => $date,
             'create-date' => date('Y-m-d'),
+            'status' => $status, 
         );
 
         $format = array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'); // LA STR %s , LÀ SO %d

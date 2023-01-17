@@ -13,7 +13,7 @@ global $wpdb;
     </div>
     <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-12">
         <?php
-        // PHAN get_resuls GET DATA FROM MY CREATE TABEL
+        // PHAN get_result GET DATA FROM MY CREATE TABLE
         $table = $wpdb->prefix . 'schedule';
         $query = "SELECT * FROM {$table} WHERE status = 1  ORDER BY year  DESC, month  DESC, day  DESC";
         $reback = $wpdb->get_results($query, ARRAY_A);
@@ -38,7 +38,7 @@ global $wpdb;
             foreach ($ids as $id) {
                 foreach ($reback as $item) {
                     if (in_array($id, $item)) {
-            ?>
+                    ?>
                         <div class="row schedule-item">
                             <div class="col-md-12 schedule-title">
                                 <label><?php echo $item['title']; ?></label>
@@ -59,7 +59,7 @@ global $wpdb;
                             </div>
                         </div>
 
-        <?php
+                    <?php
                     }
                 }
             }

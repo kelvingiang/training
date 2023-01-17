@@ -26,7 +26,23 @@ $data = $model->get_item(getParams('id'));
     <form action="" method="post" enctype="multipart/form-data" id="<?php $page ?>" name="<?php $page ?>">
         <input name="action" value="<?php echo $action; ?>" type="hidden">
         <?php wp_nonce_field($action, 'security_code', true); ?>
-
+        <!-- them moi 17/01/2023 -->
+        <div class="row-one-column">
+            <div class="cell-title">
+                <label><?php echo __('Status'); ?></label>
+            </div>
+            <div class="cell-text">
+                <input type="checkbox" id="cb-status" name="cb-status" value="1"
+                    <?php 
+                        if($page == 'edit'){
+                            echo $data['status'] == '1' ? 'checked' : '';
+                        }else{
+                            echo 'checked';
+                        }
+                    ?>/>
+            </div>
+        </div>
+        
         <div class="row-one-column">
             <div class="cell-title">
                 <label><?php echo __('Title'); ?></label>
